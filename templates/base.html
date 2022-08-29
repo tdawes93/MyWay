@@ -39,8 +39,14 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-                    <a class="navbar-brand display-4 text-success" href="{% url 'homepage' %}">My Way</a>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="row w-100">
+                    <div class="col-4 text-center">
+                        <a href="#" class="navbar-brand">Contact info</a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <a class="navbar-brand display-4 text-success" href="{% url 'homepage' %}">My Way</a>
+                    </div>
+                    <div class="collapse navbar-collapse col-2 text-center" id="navbarSupportedContent">
                         <div class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                                 aria-expanded="false">Tours</a>
@@ -50,19 +56,34 @@
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </div>
-                </div>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="" role="button" data-toggle="dropdown"
-                                aria-expanded="false"><i class="fa-solid fa-basket-shopping"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    </div>
+                    <div class="collapse navbar-collapse col-1 text-center" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="" role="button" data-toggle="dropdown"
+                                    aria-expanded="false"><i class="fa-solid fa-user"></i>
+                                </i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="collapse navbar-collapse col-1 text-center" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="" role="button" data-toggle="dropdown"
+                                    aria-expanded="false"><i class="fa-solid fa-basket-shopping"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nav>
