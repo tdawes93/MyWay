@@ -13,11 +13,11 @@ body {
     background-color: #49323b;
 }
 
-a {
+.nav-list {
     color: #fff;
 }
 
-a:hover {
+.nav-list:hover {
     color: #3a6700;
 }
 
@@ -27,3 +27,11 @@ a:hover {
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
