@@ -1,0 +1,25 @@
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.hero-img {
+    background: url('../../media/girls-on-wooden-bridge.JPG') no-repeat scroll;
+    background-position: -5vw;
+    background-size: 105vw; 
+    height: 100vh;
+}
+
+.navbar {
+    background-color: #49323b;
+}
+
+a {
+    color: #fff;
+}
+
+.centered {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
