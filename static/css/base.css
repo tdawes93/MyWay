@@ -1,5 +1,5 @@
 body {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .hero-img {
@@ -15,6 +15,10 @@ body {
 
 a {
     color: #fff;
+}
+
+a:hover {
+    color: #3a6700;
 }
 
 .centered {
