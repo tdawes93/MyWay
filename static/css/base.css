@@ -1,24 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
 }
 
 .hero-img {
-    background: url('../../media/girls-on-wooden-bridge.JPG') no-repeat scroll;
+    /* background: url('../../media/girls-on-wooden-bridge.JPG') no-repeat scroll;
     background-position: -5vw;
-    background-size: 105vw; 
-    height: 100vh;
+    background-size: 105% auto; 
+    height: 100vh; */
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../../media/girls-on-wooden-bridge.JPG');
+    height: 60vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 }
 
 .navbar {
-    background-color: #49323b;
+    background-color: #fff;
 }
 
 .nav-list {
-    color: #fff;
+    color: #da0000;
 }
 
 .nav-list:hover {
-    color: #3a6700;
+    color: #49323b;
 }
 
 .centered {
@@ -26,7 +40,7 @@ body {
     top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
+}
 
 .icon {
     align-items: center;
@@ -34,4 +48,22 @@ body {
     justify-content: center;
     height: 1.5rem;
     width: 1.5rem;
+}
+
+.mobile-list {
+    list-style: none;
+    margin: 1rem 1rem 0;
+}
+
+
+@media screen and (min-width: 426px) {
+    .hero-img {
+        height: 80vh;
+    }
+}
+
+@media screen and (min-width: 770px) {
+    .hero-img {
+        height: 100vh;
+    }
 }
