@@ -1,5 +1,27 @@
 from django.contrib import admin
 from . import models
 
-admin.site.register(models.Location)
-admin.site.register(models.Tour)
+
+class LocationAdmin(admin.ModelAdmin):
+    list_display = (
+        'friendly_name',
+        'country',
+    )
+
+    ordering = ('country',)
+
+    search_fields = ('friendly_name',)
+
+
+class TourAdmin(admin.ModelAdmin):
+    list_display = (
+        'friendly_name',
+        'price',
+        'length_of_tour',
+    )
+
+    search_fields = ('friendly_name',)
+
+
+admin.site.register(models.Location, LocationAdmin)
+admin.site.register(models.Tour, TourAdmin)
