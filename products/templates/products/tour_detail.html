@@ -6,21 +6,69 @@
 <div class="container-fluid">
     <div class="row mt-5">
         <div class="col mt-5">
-            <ul>
-                <div>{{ tour.image }}</div>
-                <li>{{ tour.friendly_name }}</li>
-                <li>{{ tour.description }}</li>
-                <li>${{ tour.price }}</li>
-                <li>{{ tour.length_of_tour }} days</li>
-                <li>Locations available:
-                    {% for location in tour.locations.all %}
-                    <ul>
-                        <li>{{ location.friendly_name }}</li>
-                    </ul>
-                    {% endfor %}
-                </li>
-                <br>
-            </ul>
+            <div class="row">
+                <div class="col">Rating</div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h1>{{ tour.friendly_name }}</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img src="" alt="{{ tour.name }}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h3>{{ tour.description }}</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>{{ tour.itinerary }}</p>
+                </div>
+            </div>
+            {% if group_discount %}
+            <div class="row">
+                <div class="col">
+                    <p>Group discount available!</p>
+                </div>
+            </div>
+            {% endif %}
+            <div class="row">
+                {% if tour.accomodation %}
+                <div class="col-6">
+                    <h5><i class="fa-solid fa-bed"></i> Accomodation</h5>
+                    <p>{{ tour.accomodation }} nights in Hotels</p>
+                </div>
+                {% endif %}
+                {% if tour.num_of_dinner or tour.num_of_breakfast %}
+                <div class="col-6">
+                    <h5><i class="fa-solid fa-utensils"></i> Meals</h5>
+                    {% if tour.num_of_breakfast %}<p>{{ tour.num_of_breakfast}} breakfasts</p>{% endif %}
+                    {% if tour.num_of_dinner %}<p>{{ tour.num_of_dinner}} dinners</p>{% endif %}
+                </div>
+                {% endif %}
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <h5><i class="fa-solid fa-bus-simple"></i> Transport</h5>
+                    <p>{{ tour.transport }}</p>
+                </div>
+                <div class="col-6">
+                    <h5><i class="fa-solid fa-people-group"></i> Max Group Size</h5>
+                    <p>{{ tour.max_num_of_guests }} people</p>
+                </div>
+            </div>
+            <div class="row py-5">
+            </div>
+        </div>
+    </div>
+    <div class="row fixed-bottom tour-footer p-2 align-items-center text-center">
+        <div class="col-6">From <strong>${{ tour.price }}</strong></div>
+        <div class="col-6">
+            <a class="btn tour-btn" href="#">View Dates</a>
         </div>
     </div>
 </div>
