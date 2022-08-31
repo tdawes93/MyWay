@@ -22,6 +22,21 @@ class Tour(models.Model):
     """
     A class to represent the products available to purchase
     """
+    # Specifiy choices for dropdown option
+    BUS = 'Bus'
+    FERRY = 'Ferry'
+    TRAIN = 'Train'
+    BUS_AND_FERRY = 'Bus and Ferry'
+    BUS_AND_TRAIN = 'Bus and Train'
+    TRAIN_AND_FERRY = 'Train and Ferry'
+    TRANSPORT_CHOICES = [
+        (BUS, 'Bus'),
+        (FERRY, 'Ferry'),
+        (TRAIN, 'Train'),
+        (BUS_AND_FERRY, 'Bus and Ferry'),
+        (BUS_AND_TRAIN, 'Bus and Train'),
+        (TRAIN_AND_FERRY, 'Train and Ferry'),
+    ]
     name = models.CharField(max_length=250)
     friendly_name = models.CharField(max_length=250, null=True, blank=True)
     description = models.TextField()
@@ -35,6 +50,32 @@ class Tour(models.Model):
     )
     length_of_tour = models.PositiveIntegerField(
         validators=[MaxValueValidator(31)],
+        blank=True,
+        null=True
+    )
+    accomodation = models.PositiveIntegerField(
+        validators=[MaxValueValidator(31)],
+        blank=True,
+        null=True
+    )
+    num_of_dinner = models.PositiveIntegerField(
+        validators=[MaxValueValidator(31)],
+        blank=True,
+        null=True
+    )
+    num_of_breakfast = models.PositiveIntegerField(
+        validators=[MaxValueValidator(31)],
+        blank=True,
+        null=True
+    )
+    transport = models.CharField(
+        max_length=30,
+        choices=TRANSPORT_CHOICES,
+        blank=True,
+        null=True
+    )
+    max_num_of_guests = models.PositiveIntegerField(
+        validators=[MaxValueValidator(20)],
         blank=True,
         null=True
     )
