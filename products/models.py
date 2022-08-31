@@ -71,13 +71,11 @@ class Tour(models.Model):
     transport = models.CharField(
         max_length=30,
         choices=TRANSPORT_CHOICES,
-        blank=True,
-        null=True
+        default=0,
     )
     max_num_of_guests = models.PositiveIntegerField(
         validators=[MaxValueValidator(20)],
-        blank=True,
-        null=True
+        default=10,
     )
     customisable = models.BooleanField(default=True)
     group_discount = models.BooleanField(default=True)
