@@ -4,22 +4,12 @@
 {% block content %}
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="col tour-list-img">
-            <div class="row centered justify-content-center w-100 text-white m-auto p-auto">
-                <div class="col-9 col-md-5">
-                    <h1 class="px-auto text-center overlay py-2">Find your tour</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        {% for tour in tours %}
-
-        <div class="col-sm col-md-4 col-lg-3 tour-list">
+    <div class="row mt-5">
+        <div class="col mt-5">
             <ul>
                 <div>{{ tour.image }}</div>
                 <li>{{ tour.friendly_name }}</li>
+                <li>{{ tour.description }}</li>
                 <li>${{ tour.price }}</li>
                 <li>{{ tour.length_of_tour }} days</li>
                 <li>Locations available:
@@ -31,9 +21,7 @@
                 </li>
                 <br>
             </ul>
-            <a class="btn btn-lg text-white" href="{% url 'tour_detail' tour.id %}">View Tour</a>
         </div>
-        {% endfor %}
     </div>
 </div>
 
