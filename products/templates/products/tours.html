@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col tour-list-img">
+            <div class="row centered justify-content-center w-100 text-white m-auto p-auto">
+                <div class="col-9 col-md-5">
+                    <h1 class="px-auto text-center overlay py-2">Find your tour</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        {% for tour in tours %}
+
+        <div class="col-sm col-md-4 col-lg-3 tour-list">
+            <ul>
+                <div>{{ tour.image }}</div>
+                <li>{{ tour.friendly_name }}</li>
+                <li>{{ tour.description }}</li>
+                <li>${{ tour.price }}</li>
+                <li>{{ tour.length_of_tour }} days</li>
+                <li>Locations available:
+                    {% for location in tour.locations.all %}
+                    <ul>
+                        <li>{{ location.friendly_name }}</li>
+                    </ul>
+                    {% endfor %}
+                </li>
+                <br>
+            </ul>
+            <a class="btn btn-lg text-white" href="">View Tour</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

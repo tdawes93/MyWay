@@ -56,19 +56,36 @@ body {
     margin: 1rem 1rem 0;
 }
 
-.btn-hero:hover {
-    border: 0.5rem solid #da0000;
-    color: #da0000 !important;
+.tour-list-img {
+    background-image: url('../../media/mountains_and_reflective_lake.jpg');
+    height: 60vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    margin-top: 4rem;
+}
+
+.tour-list {
+    background-color: #3a6700;
+}
+
+.overlay {
+    background-color: rgba(0,0,0, 0.3);
 }
 
 @media screen and (min-width: 426px) {
-    .hero-img {
+
+    .hero-img,
+    .tour-list-img {
         height: 80vh;
     }
 }
 
 @media screen and (min-width: 770px) {
-    .hero-img {
+
+    .hero-img,
+    .tour-list-img {
         height: 100vh;
     }
 }
