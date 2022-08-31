@@ -13,28 +13,46 @@
             </div>
         </div>
     </div>
-    <div class="row">
+
+    <div class="row m-1">
         {% for tour in tours %}
 
-        <div class="col-sm col-md-4 col-lg-3 tour-list">
-            <ul>
-                <div>{{ tour.image }}</div>
-                <li>{{ tour.friendly_name }}</li>
-                <li>${{ tour.price }}</li>
-                <li>{{ tour.length_of_tour }} days</li>
-                <li>Locations available:
-                    {% for location in tour.locations.all %}
-                    <ul>
-                        <li>{{ location.friendly_name }}</li>
-                    </ul>
+        <div class="col-sm col-md-4 col-lg-3 tour-list m-1">
+            <div class="row">
+                <div class="col-11">Image</div>
+            </div>
+            <!-- <div class="row">
+                <div class="col-6">Rating</div>
+                <div class="col-6">Category</div>
+            </div> -->
+            <div class="row">
+                <div class="col-11">
+                    <h3>{{ tour.friendly_name }}</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-11 d-none d-lg-block">{{ tour.description }}</div>
+            </div>
+            <div class="row">
+                <div class="col-11">
+                    <i class="fa-solid fa-calendar-days"></i> {{ tour.length_of_tour }} days
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-11"><i class="fa-solid fa-earth-africa"></i> Tour available in
+                    {% for location in tour.locations.all %}{{ location.friendly_name }},
                     {% endfor %}
-                </li>
-                <br>
-            </ul>
-            <a class="btn btn-lg text-white" href="{% url 'tour_detail' tour.id %}">View Tour</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">From ${{ tour.price }}</div>
+                <div class="col-6">
+                    <a class="btn btn-lg tour-btn" href="{% url 'tour_detail' tour.id %}">View Tour</a>
+                </div>
+            </div>
         </div>
         {% endfor %}
-    </div>
-</div>
 
-{% endblock %}
+    </div>
+
+    {% endblock %}

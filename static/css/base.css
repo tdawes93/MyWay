@@ -7,14 +7,10 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
+    background-color: #bcc8d1;
 }
 
 .hero-img {
-    /* background: url('../../media/girls-on-wooden-bridge.JPG') no-repeat scroll;
-    background-position: -5vw;
-    background-size: 105% auto; 
-    height: 100vh; */
-
     background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../../media/girls-on-wooden-bridge.JPG');
     height: 60vh;
     background-position: center;
@@ -67,11 +63,25 @@ body {
 }
 
 .tour-list {
-    background-color: #3a6700;
+    background-color: #fff;
+    border-radius: 10px;
+    color: #3a6700;
 }
 
 .overlay {
     background-color: rgba(0,0,0, 0.3);
+    border-radius: 10px;
+}
+
+.tour-btn {
+    color: #da0000;
+    border-color: #da0000;
+    border-radius: 10px;
+}
+
+.tour-btn:hover {
+    color: #3a6700;
+    border-color: #3a6700;
 }
 
 @media screen and (min-width: 426px) {
