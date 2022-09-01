@@ -15,6 +15,16 @@
     </div>
 
     <div class="row m-1 justify-content-center">
+        <div class="row">
+            <div class="col-2 sort-dropdown text-center dropdown">
+                <a class="navbar-brand dropdown-toggle px-auto mx-auto" href="" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">Sort by</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'tours' %}?sort=price&direction=asc">Price</a></li>
+                    <li><a class="dropdown-item" href="#">Location</a></li>
+                </ul>
+            </div>
+        </div>
         {% for tour in tours %}
         <div class="col-sm-12 col-md-5 col-lg-3 tour-list my-1 mx-md-1">
             <div class="row">

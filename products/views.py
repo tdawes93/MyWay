@@ -8,8 +8,29 @@ def all_tours(request):
     """
     tours = Tour.objects.all().order_by('friendly_name')
 
+    sort = None
+    direction = None
+
+# Taken from CI Boutique-Ado
+    if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                tours = tours.annotate(lower_name=Lower('name'))
+
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            tours = tours.order_by(sortkey)
+
+    current_sorting = f'{sort}_{direction}'
+
     context = {
         'tours': tours,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'products/tours.html', context)
