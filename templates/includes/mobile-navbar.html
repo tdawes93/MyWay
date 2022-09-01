@@ -57,13 +57,13 @@
                 </a>
             </li>
             <li class="nav-item dropdown mobile-list">
-                <a class="navbar-brand dropdown-toggle nav-list px-auto mx-auto" href="#" role="button"
+                <a class="navbar-brand dropdown-toggle nav-list px-auto mx-auto" href="{% url 'tours' %}" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-map"></i> Tours</a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">Name of tour</a></li>
                     <li><a class="dropdown-item" href="#">Name of a different tour</a></li>
                     <li><a class="dropdown-item" href="#">Third tour available</a></li>
-                    <li><a href="" class="dropdown-item">See all tours!</a></li>
+                    <li><a href="{% url 'tours' %}" class="dropdown-item">See all tours!</a></li>
                 </ul>
             </li>
         </ul>

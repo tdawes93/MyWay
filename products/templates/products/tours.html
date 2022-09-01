@@ -16,15 +16,19 @@
 
     <div class="row m-1 justify-content-center">
         {% for tour in tours %}
-
         <div class="col-sm-12 col-md-5 col-lg-3 tour-list my-1 mx-md-1">
             <div class="row">
                 <div class="col m-0 p-0">
                     {% if tour.image %}
-                    <img class="tour-thumbnail-img" src="/media/{{ tour.image }}" alt="{{ tour.name }}">
+                    <a href="{% url 'tour_detail' tour.id %}">
+                        <img class="tour-thumbnail-img" src="/media/{{ tour.image }}" alt="{{ tour.name }}">
+                    </a>
                     {% else %}
-                    <img class="tour-thumbnail-img" src="/media/noimage.png" alt="placeholder image">
+                    <a href="{% url 'tour_detail' tour.id %}">
+                        <img class="tour-thumbnail-img" src="/media/noimage.png" alt="placeholder image">
+                    </a>
                     {% endif %}
+
                 </div>
             </div>
             <div class="row my-1 justify-content-center">
@@ -50,9 +54,11 @@
                     {% endfor %}
                 </div>
             </div>
-            <div class="row">
-                <div class="col-6">From ${{ tour.price }}</div>
-                <div class="col-6">
+            <div class="row my-3 align-items-center">
+                <div class="col-6 text-start">
+                    <h5>From ${{ tour.price }}</h5>
+                </div>
+                <div class="col-6 align-items-center">
                     <a class="btn btn-lg tour-btn" href="{% url 'tour_detail' tour.id %}">View Tour</a>
                 </div>
             </div>

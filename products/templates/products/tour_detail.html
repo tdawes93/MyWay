@@ -4,7 +4,7 @@
 {% block content %}
 
 <div class="container-fluid m-0 p-0">
-    <div class="row mt-5">
+    <div class="row mt-5 mx-0">
         <div class="col-12 mt-4 pt-3 pt-lg-2">
             <div class="row price-md">
                 <div class="col col-md-6">
@@ -23,33 +23,72 @@
                     <a class="btn tour-btn" href="#">View Dates</a>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
+            <div class="row mt-2">
+                <div class="col col-lg-5">
                     {% if tour.image %}
                     <img class="tour-detail-img" src="/media/{{ tour.image }}" alt="{{ tour.name }}">
                     {% else %}
                     <img class="tour-detail-img" src="/media/noimage.png" alt="placeholder image">
                     {% endif %}
                 </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <div class="row my-2">
+                        <div class="col">
+                            <h3>{{ tour.description }}</h3>
+                        </div>
+                    </div>        
+                    <div class="row">
+                        {% if tour.accomodation %}
+                        <div class="col-6">
+                            <h5><i class="fa-solid fa-bed"></i> Accomodation</h5>
+                            <p>{{ tour.accomodation }} nights in Hotels</p>
+                        </div>
+                        {% endif %}
+                        {% if tour.num_of_dinner or tour.num_of_breakfast %}
+                        <div class="col-6">
+                            <h5><i class="fa-solid fa-utensils"></i> Meals</h5>
+                            {% if tour.num_of_breakfast %}<p>{{ tour.num_of_breakfast}} breakfasts</p>{% endif %}
+                            {% if tour.num_of_dinner %}<p>{{ tour.num_of_dinner}} dinners</p>{% endif %}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <h5><i class="fa-solid fa-bus-simple"></i> Transport</h5>
+                            <p>{{ tour.transport }}</p>
+                        </div>
+                        <div class="col-6">
+                            <h5><i class="fa-solid fa-people-group"></i> Max Group Size</h5>
+                            <p>{{ tour.max_num_of_guests }} people</p>
+                        </div>
+                    </div>
+                    {% if tour.group_discount %}
+                    <div class="row">
+                        <div class="col">
+                            <h5>Group discount available!</h5>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
             </div>
-            <div class="row">
+            <div class="row my-2 d-lg-none">
                 <div class="col">
                     <h3>{{ tour.description }}</h3>
                 </div>
             </div>
-            <div class="row">
+            <div class="row my-2">
                 <div class="col">
                     <p>{{ tour.itinerary }}</p>
                 </div>
             </div>
             {% if group_discount %}
-            <div class="row">
+            <div class="row d-lg-none">
                 <div class="col">
                     <p>Group discount available!</p>
                 </div>
             </div>
             {% endif %}
-            <div class="row">
+            <div class="row d-lg-none">
                 {% if tour.accomodation %}
                 <div class="col-6">
                     <h5><i class="fa-solid fa-bed"></i> Accomodation</h5>
@@ -64,7 +103,7 @@
                 </div>
                 {% endif %}
             </div>
-            <div class="row">
+            <div class="row d-lg-none">
                 <div class="col-6">
                     <h5><i class="fa-solid fa-bus-simple"></i> Transport</h5>
                     <p>{{ tour.transport }}</p>
@@ -73,8 +112,6 @@
                     <h5><i class="fa-solid fa-people-group"></i> Max Group Size</h5>
                     <p>{{ tour.max_num_of_guests }} people</p>
                 </div>
-            </div>
-            <div class="row py-5">
             </div>
         </div>
     </div>
