@@ -14,26 +14,29 @@
         </div>
     </div>
 
-    <div class="row m-1">
+    <div class="row m-1 justify-content-center">
         {% for tour in tours %}
 
-        <div class="col-sm col-md-4 col-lg-3 tour-list m-1">
+        <div class="col-sm-12 col-md-5 col-lg-3 tour-list my-1 mx-md-1">
             <div class="row">
-                <div class="col-11">
-                    <img src="" alt="{{ tour.name }}">
-
+                <div class="col m-0 p-0">
+                    {% if tour.image %}
+                    <img class="tour-thumbnail-img" src="/media/{{ tour.image }}" alt="{{ tour.name }}">
+                    {% else %}
+                    <img class="tour-thumbnail-img" src="/media/noimage.png" alt="placeholder image">
+                    {% endif %}
                 </div>
             </div>
-            <!-- <div class="row">
+            <div class="row my-1 justify-content-center">
                 <div class="col-6">Rating</div>
                 <div class="col-6">Category</div>
-            </div> -->
-            <div class="row">
+            </div>
+            <div class="row my-1">
                 <div class="col-11">
                     <h3>{{ tour.friendly_name }}</h3>
                 </div>
             </div>
-            <div class="row">
+            <div class="row my-1">
                 <div class="col-11 d-none d-lg-block">{{ tour.description }}</div>
             </div>
             <div class="row">

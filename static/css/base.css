@@ -88,18 +88,43 @@ body {
     background-color: #fff;
 }
 
+.tour-thumbnail-img {
+    width: 100%;
+    border-radius: 10px;
+    height: 50vh
+}
+
+.tour-detail-img {
+    width: 100%;
+}
+
 @media screen and (min-width: 426px) {
 
     .hero-img,
     .tour-list-img {
         height: 80vh;
     }
+
+    .tour-thumbnail-img {
+        height: 60vh
+    }
 }
 
-@media screen and (min-width: 770px) {
+@media screen and (min-width: 768px) {
 
     .hero-img,
     .tour-list-img {
         height: 100vh;
+    }
+
+    .price-md {
+        background-color: #fff;
+        position: sticky;
+        width: 100vw;
+        top: 5rem;
+    }
+
+    .tour-thumbnail-img {
+        height: 40vh
     }
 }
