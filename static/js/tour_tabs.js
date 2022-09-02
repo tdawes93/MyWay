@@ -12,6 +12,8 @@ function openTab(evt, tabName) {
   evt.currentTarget.className += " active";
 }
 
+document.getElementById("defaultOpen").click();
+
 function openYear(evt, yearName) {
   var i, yearcontent, yearlinks;
   yearcontent = document.getElementsByClassName("yearcontent");
