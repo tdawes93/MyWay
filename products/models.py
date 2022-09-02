@@ -22,7 +22,38 @@ class Date(models.Model):
     """
     A class to represent the months available to purchase tour
     """
-    name = models.CharField(max_length=50)
+    # Specifiy choices for dropdown option
+    JAN = 'Jan'
+    FEB = 'Feb'
+    MAR = 'Mar'
+    APR = 'Apr'
+    MAY = 'May'
+    JUN = 'Jun'
+    JUL = 'Jul'
+    AUG = 'Aug'
+    SEP = 'Sep'
+    OCT = 'Oct'
+    NOV = 'Nov'
+    DEC = 'Dec'
+    TRANSPORT_CHOICES = [
+        (JAN, 'Jan'),
+        (FEB, 'Feb'),
+        (MAR, 'Mar'),
+        (APR, 'Apr'),
+        (MAY, 'May'),
+        (JUN, 'Jun'),
+        (JUL, 'Jul'),
+        (AUG, 'Aug'),
+        (SEP, 'Sep'),
+        (OCT, 'Oct'),
+        (NOV, 'Nov'),
+        (DEC, 'Dec'),
+    ]
+    name = models.CharField(
+        max_length=30,
+        choices=TRANSPORT_CHOICES,
+        default=0,
+    )
 
     def __str__(self):
         return f'{self.name}'

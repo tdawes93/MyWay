@@ -25,3 +25,4 @@ class TourAdmin(admin.ModelAdmin):
 
 admin.site.register(models.Location, LocationAdmin)
 admin.site.register(models.Tour, TourAdmin)
+admin.site.register(models.Date)
