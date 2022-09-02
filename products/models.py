@@ -18,6 +18,16 @@ class Location(models.Model):
         return f'{self.friendly_name}'
 
 
+class Date(models.Model):
+    """
+    A class to represent the months available to purchase tour
+    """
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return f'{self.name}'
+
+
 class Tour(models.Model):
     """
     A class to represent the products available to purchase
@@ -79,6 +89,10 @@ class Tour(models.Model):
     )
     customisable = models.BooleanField(default=True)
     group_discount = models.BooleanField(default=True)
+    dates = models.ManyToManyField(
+        "Date",
+        related_name="Date"
+    )
 
     def __str__(self):
         return f'{self.name}'

@@ -136,12 +136,14 @@
                     </div>
                     <div id="2022" class="yearcontent">
                         <div class="tab row px-0 mx-0 align-items-center justify-content-center text-center">
-                            <button class="monthlinks col-2 px-auto" onclick="openMonth(event, 'September-2022')">September</button>
+                            {% for location in tour.locations.all %}
+                            <button class="monthlinks col-2 px-auto" onclick="openMonth(event, '{{ location.friendly_name }}-2022')">{{ location.friendly_name }}</button>
+                            {% endfor %}
                             <button class="monthlinks col-2 px-auto" onclick="openMonth(event, 'October-2022')">October</button>
                             <button class="monthlinks col-2 px-auto" onclick="openMonth(event, 'November-2022')">November</button>
                             <button class="monthlinks col-2 px-auto" onclick="openMonth(event, 'December-2022')">December</button>
                         </div>
-                        <div id="September-2022" class="monthcontent">September Dates</div>
+                        <div id="{{ location.friendly_name }}-2022" class="monthcontent">September Dates</div>
                         <div id="October-2022" class="monthcontent">October Dates</div>
                         <div id="November-2022" class=" monthcontent">November Dates</div>
                         <div id="December-2022" class="monthcontent">December Dates</div>
