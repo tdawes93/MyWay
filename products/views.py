@@ -1,5 +1,6 @@
 from django.shortcuts import render,  get_object_or_404
 from .models import Tour
+from django.db.models.functions import Lower
 
 
 def all_tours(request):
