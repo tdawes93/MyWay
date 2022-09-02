@@ -9,7 +9,7 @@
             <div class="row price-md mx-0 px-0">
                 <div class="col col-md-6">
                     <div class="row">
-                        <div class="col">Rating</div>
+                        <div class="col px-3">Rating</div>
                     </div>
                     <div class="row">
                         <div class="col">
@@ -23,107 +23,147 @@
                     <a class="btn tour-btn" href="#">View Dates</a>
                 </div>
             </div>
-            <div class="tab px-0 mx-0 w-100">
-                <button class="tablinks" onclick="openTab(event, 'the-trip')">The Trip</button>
-                <button class="tablinks" onclick="openTab(event, 'dates')">Dates</button>
-                <!-- <button class="tablinks" onclick="openCity(event, 'Tokyo')">Reviews</button> -->
+            <div class="tab px-0 mx-0 row">
+                <div class="col-4">
+                    <button class="tablinks" onclick="openTab(event, 'the-trip')">The Trip</button>
+                </div>
+                <div class="col-4">
+                    <button class="tablinks" onclick="openTab(event, 'dates')">Dates</button>
+                </div>
+                <!-- <button class="tablinks" onclick="openTab(event, 'Tokyo')">Reviews</button> -->
             </div>
-            <div id="the-trip" class="tabcontent mx-0 px-0 w-100">
-                <div class="row mt-2 mx-0 px-0">
-                    <div class="col col-lg-5">
-                        {% if tour.image %}
-                        <img class="tour-detail-img" src="/media/{{ tour.image }}" alt="{{ tour.name }}">
-                        {% else %}
-                        <img class="tour-detail-img" src="/media/noimage.png" alt="placeholder image">
-                        {% endif %}
-                    </div>
-                    <div class="col-lg-6 d-none d-lg-block">
-                        <div class="row my-2">
-                            <div class="col">
-                                <h3>{{ tour.description }}</h3>
-                            </div>
-                        </div>
-                        <div class="row">
-                            {% if tour.accomodation %}
-                            <div class="col-6">
-                                <h5><i class="fa-solid fa-bed"></i> Accomodation</h5>
-                                <p>{{ tour.accomodation }} nights in Hotels</p>
-                            </div>
-                            {% endif %}
-                            {% if tour.num_of_dinner or tour.num_of_breakfast %}
-                            <div class="col-6">
-                                <h5><i class="fa-solid fa-utensils"></i> Meals</h5>
-                                {% if tour.num_of_breakfast %}<p>{{ tour.num_of_breakfast}} breakfasts</p>{% endif %}
-                                {% if tour.num_of_dinner %}<p>{{ tour.num_of_dinner}} dinners</p>{% endif %}
-                            </div>
+            <div class="row mx-0 px-0">
+                <div id="the-trip" class="tabcontent mx-0 px-0 col-12">
+                    <div class="row mt-2 mx-0 px-0">
+                        <div class="col col-lg-5">
+                            {% if tour.image %}
+                            <img class="tour-detail-img" src="/media/{{ tour.image }}" alt="{{ tour.name }}">
+                            {% else %}
+                            <img class="tour-detail-img" src="/media/noimage.png" alt="placeholder image">
                             {% endif %}
                         </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <h5><i class="fa-solid fa-bus-simple"></i> Transport</h5>
-                                <p>{{ tour.transport }}</p>
+                        <div class="col-lg-6 d-none d-lg-block">
+                            <div class="row my-2">
+                                <div class="col">
+                                    <h3>{{ tour.description }}</h3>
+                                </div>
                             </div>
-                            <div class="col-6">
-                                <h5><i class="fa-solid fa-people-group"></i> Max Group Size</h5>
-                                <p>{{ tour.max_num_of_guests }} people</p>
+                            <div class="row">
+                                {% if tour.accomodation %}
+                                <div class="col-6">
+                                    <h5><i class="fa-solid fa-bed"></i> Accomodation</h5>
+                                    <p>{{ tour.accomodation }} nights in Hotels</p>
+                                </div>
+                                {% endif %}
+                                {% if tour.num_of_dinner or tour.num_of_breakfast %}
+                                <div class="col-6">
+                                    <h5><i class="fa-solid fa-utensils"></i> Meals</h5>
+                                    {% if tour.num_of_breakfast %}<p>{{ tour.num_of_breakfast}} breakfasts</p>
+                                    {% endif %}
+                                    {% if tour.num_of_dinner %}<p>{{ tour.num_of_dinner}} dinners</p>{% endif %}
+                                </div>
+                                {% endif %}
                             </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5><i class="fa-solid fa-bus-simple"></i> Transport</h5>
+                                    <p>{{ tour.transport }}</p>
+                                </div>
+                                <div class="col-6">
+                                    <h5><i class="fa-solid fa-people-group"></i> Max Group Size</h5>
+                                    <p>{{ tour.max_num_of_guests }} people</p>
+                                </div>
+                            </div>
+                            {% if tour.group_discount %}
+                            <div class="row">
+                                <div class="col">
+                                    <h5>Group discount available!</h5>
+                                </div>
+                            </div>
+                            {% endif %}
                         </div>
-                        {% if tour.group_discount %}
-                        <div class="row">
-                            <div class="col">
-                                <h5>Group discount available!</h5>
-                            </div>
+                    </div>
+                    <div class="row my-2 d-lg-none mx-0 px-0">
+                        <div class="col">
+                            <h3>{{ tour.description }}</h3>
+                        </div>
+                    </div>
+                    <div class="row my-2 mx-0 px-0">
+                        <div class="col">
+                            <p>{{ tour.itinerary }}</p>
+                        </div>
+                    </div>
+                    {% if group_discount %}
+                    <div class="row d-lg-none">
+                        <div class="col">
+                            <p>Group discount available!</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="row d-lg-none w-100 mx-0 px-0">
+                        {% if tour.accomodation %}
+                        <div class="col-6">
+                            <h5><i class="fa-solid fa-bed"></i> Accomodation</h5>
+                            <p>{{ tour.accomodation }} nights in Hotels</p>
+                        </div>
+                        {% endif %}
+                        {% if tour.num_of_dinner or tour.num_of_breakfast %}
+                        <div class="col-6">
+                            <h5><i class="fa-solid fa-utensils"></i> Meals</h5>
+                            {% if tour.num_of_breakfast %}<p>{{ tour.num_of_breakfast}} breakfasts</p>{% endif %}
+                            {% if tour.num_of_dinner %}<p>{{ tour.num_of_dinner}} dinners</p>{% endif %}
                         </div>
                         {% endif %}
                     </div>
-                </div>
-                <div class="row my-2 d-lg-none mx-0 px-0">
-                    <div class="col">
-                        <h3>{{ tour.description }}</h3>
-                    </div>
-                </div>
-                <div class="row my-2 mx-0 px-0">
-                    <div class="col">
-                        <p>{{ tour.itinerary }}</p>
-                    </div>
-                </div>
-                {% if group_discount %}
-                <div class="row d-lg-none">
-                    <div class="col">
-                        <p>Group discount available!</p>
-                    </div>
-                </div>
-                {% endif %}
-                <div class="row d-lg-none w-100 mx-0 px-0">
-                    {% if tour.accomodation %}
-                    <div class="col-6">
-                        <h5><i class="fa-solid fa-bed"></i> Accomodation</h5>
-                        <p>{{ tour.accomodation }} nights in Hotels</p>
-                    </div>
-                    {% endif %}
-                    {% if tour.num_of_dinner or tour.num_of_breakfast %}
-                    <div class="col-6">
-                        <h5><i class="fa-solid fa-utensils"></i> Meals</h5>
-                        {% if tour.num_of_breakfast %}<p>{{ tour.num_of_breakfast}} breakfasts</p>{% endif %}
-                        {% if tour.num_of_dinner %}<p>{{ tour.num_of_dinner}} dinners</p>{% endif %}
-                    </div>
-                    {% endif %}
-                </div>
-                <div class="row d-lg-none w-100 mx-0 px-0">
-                    <div class="col-6">
-                        <h5><i class="fa-solid fa-bus-simple"></i> Transport</h5>
-                        <p>{{ tour.transport }}</p>
-                    </div>
-                    <div class="col-6">
-                        <h5><i class="fa-solid fa-people-group"></i> Max Group Size</h5>
-                        <p>{{ tour.max_num_of_guests }} people</p>
+                    <div class="row d-lg-none w-100 mx-0 px-0">
+                        <div class="col-6">
+                            <h5><i class="fa-solid fa-bus-simple"></i> Transport</h5>
+                            <p>{{ tour.transport }}</p>
+                        </div>
+                        <div class="col-6">
+                            <h5><i class="fa-solid fa-people-group"></i> Max Group Size</h5>
+                            <p>{{ tour.max_num_of_guests }} people</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div id="dates" class="tabcontent">
-                <h3>Dates</h3>
-                <p>The Dates for the trips can go here</p> 
-              </div>
+            <div class="row mx-0 px-0">
+                <div id="dates" class="tabcontent col-12">
+                    <div class="tab row px-0 mx-0 align-items-center justify-content-center text-center">
+                        <button class="yearlinks col-2 px-auto" onclick="openYear(event, '2022')">2022</button>
+                        <button class="yearlinks col-2 px-auto" onclick="openYear(event, '2023')">2023</button>
+                        <button class="yearlinks col-2 px-auto" onclick="openYear(event, '2024')">2024</button>
+                    </div>
+                    <div id="2022" class="yearcontent">
+                        <div class="tab row px-0 mx-0 align-items-center justify-content-center text-center">
+                            <button class="monthlinks col-2 px-auto" onclick="openMonth(event, 'September-2022')">September</button>
+                            <button class="monthlinks col-2 px-auto" onclick="openMonth(event, 'October-2022')">October</button>
+                            <button class="monthlinks col-2 px-auto" onclick="openMonth(event, 'November-2022')">November</button>
+                            <button class="monthlinks col-2 px-auto" onclick="openMonth(event, 'December-2022')">December</button>
+                        </div>
+                        <div id="September-2022" class="monthcontent">September Dates</div>
+                        <div id="October-2022" class="monthcontent">October Dates</div>
+                        <div id="November-2022" class=" monthcontent">November Dates</div>
+                        <div id="December-2022" class="monthcontent">December Dates</div>
+
+                    </div>
+                    <div id="2023" class="yearcontent">
+                        <div class="tab row px-0 mx-0 align-items-center justify-content-center text-center">
+                            <button class="monthlinks col-2 px-auto" onclick="openMonth(event, 'September-2023')">September</button>
+                            <button class="monthlinks col-2 px-auto" onclick="openMonth(event, 'October-2023')">October</button>
+                            <button class="monthlinks col-2 px-auto" onclick="openMonth(event, 'November-2023')">November</button>
+                            <button class="monthlinks col-2 px-auto" onclick="openMonth(event, 'December-2023')">December</button>
+                        </div>
+                        <div id="September-2023" class="monthcontent">September Dates</div>
+                        <div id="October-2023" class="monthcontent">October Dates - 2023</div>
+                        <div id="November-2023" class=" monthcontent">November Dates</div>
+                        <div id="December-2023" class="monthcontent">December Dates</div>
+                        
+                    </div>
+                    <div id="2024" class="yearcontent">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row py-5 px-0 mx-0">
