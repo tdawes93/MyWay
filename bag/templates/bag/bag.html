@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="row header-buffer">
+    <div class="col-12"></div>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container-fluid bg-white">
+    <div class="row">
+        <div class="col">
+            <h1>Shopping Bag</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {% if bag_items %}
+            <div class="table"></div>
+            {% else %}
+            <p>Your bag is empty</p>
+            <a href="{% url 'tours' %}">Find your next adventure</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
