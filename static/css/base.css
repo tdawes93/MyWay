@@ -110,6 +110,71 @@ header {
     color: #fff;
 }
 
+.yearlinks,
+.monthlinks {
+    background-color: #f1f1f1;
+}
+
+.yearlinks:hover,
+.monthlinks:hover {
+    background-color: #DDD;
+    border-color: #DDD;
+}
+
+.active {
+    background-color: #3a6700 !important;
+}
+
+.month-list {
+    list-style-type: none;
+    margin: 2rem 0 0 0;
+}
+
+.month-list li {
+    float: left;
+    margin: 0.5rem 0.5rem 0 0;
+    width: 6rem;
+    height: 2.5rem;
+    position: relative;
+}
+
+.month-list label,
+.month-list input {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+}
+
+.btn-dates {
+    margin: 1rem 0.5rem;
+}
+
+.month-list input[type="radio"] {
+    opacity: 0.01;
+}
+
+.month-list input[type="radio"]:checked+label,
+.Checked+label {
+    background-color: #3a6700;
+    border-color: #3a6700;
+}
+
+.month-list label {
+    padding: 0.5rem;
+    border: 1px solid #f1f1f1;
+    cursor: pointer;
+    z-index: 90;
+}
+
+.month-list label:hover {
+    background: #DDD;
+    border-color: #DDD;
+}
 
 /* Tab CSS */
 .tab {

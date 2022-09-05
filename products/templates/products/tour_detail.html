@@ -129,219 +129,778 @@
             </div>
             <div class="row mx-0 px-0">
                 <div id="dates" class="tabcontent col-12 justify-content-center align-items-center text-center">
-                    <button class="yearlinks col-2 px-auto btn btn-lg" onclick="openYear(event, '2023')">2023</button>
-                    <button class="yearlinks col-2 px-auto btn btn-lg" onclick="openYear(event, '2024')">2024</button>
+                    <button class="yearlinks col-2 px-auto btn btn-lg btn-dates" onclick="openYear(event, '2023')">2023</button>
+                    <button class="yearlinks col-2 px-auto btn btn-lg btn-dates" onclick="openYear(event, '2024')">2024</button>
                     <div id="2023" class="yearcontent">
                         {% for month in tour.dates.all %}
-                        <button class="monthlinks px-auto btn-lg btn"
-                            onclick="openMonth(event, '{{ month.name }} 2023')">{{ month.name }} 2023</button>
+                        <button class="monthlinks px-auto btn-lg btn btn-dates"
+                            onclick="openMonth(event, '{{ month.name }} 2023')">{{ month.name }}</button>
                         {% endfor %}
                         {% for month in tour.dates.all %}
                         {% if month.name == 'Jan' or month.name == 'Mar' or month.name == 'May' or month.name == 'Jul' or month.name == 'Aug' or month.name == 'Oct' or month.name == 'Dec' %}
-                        <span id="{{ month.name }} 2023" class="monthcontent">{{ month.name }}
+                        <span id="{{ month.name }} 2023" class="monthcontent">
                             <form action="#">
-                                <input type="radio" id="1">
-                                <label for="1">1st</label>
-                                <input type="radio" id="2">
-                                <label for="2">2nd</label>
-                                <input type="radio" id="3">
-                                <label for="3">3rd</label>
-                                <input type="radio" id="4">
-                                <label for="4">4th</label>
-                                <input type="radio" id="5">
-                                <label for="5">5th</label>
-                                <input type="radio" id="6">
-                                <label for="6">6th</label>
-                                <input type="radio" id="7">
-                                <label for="7">7th</label>
-                                <input type="radio" id="8">
-                                <label for="8">8th</label>
-                                <input type="radio" id="9">
-                                <label for="9">9th</label>
-                                <input type="radio" id="10">
-                                <label for="10">10th</label>
-                                <input type="radio" id="11">
-                                <label for="11">11th</label>
-                                <input type="radio" id="12">
-                                <label for="12">12th</label>
-                                <input type="radio" id="13">
-                                <label for="13">13th</label>
-                                <input type="radio" id="14">
-                                <label for="14">14th</label>
-                                <input type="radio" id="15">
-                                <label for="15">15th</label>
-                                <input type="radio" id="16">
-                                <label for="16">16th</label>
-                                <input type="radio" id="17">
-                                <label for="17">17th</label>
-                                <input type="radio" id="18">
-                                <label for="18">18th</label>
-                                <input type="radio" id="19">
-                                <label for="19">19th</label>
-                                <input type="radio" id="20">
-                                <label for="20">20th</label>
-                                <input type="radio" id="21">
-                                <label for="21">21st</label>
-                                <input type="radio" id="22">
-                                <label for="22">22th</label>
-                                <input type="radio" id="23">
-                                <label for="23">23th</label>
-                                <input type="radio" id="24">
-                                <label for="24">24th</label>
-                                <input type="radio" id="25">
-                                <label for="25">25th</label>
-                                <input type="radio" id="26">
-                                <label for="27">27th</label>
-                                <input type="radio" id="27">
-                                <label for="20">20th</label>
-                                <input type="radio" id="28">
-                                <label for="28">28th</label>
-                                <input type="radio" id="29">
-                                <label for="29">29th</label>
-                                <input type="radio" id="30">
-                                <label for="30">30th</label>
-                                <input type="radio" id="31">
-                                <label for="31">31st</label>
+                                <ul class="month-list">
+                                    <li>
+                                        <input type="radio" id="1">
+                                        <label for="1">1st</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="2">
+                                        <label for="2">2nd</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="3">
+                                        <label for="3">3rd</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="4">
+                                        <label for="4">4th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="5">
+                                        <label for="5">5th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="6">
+                                        <label for="6">6th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="7">
+                                        <label for="7">7th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="8">
+                                        <label for="8">8th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="9">
+                                        <label for="9">9th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="10">
+                                        <label for="10">10th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="11">
+                                        <label for="11">11th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="12">
+                                        <label for="12">12th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="13">
+                                        <label for="13">13th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="14">
+                                        <label for="14">14th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="15">
+                                        <label for="15">15th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="16">
+                                        <label for="16">16th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="17">
+                                        <label for="17">17th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="18">
+                                        <label for="18">18th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="19">
+                                        <label for="19">19th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="20">
+                                        <label for="20">20th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="21">
+                                        <label for="21">21st</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="22">
+                                        <label for="22">22th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="23">
+                                        <label for="23">23th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="24">
+                                        <label for="24">24th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="25">
+                                        <label for="25">25th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="26">
+                                        <label for="27">27th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="27">
+                                        <label for="20">20th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="28">
+                                        <label for="28">28th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="29">
+                                        <label for="29">29th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="30">
+                                        <label for="30">30th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="31">
+                                        <label for="31">31st</label>
+                                    </li>
+                                </ul>
                             </form>
                         </span>
                         {% elif month.name == 'Apr' or month.name == 'Jun' or month.name == 'Sep' or month.name == 'Nov' %}
-                        <span id="{{ month.name }} 2023" class="monthcontent">{{ month.name }}
+                        <span id="{{ month.name }} 2023" class="monthcontent">
                             <form action="#">
-                                <input type="radio" id="1">
-                                <label for="1">1st</label>
-                                <input type="radio" id="2">
-                                <label for="2">2nd</label>
-                                <input type="radio" id="3">
-                                <label for="3">3rd</label>
-                                <input type="radio" id="4">
-                                <label for="4">4th</label>
-                                <input type="radio" id="5">
-                                <label for="5">5th</label>
-                                <input type="radio" id="6">
-                                <label for="6">6th</label>
-                                <input type="radio" id="7">
-                                <label for="7">7th</label>
-                                <input type="radio" id="8">
-                                <label for="8">8th</label>
-                                <input type="radio" id="9">
-                                <label for="9">9th</label>
-                                <input type="radio" id="10">
-                                <label for="10">10th</label>
-                                <input type="radio" id="11">
-                                <label for="11">11th</label>
-                                <input type="radio" id="12">
-                                <label for="12">12th</label>
-                                <input type="radio" id="13">
-                                <label for="13">13th</label>
-                                <input type="radio" id="14">
-                                <label for="14">14th</label>
-                                <input type="radio" id="15">
-                                <label for="15">15th</label>
-                                <input type="radio" id="16">
-                                <label for="16">16th</label>
-                                <input type="radio" id="17">
-                                <label for="17">17th</label>
-                                <input type="radio" id="18">
-                                <label for="18">18th</label>
-                                <input type="radio" id="19">
-                                <label for="19">19th</label>
-                                <input type="radio" id="20">
-                                <label for="20">20th</label>
-                                <input type="radio" id="21">
-                                <label for="21">21st</label>
-                                <input type="radio" id="22">
-                                <label for="22">22th</label>
-                                <input type="radio" id="23">
-                                <label for="23">23th</label>
-                                <input type="radio" id="24">
-                                <label for="24">24th</label>
-                                <input type="radio" id="25">
-                                <label for="25">25th</label>
-                                <input type="radio" id="26">
-                                <label for="27">27th</label>
-                                <input type="radio" id="27">
-                                <label for="20">20th</label>
-                                <input type="radio" id="28">
-                                <label for="28">28th</label>
-                                <input type="radio" id="29">
-                                <label for="29">29th</label>
-                                <input type="radio" id="30">
-                                <label for="30">30th</label>
+                                <ul class="month-list">
+                                    <li>
+                                        <input type="radio" id="1">
+                                        <label for="1">1st</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="2">
+                                        <label for="2">2nd</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="3">
+                                        <label for="3">3rd</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="4">
+                                        <label for="4">4th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="5">
+                                        <label for="5">5th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="6">
+                                        <label for="6">6th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="7">
+                                        <label for="7">7th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="8">
+                                        <label for="8">8th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="9">
+                                        <label for="9">9th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="10">
+                                        <label for="10">10th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="11">
+                                        <label for="11">11th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="12">
+                                        <label for="12">12th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="13">
+                                        <label for="13">13th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="14">
+                                        <label for="14">14th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="15">
+                                        <label for="15">15th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="16">
+                                        <label for="16">16th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="17">
+                                        <label for="17">17th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="18">
+                                        <label for="18">18th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="19">
+                                        <label for="19">19th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="20">
+                                        <label for="20">20th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="21">
+                                        <label for="21">21st</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="22">
+                                        <label for="22">22th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="23">
+                                        <label for="23">23th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="24">
+                                        <label for="24">24th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="25">
+                                        <label for="25">25th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="26">
+                                        <label for="27">27th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="27">
+                                        <label for="20">20th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="28">
+                                        <label for="28">28th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="29">
+                                        <label for="29">29th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="30">
+                                        <label for="30">30th</label>
+                                    </li>
+                                </ul>
                             </form>
                         </span>
                         {% elif month.name == 'Feb' %}
-                        <span id="{{ month.name }} 2023" class="monthcontent">{{ month.name }}
+                        <span id="{{ month.name }} 2023" class="monthcontent">
                             <form action="#">
-                                <input type="radio" id="1">
-                                <label for="1">1st</label>
-                                <input type="radio" id="2">
-                                <label for="2">2nd</label>
-                                <input type="radio" id="3">
-                                <label for="3">3rd</label>
-                                <input type="radio" id="4">
-                                <label for="4">4th</label>
-                                <input type="radio" id="5">
-                                <label for="5">5th</label>
-                                <input type="radio" id="6">
-                                <label for="6">6th</label>
-                                <input type="radio" id="7">
-                                <label for="7">7th</label>
-                                <input type="radio" id="8">
-                                <label for="8">8th</label>
-                                <input type="radio" id="9">
-                                <label for="9">9th</label>
-                                <input type="radio" id="10">
-                                <label for="10">10th</label>
-                                <input type="radio" id="11">
-                                <label for="11">11th</label>
-                                <input type="radio" id="12">
-                                <label for="12">12th</label>
-                                <input type="radio" id="13">
-                                <label for="13">13th</label>
-                                <input type="radio" id="14">
-                                <label for="14">14th</label>
-                                <input type="radio" id="15">
-                                <label for="15">15th</label>
-                                <input type="radio" id="16">
-                                <label for="16">16th</label>
-                                <input type="radio" id="17">
-                                <label for="17">17th</label>
-                                <input type="radio" id="18">
-                                <label for="18">18th</label>
-                                <input type="radio" id="19">
-                                <label for="19">19th</label>
-                                <input type="radio" id="20">
-                                <label for="20">20th</label>
-                                <input type="radio" id="21">
-                                <label for="21">21st</label>
-                                <input type="radio" id="22">
-                                <label for="22">22th</label>
-                                <input type="radio" id="23">
-                                <label for="23">23th</label>
-                                <input type="radio" id="24">
-                                <label for="24">24th</label>
-                                <input type="radio" id="25">
-                                <label for="25">25th</label>
-                                <input type="radio" id="26">
-                                <label for="27">27th</label>
-                                <input type="radio" id="27">
-                                <label for="20">20th</label>
-                                <input type="radio" id="28">
-                                <label for="28">28th</label>
+                                <ul class="month-list">
+                                    <li>
+                                        <input type="radio" id="1">
+                                        <label for="1">1st</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="2">
+                                        <label for="2">2nd</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="3">
+                                        <label for="3">3rd</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="4">
+                                        <label for="4">4th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="5">
+                                        <label for="5">5th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="6">
+                                        <label for="6">6th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="7">
+                                        <label for="7">7th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="8">
+                                        <label for="8">8th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="9">
+                                        <label for="9">9th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="10">
+                                        <label for="10">10th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="11">
+                                        <label for="11">11th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="12">
+                                        <label for="12">12th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="13">
+                                        <label for="13">13th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="14">
+                                        <label for="14">14th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="15">
+                                        <label for="15">15th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="16">
+                                        <label for="16">16th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="17">
+                                        <label for="17">17th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="18">
+                                        <label for="18">18th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="19">
+                                        <label for="19">19th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="20">
+                                        <label for="20">20th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="21">
+                                        <label for="21">21st</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="22">
+                                        <label for="22">22th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="23">
+                                        <label for="23">23th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="24">
+                                        <label for="24">24th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="25">
+                                        <label for="25">25th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="26">
+                                        <label for="27">27th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="27">
+                                        <label for="20">20th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="28">
+                                        <label for="28">28th</label>
+                                    </li>
+                                </ul>
                             </form>
                         </span>
                         {% endif %}
-
-
                         {% endfor %}
                     </div>
                     <div id="2024" class="yearcontent">
                         {% for month in tour.dates.all %}
                         <button class="monthlinks px-auto btn btn-lg"
-                            onclick="openMonth(event, '{{ month.name }} 2024')">{{ month.name }} 2024</button>
+                            onclick="openMonth(event, '{{ month.name }} 2024')">{{ month.name }}</button>
                         {% endfor %}
                         {% for month in tour.dates.all %}
-                        <div id="{{ month.name }} 2024" class="monthcontent">{{ month.name }} 2024 dates</div>
+                        {% if month.name == 'Jan' or month.name == 'Mar' or month.name == 'May' or month.name == 'Jul' or month.name == 'Aug' or month.name == 'Oct' or month.name == 'Dec' %}
+                        <span id="{{ month.name }} 2024" class="monthcontent">
+                            <form action="#">
+                                <ul class="month-list">
+                                    <li>
+                                        <input type="radio" id="1">
+                                        <label for="1">1st</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="2">
+                                        <label for="2">2nd</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="3">
+                                        <label for="3">3rd</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="4">
+                                        <label for="4">4th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="5">
+                                        <label for="5">5th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="6">
+                                        <label for="6">6th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="7">
+                                        <label for="7">7th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="8">
+                                        <label for="8">8th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="9">
+                                        <label for="9">9th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="10">
+                                        <label for="10">10th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="11">
+                                        <label for="11">11th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="12">
+                                        <label for="12">12th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="13">
+                                        <label for="13">13th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="14">
+                                        <label for="14">14th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="15">
+                                        <label for="15">15th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="16">
+                                        <label for="16">16th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="17">
+                                        <label for="17">17th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="18">
+                                        <label for="18">18th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="19">
+                                        <label for="19">19th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="20">
+                                        <label for="20">20th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="21">
+                                        <label for="21">21st</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="22">
+                                        <label for="22">22th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="23">
+                                        <label for="23">23th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="24">
+                                        <label for="24">24th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="25">
+                                        <label for="25">25th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="26">
+                                        <label for="27">27th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="27">
+                                        <label for="20">20th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="28">
+                                        <label for="28">28th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="29">
+                                        <label for="29">29th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="30">
+                                        <label for="30">30th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="31">
+                                        <label for="31">31st</label>
+                                    </li>
+                                </ul>
+                            </form>
+                        </span>
+                        {% elif month.name == 'Apr' or month.name == 'Jun' or month.name == 'Sep' or month.name == 'Nov' %}
+                        <span id="{{ month.name }} 2024" class="monthcontent">
+                            <form action="#">
+                                <ul class="month-list">
+                                    <li>
+                                        <input type="radio" id="1">
+                                        <label for="1">1st</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="2">
+                                        <label for="2">2nd</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="3">
+                                        <label for="3">3rd</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="4">
+                                        <label for="4">4th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="5">
+                                        <label for="5">5th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="6">
+                                        <label for="6">6th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="7">
+                                        <label for="7">7th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="8">
+                                        <label for="8">8th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="9">
+                                        <label for="9">9th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="10">
+                                        <label for="10">10th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="11">
+                                        <label for="11">11th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="12">
+                                        <label for="12">12th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="13">
+                                        <label for="13">13th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="14">
+                                        <label for="14">14th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="15">
+                                        <label for="15">15th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="16">
+                                        <label for="16">16th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="17">
+                                        <label for="17">17th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="18">
+                                        <label for="18">18th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="19">
+                                        <label for="19">19th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="20">
+                                        <label for="20">20th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="21">
+                                        <label for="21">21st</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="22">
+                                        <label for="22">22th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="23">
+                                        <label for="23">23th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="24">
+                                        <label for="24">24th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="25">
+                                        <label for="25">25th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="26">
+                                        <label for="27">27th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="27">
+                                        <label for="20">20th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="28">
+                                        <label for="28">28th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="29">
+                                        <label for="29">29th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="30">
+                                        <label for="30">30th</label>
+                                    </li>
+                                </ul>
+                            </form>
+                        </span>
+                        {% elif month.name == 'Feb' %}
+                        <span id="{{ month.name }} 2024" class="monthcontent">
+                            <form action="#">
+                                <ul class="month-list">
+                                    <li>
+                                        <input type="radio" id="1">
+                                        <label for="1">1st</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="2">
+                                        <label for="2">2nd</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="3">
+                                        <label for="3">3rd</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="4">
+                                        <label for="4">4th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="5">
+                                        <label for="5">5th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="6">
+                                        <label for="6">6th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="7">
+                                        <label for="7">7th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="8">
+                                        <label for="8">8th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="9">
+                                        <label for="9">9th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="10">
+                                        <label for="10">10th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="11">
+                                        <label for="11">11th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="12">
+                                        <label for="12">12th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="13">
+                                        <label for="13">13th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="14">
+                                        <label for="14">14th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="15">
+                                        <label for="15">15th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="16">
+                                        <label for="16">16th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="17">
+                                        <label for="17">17th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="18">
+                                        <label for="18">18th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="19">
+                                        <label for="19">19th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="20">
+                                        <label for="20">20th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="21">
+                                        <label for="21">21st</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="22">
+                                        <label for="22">22th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="23">
+                                        <label for="23">23th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="24">
+                                        <label for="24">24th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="25">
+                                        <label for="25">25th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="26">
+                                        <label for="27">27th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="27">
+                                        <label for="20">20th</label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="28">
+                                        <label for="28">28th</label>
+                                    </li>
+                                </ul>
+                            </form>
+                        </span>
+                        {% endif %}
                         {% endfor %}
                     </div>
                 </div>
