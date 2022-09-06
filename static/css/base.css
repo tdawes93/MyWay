@@ -150,6 +150,10 @@ header {
     background-color: #f1f1f1;
 }
 
+.itinerary {
+    width: 90vw;
+}
+
 .btn-dates {
     margin: 1rem 0.5rem;
 }
