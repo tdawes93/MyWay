@@ -90,7 +90,7 @@
                     </div>
                     <div class="row my-2 mx-0 px-0">
                         <div class="col">
-                            <p class="itinerary">{{ tour.itinerary }}</p>
+                            <p class="itinerary">{{ tour.itinerary | safe }}</p>
                         </div>
                     </div>
                     {% if group_discount %}

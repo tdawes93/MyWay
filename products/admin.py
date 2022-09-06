@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django_summernote.admin import SummernoteModelAdmin
 from . import models
 
 
@@ -13,7 +14,11 @@ class LocationAdmin(admin.ModelAdmin):
     search_fields = ('friendly_name',)
 
 
-class TourAdmin(admin.ModelAdmin):
+class TourAdmin(SummernoteModelAdmin):
+    summernote_fields = (
+        'description',
+        'itinerary',
+    )
     list_display = (
         'friendly_name',
         'price',
