@@ -19,7 +19,14 @@
     <div class="row">
         <div class="col">
             {% if bag_items %}
-            <div class="table"></div>
+            <div class="table">
+{% for item in bag_items %}
+<h3>You have booked for {{ item.quantity }} person/people</h3>
+<h3>On {{ item.tour.friendly_name }}</h3>
+<h3>With a start date of {{ item.date_booked }}
+</h3>
+{% endfor %}
+            </div>
             {% else %}
             <p>Your bag is empty</p>
             <a href="{% url 'tours' %}">Find your next adventure</a>
