@@ -222,7 +222,8 @@ header {
     height: 5rem
 }
 
-#date-submit {
+#guest-submit,
+#number-of-guests {
     display: none;
 }
 

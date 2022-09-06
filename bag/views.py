@@ -14,13 +14,15 @@ def add_to_bag(request, tour_id):
     """
     date = request.POST.get('calendar')
     redirect_url = request.POST.get('redirect_url')
+    quantity_of_guests = request.POST.get('quantity')
 
     bag = request.session.get('bag', {})
+    tour_date_booked = str(tour_id) + ' on ' + date
 
-    if tour_id in list(bag.keys()):
-        bag[tour_id] += date
+    if tour_date_booked in list(bag.keys()):
+        bag[tour_date_booked] += quantity_of_guests
     else:
-        bag[tour_id] = date
+        bag[tour_date_booked] = quantity_of_guests
 
     request.session['bag'] = bag
     print(request.session['bag'])

@@ -40,5 +40,5 @@ function openMonth(evt, monthName) {
   }
   document.getElementById(monthName).style.display = "block";
   evt.currentTarget.className += " active";
-  document.getElementById("date-submit").style.display = "block";
+  document.getElementById("number-of-guests").style.display = "block";
 }
