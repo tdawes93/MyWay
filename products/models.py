@@ -124,6 +124,8 @@ class Tour(models.Model):
         "Date",
         related_name="Date"
     )
+    choose_location = models.BooleanField(null=True, blank=True)
+    choose_multiple_locations = models.BooleanField(null=True, blank=True)
 
     def __str__(self):
         return f'{self.name}'
