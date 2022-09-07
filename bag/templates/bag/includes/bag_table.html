@@ -26,8 +26,7 @@
                     </div>
                 </div>
                 <div class="row mx-0 px-0 w-100 my-1">
-                    <div class="col me-2 px-0 d-flex align-items-center"><i
-                            class="fa-solid fa-calendar-days icon"></i>
+                    <div class="col me-2 px-0 d-flex align-items-center"><i class="fa-solid fa-calendar-days icon"></i>
                         <h5 class="ms-2 text-uppercase">Trip start</h5>
                     </div>
                 </div>
@@ -78,6 +77,29 @@
                 </div>
             </td>
         </tr>
+        {% if item.tour.choose_location %}
+        <tr>
+            <td colspan="5" class="text-end">
+                <form action="#" method="POST">
+                    {% if item.tour.choose_multiple_locations %}
+                    <h4>Please select your locations to visit:</h4>
+                    {% for location in item.tour.locations.all %}
+                    <label for="{{ location }}">{{ location.friendly_name }}</label>
+                    <input type="checkbox" id="{{ location }}" value="{{ location }}">
+                    {% endfor %}
+                    {% else %}
+                    <h4>Please sleect your destination:</h4>
+                    <label for="location">Choose a location:</label>
+                    <select id="location" name="location">
+                        {% for location in item.tour.locations.all %}
+                        <option value="{{ location }}">{{ location.friendly_name }}</option>
+                        {% endfor %}
+                    </select>
+                    {% endif %}
+                </form>
+            </td>
+        </tr>
+        {% endif %}
         {% endfor %}
     </tbody>
     <tfoot>

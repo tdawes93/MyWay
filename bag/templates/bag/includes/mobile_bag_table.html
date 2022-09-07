@@ -29,9 +29,12 @@
         </div>
         <hr>
         <div class="row">
-            <div class="col"><h4>Trip</h4></div>
+            <div class="col">
+                <h4>Trip</h4>
+            </div>
             <div class="col text-end">
-                <h6><i class="fa-solid fa-user-group icon"></i> {{ item.quantity }}{% if item.quantity > 1 %} travellers{% else %}
+                <h6><i class="fa-solid fa-user-group icon"></i> {{ item.quantity }}{% if item.quantity > 1 %}
+                    travellers{% else %}
                     traveller{% endif %}</h6>
             </div>
         </div>
@@ -50,6 +53,30 @@
                 {% endif %}</div>
         </div>
         <hr>
+        {% if item.tour.choose_location %}
+        <div class="row">
+            <div class="col">
+                <form action="#" method="POST">
+                    {% if item.tour.choose_multiple_locations %}
+                    <h4>Please select your locations to visit:</h4>
+                    {% for location in item.tour.locations.all %}
+                    <label for="{{ location }}">{{ location.friendly_name }}</label>
+                    <input type="checkbox" id="{{ location }}" value="{{ location }}">
+                    {% endfor %}
+                    {% else %}
+                    <h4>Please sleect your destination:</h4>
+                    <label for="location">Choose a location:</label>
+                    <select id="location" name="location">
+                        {% for location in item.tour.locations.all %}
+                        <option value="{{ location }}">{{ location.friendly_name }}</option>
+                        {% endfor %}
+                    </select>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+        <hr>
+        {% endif %}
         <div class="row">
             <div class="col">
                 <h3>Subtotal:</h3>
