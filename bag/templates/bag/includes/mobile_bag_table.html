@@ -14,7 +14,7 @@
                 <img src="/media/noimage.png" alt="placeholder image" class="bag-img d-flex">
                 {% endif %}</div>
             <div class="col">
-                <h6 class="d-flex">{{ item.tour.friendly_name}}</h6>
+                <h4 class="d-flex">{{ item.tour.friendly_name}}</h4>
             </div>
         </div>
         <div class="row mx-0 px-0 w-100 my-1">
@@ -31,7 +31,7 @@
         <div class="row">
             <div class="col"><h4>Trip</h4></div>
             <div class="col text-end">
-                <h6>{{ item.quantity }}{% if item.quantity > 1 %} travellers{% else %}
+                <h6><i class="fa-solid fa-user-group icon"></i> {{ item.quantity }}{% if item.quantity > 1 %} travellers{% else %}
                     traveller{% endif %}</h6>
             </div>
         </div>
@@ -61,7 +61,7 @@
         <hr class="bag-item-divider">
         {% endfor %}
         <div class="row">
-            <div class="col pt-5 text-end">
+            <div class="col pt-2 text-end">
                 <h2>Bag total: ${{ grand_total }}</h2>
             </div>
         </div>
