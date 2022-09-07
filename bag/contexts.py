@@ -8,13 +8,13 @@ def bag_contents(request):
 
     bag_items = []
     total = 0
-    bag = request.session.get('bag', {})
     discount_amount = 0
     increase_guests = 0
     grand_total = 0
     new_total = 0
     old_total = 0
     discount = False
+    bag = request.session.get('bag', {})
 
     for tour_date_booked, quantity in bag.items():
         tour_id = tour_date_booked.split()[0]
