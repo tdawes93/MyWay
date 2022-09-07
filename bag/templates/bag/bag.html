@@ -72,10 +72,14 @@
                         <td class="px-auto">
                             <div class="row mx-0 px-0 w-100">
                                 <div class="col me-2 px-0 w-100 ">
+                                    {% if item.tour.group_discount %}
                                     {% if item.discount %}
                                     <p>Congrats, a discount of ${{ item.discount_amount }} has been applied!</p>
                                     {% else %}
                                     <p>Fancy a discount? Add only {{ increase_guests }} more people to get 20% off!</p>
+                                    {% endif %}
+                                    {% else %}
+                                    <p>Group discount is not available on this item</p>
                                     {% endif %}
                                 </div>
                             </div>

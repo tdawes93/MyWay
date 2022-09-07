@@ -14,6 +14,7 @@ def bag_contents(request):
     grand_total = 0
     new_total = 0
     old_total = 0
+    discount = False
 
     for tour_date_booked, quantity in bag.items():
         tour_id = tour_date_booked.split()[0]
@@ -24,14 +25,15 @@ def bag_contents(request):
         tour = get_object_or_404(Tour, pk=tour_id)
         total = quantity * tour.price
 
-        if quantity >= settings.GROUP_DISCOUNT_MIN_NUM:
-            old_total = total
-            discount_amount = round(total*decimal.Decimal(0.2), 2)
-            total = round(total*decimal.Decimal(0.8), 2)
-            discount = True
-        else:
-            increase_guests = settings.GROUP_DISCOUNT_MIN_NUM - quantity
-            discount = False
+        if tour.group_discount:
+            if quantity >= settings.GROUP_DISCOUNT_MIN_NUM:
+                old_total = total
+                discount_amount = round(total*decimal.Decimal(0.2), 2)
+                total = round(total*decimal.Decimal(0.8), 2)
+                discount = True
+            else:
+                increase_guests = settings.GROUP_DISCOUNT_MIN_NUM - quantity
+                discount = False
 
         new_total += total
 
