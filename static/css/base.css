@@ -95,7 +95,7 @@ header {
 .tour-thumbnail-img {
     width: 100%;
     border-radius: 10px;
-    height: 50vh
+    height: 40vh
 }
 
 .tour-detail-img {
@@ -272,6 +272,6 @@ header {
     }
 
     .tour-thumbnail-img {
-        height: 40vh
+        height: 30vh
     }
 }

@@ -129,31 +129,31 @@
             </div>
             <div class="row mx-0 px-0">
                 <div id="dates" class="tabcontent col-12 justify-content-center align-items-center text-center">
-                    <button class="yearlinks col-2 px-auto btn btn-lg btn-dates"
+                    <button class="yearlinks col-2 px-0 btn btn-lg btn-dates"
                         onclick="openYear(event, '2023')">2023</button>
-                    <button class="yearlinks col-2 px-auto btn btn-lg btn-dates"
+                    <button class="yearlinks col-2 px-0 btn btn-lg btn-dates"
                         onclick="openYear(event, '2024')">2024</button>
                     <form action="{% url 'add_to_bag' tour.id %}" method="POST">
                         {% csrf_token %}
                         <div id="2023" class="yearcontent">
                             {% for month in tour.dates.all %}
-                            <span class="monthlinks px-auto btn-lg btn btn-dates"
-                                onclick="openMonth(event, '{{ month.name }} 2023')">{{ month.name }}</span>
+                            <button type="button" class="monthlinks px-auto btn-lg btn btn-dates"
+                                onclick="openMonth(event, '{{ month.name }} 2023')">{{ month.name }}</button type="button">
                             {% endfor %}
                             {% include 'products/includes/date_picker_2023.html' %}
                         </div>
                         <div id="2024" class="yearcontent">
                             {% for month in tour.dates.all %}
-                            <span class="monthlinks px-auto btn btn-lg"
-                                onclick="openMonth(event, '{{ month.name }} 2024')">{{ month.name }}</span>
+                            <button type="button" class="monthlinks px-auto btn btn-lg"
+                                onclick="openMonth(event, '{{ month.name }} 2024')">{{ month.name }}</button type="button">
                             {% endfor %}
                             {% include 'products/includes/date_picker_2024.html' %}
                         </div>
-                        <div class="row d-block justify-content-center align-items-center text-center">
-                            <div class="col-2 text-center px-0 mx-auto">
-                                <span class="btn btn-lg tour-btn" id="number-of-guests" onclick="guestReveal()">Choose
+                        <div class="row d-block justify-content-center align-items-center text-center mt-2">
+                            <div class="col-8 col-md-4 col-lg-2 text-center px-0 mx-auto">
+                                <button type="button" class="btn btn-lg tour-btn" id="number-of-guests" onclick="guestReveal()">Choose
                                     your number of
-                                    guests!</span>
+                                    guests!</button>
                             </div>
                         </div>
                         <div class="form-row" id="guest-submit">
@@ -167,7 +167,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-2 text-center px-0 mx-auto">
+                            <div class="col-2 text-center px-0 mx-auto mt-2">
                                 <input type="submit" class="btn btn-lg tour-btn" value="Add to bag">
                             </div>
                         </div>
