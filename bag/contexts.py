@@ -1,3 +1,4 @@
+import decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Tour
@@ -8,6 +9,10 @@ def bag_contents(request):
     bag_items = []
     total = 0
     bag = request.session.get('bag', {})
+    discount_amount = 0
+    increase_guests = 0
+    grand_total = 0
+    new_total = 0
 
     for tour_date_booked, quantity in bag.items():
         tour_id = tour_date_booked.split()[0]
@@ -19,13 +24,14 @@ def bag_contents(request):
         total = quantity * tour.price
 
         if quantity >= settings.GROUP_DISCOUNT_MIN_NUM:
-            grand_total = total*0.8
+            discount_amount = round(total*decimal.Decimal(0.2), 2)
+            total = round(total*decimal.Decimal(0.8), 2)
             discount = True
-            discount_amount = total*0.2
         else:
             increase_guests = settings.GROUP_DISCOUNT_MIN_NUM - quantity
-            grand_total = total
             discount = False
+
+        new_total += total
 
         bag_items.append(
             {
@@ -38,9 +44,11 @@ def bag_contents(request):
                 'tour': tour,
                 'discount': discount,
                 'discount_amount': discount_amount,
-                'total': total
+                'total': total,
             }
         )
+
+    grand_total += new_total
 
     context = {
         'bag_items': bag_items,

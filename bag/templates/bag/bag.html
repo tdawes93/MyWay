@@ -2,8 +2,8 @@
 {% load static %}
 
 {% block page_header %}
-<div class="row header-buffer">
-    <div class="col-12"></div>
+<div class="row header-buffer px-0 mx-0">
+    <div class="col-12 px-0 mx-0"></div>
 </div>
 {% endblock %}
 
@@ -11,20 +11,19 @@
 {% block content %}
 
 <div class="container-fluid bg-white">
-    <div class="row">
+    <div class="row mx-0 px-0 w-100">
         <div class="col">
             <h1>Shopping Bag</h1>
         </div>
     </div>
-    <div class="row">
-        <div class="col">
+    <div class="row mx-0 px-0">
+        <div class="col mx-0 px-0">
             {% if bag_items %}
             <div class="table-responsive">
-                <table>
+                <table class="w-100 mx-0 px-0">
                     <thead>
-                        <tr>
+                        <tr class="align-items-center justifty-content-center text-start">
                             <th scope="col">Tour Summary</th>
-                            <th scope="col"></th>
                             <th scope="col">Price</th>
                             <th scope="col">Number of Guests</th>
                             <th scope="col">Discount</th>
@@ -33,59 +32,68 @@
                     </thead>
                     {% for item in bag_items %}
                     <tr>
-                        <td>
-                            <div class="row">
-                                <div class="col"><img src="/media/{{ item.tour.image }}"
-                                        alt="{{ item.tour.friendly_name}}"></div>
-                                <div class="col">
-                                    <h3>{{ item.tour.friendly_name}}</h3>
+                        <td class="px-auto">
+                            <div class="row mx-0 px-0 w-100">
+                                <div class="col me-2 px-0 w-100">
+                                    <img src="/media/{{ item.tour.image }}" alt="{{ item.tour.friendly_name}}"
+                                        class="bag-img d-flex">
+                                </div>
+                                <div class="col mx-2 px-0 w-100">
+                                    <h3 class="d-flex">{{ item.tour.friendly_name}}</h3>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col"><i class="fa-solid fa-calendar-days"></i>
-                                    <h5>Trip start date</h5>
+                            <div class="row mx-0 px-0 w-100">
+                                <div class="col-3 me-2 px-0 d-flex align-items-center"><i
+                                        class="fa-solid fa-calendar-days"></i>
+                                    <h5 class="ms-2">Trip start date</h5>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col">
+                            <div class="row mx-0 px-0 w-100">
+                                <div class="col me-2 px-0 w-100">
                                     <h6>{{ item.day }} {{ item.month }} {{ item.year }}</h6>
                                 </div>
                             </div>
                         </td>
-                        <td>
-                            <div class="row">
-                                <div class="col">
+                        <td class="px-auto">
+                            <div class="row mx-0 px-0 w-100">
+                                <div class="col me-2 px-0 w-100">
                                     <h6>{{ item.tour.price }}</h6>
                                 </div>
                             </div>
                         </td>
-                        <td>
-                            <div class="row">
-                                <div class="col">
-                                    <h6>{{ item.quantity }}{% if item.quantity > 1 %} travellers{% else %} traveller{% endif %}</h6>
+                        <td class="px-auto">
+                            <div class="row mx-0 px-0 w-100">
+                                <div class="col me-2 px-0 w-100">
+                                    <h6>{{ item.quantity }}{% if item.quantity > 1 %} travellers{% else %}
+                                        traveller{% endif %}</h6>
                                 </div>
                             </div>
                         </td>
-                        <td>
-                            <div class="row">
-                                <div class="col">
+                        <td class="px-auto">
+                            <div class="row mx-0 px-0 w-100">
+                                <div class="col me-2 px-0 w-100 ">
                                     {% if item.discount %}
-                                    <h6>Congrats, ${{ item.discount_amount }} applied!</h6>
+                                    <p>Congrats, a discount of ${{ item.discount_amount }} has been applied!</p>
                                     {% else %}
                                     <p>Fancy a discount? Add only {{ increase_guests }} more people to get 20% off!</p>
                                     {% endif %}
                                 </div>
                             </div>
                         </td>
-                        <td>
-                            <div class="row">
-                                <div class="col">
+                        <td class="px-auto">
+                            <div class="row mx-0 px-0 w-100">
+                                <div class="col me-2 px-0 w-100">
                                     <h5>${{ item.total }}</h5>
                                 </div>
                             </div>
                         </td>
                     </tr>
                     {% endfor %}
+                    <tr>
+                        <td colspan="5" class="pt-5 text-right">
+                            <h4>Bag total: ${{ grand_total }}</h4>
+                        </td>
+                    </tr>
                 </table>
 
             </div>
