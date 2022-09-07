@@ -19,22 +19,80 @@
     <div class="row">
         <div class="col">
             {% if bag_items %}
-            <div class="table">
-{% for item in bag_items %}
-<h3>You have booked for {{ item.quantity }} person/people</h3>
-<h3>On {{ item.tour.friendly_name }}</h3>
-<h3>With a start date of {{ item.date_booked }}
-</h3>
-{% endfor %}
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Tour Summary</th>
+                            <th scope="col"></th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Number of Guests</th>
+                            <th scope="col">Discount</th>
+                            <th scope="col">Subtotal</th>
+                        </tr>
+                    </thead>
+                    {% for item in bag_items %}
+                    <tr>
+                        <td>
+                            <div class="row">
+                                <div class="col"><img src="/media/{{ item.tour.image }}"
+                                        alt="{{ item.tour.friendly_name}}"></div>
+                                <div class="col">
+                                    <h3>{{ item.tour.friendly_name}}</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><i class="fa-solid fa-calendar-days"></i>
+                                    <h5>Trip start date</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <h6>{{ item.day }} {{ item.month }} {{ item.year }}</h6>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div class="col">
+                                    <h6>{{ item.tour.price }}</h6>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div class="col">
+                                    <h6>{{ item.quantity }}{% if item.quantity > 1 %} travellers{% else %} traveller{% endif %}</h6>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div class="col">
+                                    {% if item.discount %}
+                                    <h6>Congrats, ${{ item.discount_amount }} applied!</h6>
+                                    {% else %}
+                                    <p>Fancy a discount? Add only {{ increase_guests }} more people to get 20% off!</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div class="col">
+                                    <h5>${{ item.total }}</h5>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
             </div>
             {% else %}
             <p>Your bag is empty</p>
             <a href="{% url 'tours' %}">Find your next adventure</a>
             {% endif %}
-        </div>
-
-        <div class="col">
-            <p>Fancy a discount? Add only {{ increase_guests }} more people to get 20% off!</p>
         </div>
     </div>
 </div>
