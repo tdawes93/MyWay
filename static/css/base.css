@@ -229,6 +229,15 @@ header {
 
 .bag-img {
     width: 100%;
+    border-radius: 10px;
+}
+
+.summary-th {
+    width: 40%;
+}
+
+.table-striped>tbody>tr:nth-child(odd) {
+    background-color: #bcc8d1
 }
 
 @media screen and (min-width: 426px) {
