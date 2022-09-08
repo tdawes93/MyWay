@@ -189,7 +189,7 @@
                                         </div>
                                         <input class="form-control text-center quantity-input" type="number"
                                             name="quantity" value="1" min="1" max="{{ tour.max_num_of_guests }}"
-                                            data-item_id="{{ tour.id }}" id="id_qty_{{ tour.id }}">
+                                            data-item_id="{{ tour.id }}" id="id_qty_{{ tour.id }}" onchange="handleEnableDisable('{{ tour.id }}', '{{ tour.max_num_of_guests }}')">
                                         <div class="input-group-append"> <button class="btn tour-btn mx-1 increase-qty"
                                                 data-item_id="{{ tour.id }}" id="increase-qty_{{ tour.id }}"
                                                 onclick="handleEnableDisable('{{ tour.id }}', '{{ tour.max_num_of_guests }}');"

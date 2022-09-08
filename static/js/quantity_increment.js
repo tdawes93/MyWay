@@ -5,9 +5,6 @@ function handleEnableDisable(itemId, tour_max) {
     var currentValue = parseInt($(`#id_qty_${itemId}`).val());
     var minusDisabled = currentValue <= 2;
     var plusDisabled = currentValue >= tour_max-1;
-    console.log(itemId);
-    console.log(tour_max)
-    console.log(currentValue)
     if (minusDisabled) {
         $(`#decrease-qty_${itemId}`).attr('disabled', 'disabled');
     } else {
@@ -19,7 +16,6 @@ function handleEnableDisable(itemId, tour_max) {
         $(`#increase-qty_${itemId}`).removeAttr('disabled', 'disabled');
     };
 }
-
 
 // Increase quantity
 $('.increase-qty').click(function (e) {
