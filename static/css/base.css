@@ -83,6 +83,10 @@ header {
     border-radius: 10px;
 }
 
+.quantity-input {
+    border-radius: 10px !important;
+}
+
 .tour-btn:hover {
     color: #3a6700;
     border-color: #3a6700;
@@ -180,10 +184,18 @@ header {
     border-color: #DDD;
 }
 
+.quantity-input-group {
+    width: 75vw;
+}
+
 /* Tab CSS */
 .tab {
     overflow: hidden;
     background-color: #f1f1f1;
+}
+
+.tablinks {
+    border-radius: 10px;
 }
 
 /* Style the buttons inside the tab */
