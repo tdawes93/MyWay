@@ -41,9 +41,7 @@
                     <div class="col me-2 px-0 w-100">
                         <h6>${{ item.tour.price }}</h6>
                         {{ item.bag_item_id }}
-                        {{ item.tour_date_booked }}
-                        {{ item.tour_id }}
-                        {{ item.quantity }}
+
                     </div>
                 </div>
             </td>
@@ -54,9 +52,9 @@
                         <div class="col me-2 px-0 w-100 input-group align-items-center">
                             <div class="input-group-prepend">
                                 <button class="decrease-qty btn btn-sm tour-btn mx-1"
-                                    data-item_id="{{ item.bag_item_id }}" id="decrease-qty_{{ item.bag_item_id }}"
+                                    data-item_id="{{ item.bag_item_id }}" data-tour_max="{{ item.tour.max_num_of_guests }}" id="decrease-qty_{{ item.bag_item_id }}"
                                     type="button"
-                                    onclick="setTimeout((handleEnableDisable('{{ item.bag_item_id }}', '{{ item.tour.max_num_of_guests }}')), 200);"
+                                    
                                     {% if item.quantity == 1 %}disabled="disabled" {% endif %}>
                                     <span class="icon">
                                         <i class="fa-solid fa-minus"></i>
@@ -73,8 +71,7 @@
                                 traveller{% endif %}</h6>
                             <div class="input-group-append">
                                 <button class="btn btn-sm tour-btn mx-1 increase-qty"
-                                    data-item_id="{{ item.bag_item_id }}" id="increase-qty_{{ item.bag_item_id }}"
-                                    onclick="setTimeout((handleEnableDisable('{{ item.bag_item_id }}', '{{ item.tour.max_num_of_guests }}')), 200);"
+                                    data-item_id="{{ item.bag_item_id }}" data-tour_max="{{ item.tour.max_num_of_guests }}" id="increase-qty_{{ item.bag_item_id }}"
                                     type="button"
                                     {% if item.quantity == item.tour.max_num_of_guests %}disabled="disabled"
                                     {% endif %}>
