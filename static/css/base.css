@@ -94,11 +94,25 @@ header {
 
 }
 
+.text-update {
+    color: #3a6700;
+}
+
+.text-delete {
+    color: #da0000;
+}
+
+.text-delete:hover,
+.text-update:hover {
+    color: black;
+    cursor: pointer;
+}
+
 /* Chrome, Safari, Edge, Opera */
 .quantity-input-bag::-webkit-outer-spin-button,
 .quantity-input-bag::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .tour-btn:hover {

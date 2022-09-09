@@ -40,7 +40,6 @@
                 <div class="row mx-0 px-0 w-100">
                     <div class="col me-2 px-0 w-100">
                         <h6>${{ item.tour.price }}</h6>
-                        {{ item.bag_item_id }}
                     </div>
                 </div>
             </td>
@@ -50,26 +49,31 @@
                     <div class="row mx-0 px-0 w-100 form-group quantity-input-group">
                         <div class="col me-2 px-0 w-100 input-group align-items-center">
                             <div class="input-group-prepend">
-                                <button class="decrease-qty btn btn-sm tour-btn mx-1" data-item_id="{{ item.bag_item_id }}"
-                                    id="decrease-qty_{{ item.bag_item_id }}" type="button"
+                                <button class="decrease-qty btn btn-sm tour-btn mx-1"
+                                    data-item_id="{{ item.bag_item_id }}" id="decrease-qty_{{ item.bag_item_id }}"
+                                    type="button"
                                     onclick="setTimeout((handleEnableDisable('{{ item.bag_item_id }}', '{{ item.tour.max_num_of_guests }}')), 200);"
-                                    {% if item.quantity == 1 %}disabled="disabled"{% endif %}>
+                                    {% if item.quantity == 1 %}disabled="disabled" {% endif %}>
                                     <span class="icon">
                                         <i class="fa-solid fa-minus"></i>
                                     </span>
                                 </button>
                             </div>
-                            <input class="form-control text-center quantity-input quantity-input-bag ps-3 mx-0 pe-0" type="number" name="quantity"
-                                value="{{ item.quantity }}" min="1" max="{{ item.tour.max_num_of_guests }}"
-                                data-item_id="{{ item.bag_item_id }}" id="id_qty_{{ item.bag_item_id }}"
-                                onchange="handleEnableDisable('{{ item.bag_item_id }}', '{{ item.tour.max_num_of_guests }}')" disabled>
+                            <input class="form-control text-center quantity-input quantity-input-bag ps-3 mx-0 pe-0"
+                                type="number" name="quantity" value="{{ item.quantity }}" min="1"
+                                max="{{ item.tour.max_num_of_guests }}" data-item_id="{{ item.bag_item_id }}"
+                                id="id_qty_{{ item.bag_item_id }}"
+                                onchange="handleEnableDisable('{{ item.bag_item_id }}', '{{ item.tour.max_num_of_guests }}')"
+                                disabled>
                             <h6 class="my-0 me-1">{% if item.quantity > 1 %} travellers{% else %}
                                 traveller{% endif %}</h6>
                             <div class="input-group-append">
-                                <button class="btn btn-sm tour-btn mx-1 increase-qty" data-item_id="{{ item.bag_item_id }}"
-                                    id="increase-qty_{{ item.bag_item_id }}"
+                                <button class="btn btn-sm tour-btn mx-1 increase-qty"
+                                    data-item_id="{{ item.bag_item_id }}" id="increase-qty_{{ item.bag_item_id }}"
                                     onclick="setTimeout((handleEnableDisable('{{ item.bag_item_id }}', '{{ item.tour.max_num_of_guests }}')), 200);"
-                                    type="button" {% if item.quantity == item.tour.max_num_of_guests %}disabled="disabled"{% endif %}>
+                                    type="button"
+                                    {% if item.quantity == item.tour.max_num_of_guests %}disabled="disabled"
+                                    {% endif %}>
                                     <span class="icon">
                                         <i class="fa-solid fa-plus"></i>
                                     </span>
@@ -78,6 +82,13 @@
                         </div>
                     </div>
                 </form>
+                <div class="row">
+                    <div class="col"> <a class="update-link text-update"><small>Update</small></a>
+                    </div>
+                    <div class="col text-end"> <a class="remove-item text-delete"
+                            id="remove_{{ item.bag_item_id }}"><small>Remove</small></a>
+                    </div>
+                </div>
             </td>
             <td class="px-auto">
                 <div class="row mx-0 px-0 w-100">
