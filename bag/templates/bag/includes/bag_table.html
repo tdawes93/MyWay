@@ -13,7 +13,7 @@
         <tr>
             <td class="px-auto">
                 <div class="row mx-0 px-0 w-100">
-                    <div class="col me-2 px-0 w-100">
+                    <div class="col-6 me-2 px-0 w-100">
                         {% if item.tour.image %}
                         <img src="/media/{{ item.tour.image }}" alt="{{ item.tour.friendly_name}}"
                             class="bag-img d-flex">
@@ -21,7 +21,7 @@
                         <img src="/media/noimage.png" alt="placeholder image" class="bag-img d-flex">
                         {% endif %}
                     </div>
-                    <div class="col mx-2 px-0 w-100">
+                    <div class="col  my-2 mx-0 px-0 w-100">
                         <h3 class="d-flex">{{ item.tour.friendly_name}}</h3>
                     </div>
                 </div>
@@ -40,16 +40,44 @@
                 <div class="row mx-0 px-0 w-100">
                     <div class="col me-2 px-0 w-100">
                         <h6>${{ item.tour.price }}</h6>
+                        {{ item.bag_item_id }}
                     </div>
                 </div>
             </td>
-            <td class="px-auto">
-                <div class="row mx-0 px-0 w-100">
-                    <div class="col me-2 px-0 w-100">
-                        <h6>{{ item.quantity }}{% if item.quantity > 1 %} travellers{% else %}
-                            traveller{% endif %}</h6>
+            <td class="px-auto w-25">
+                <form action="#" method="POST">
+                    {% csrf_token %}
+                    <div class="row mx-0 px-0 w-100 form-group quantity-input-group">
+                        <div class="col me-2 px-0 w-100 input-group align-items-center">
+                            <div class="input-group-prepend">
+                                <button class="decrease-qty btn btn-sm tour-btn mx-1" data-item_id="{{ item.bag_item_id }}"
+                                    id="decrease-qty_{{ item.bag_item_id }}" type="button"
+                                    onclick="setTimeout((handleEnableDisable('{{ item.bag_item_id }}', '{{ item.tour.max_num_of_guests }}')), 200);"
+                                    {% if item.quantity == 1 %}disabled="disabled"{% endif %}>
+                                    <span class="icon">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </span>
+                                </button>
+                            </div>
+                            <input class="form-control text-center quantity-input quantity-input-bag ps-3 mx-0 pe-0" type="number" name="quantity"
+                                value="{{ item.quantity }}" min="1" max="{{ item.tour.max_num_of_guests }}"
+                                data-item_id="{{ item.bag_item_id }}" id="id_qty_{{ item.bag_item_id }}"
+                                onchange="handleEnableDisable('{{ item.bag_item_id }}', '{{ item.tour.max_num_of_guests }}')" disabled>
+                            <h6 class="my-0 me-1">{% if item.quantity > 1 %} travellers{% else %}
+                                traveller{% endif %}</h6>
+                            <div class="input-group-append">
+                                <button class="btn btn-sm tour-btn mx-1 increase-qty" data-item_id="{{ item.bag_item_id }}"
+                                    id="increase-qty_{{ item.bag_item_id }}"
+                                    onclick="setTimeout((handleEnableDisable('{{ item.bag_item_id }}', '{{ item.tour.max_num_of_guests }}')), 200);"
+                                    type="button" {% if item.quantity == item.tour.max_num_of_guests %}disabled="disabled"{% endif %}>
+                                    <span class="icon">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </form>
             </td>
             <td class="px-auto">
                 <div class="row mx-0 px-0 w-100">
@@ -88,7 +116,7 @@
                     <input type="checkbox" id="{{ location }}" value="{{ location }}">
                     {% endfor %}
                     {% else %}
-                    <h4>Please sleect your destination:</h4>
+                    <h4>Please select your destination:</h4>
                     <label for="location">Choose a location:</label>
                     <select id="location" name="location">
                         {% for location in item.tour.locations.all %}

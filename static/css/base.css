@@ -87,6 +87,20 @@ header {
     border-radius: 10px !important;
 }
 
+.quantity-input-bag {
+    background-color: transparent !important;
+    border: none !important;
+    -moz-appearance: textfield;
+
+}
+
+/* Chrome, Safari, Edge, Opera */
+.quantity-input-bag::-webkit-outer-spin-button,
+.quantity-input-bag::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .tour-btn:hover {
     color: #3a6700;
     border-color: #3a6700;

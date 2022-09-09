@@ -5,6 +5,8 @@ function handleEnableDisable(itemId, tour_max) {
     var currentValue = parseInt($(`#id_qty_${itemId}`).val());
     var minusDisabled = currentValue <= 2;
     var plusDisabled = currentValue >= tour_max-1;
+    console.log(currentValue)
+    console.log(tour_max)
     if (minusDisabled) {
         $(`#decrease-qty_${itemId}`).attr('disabled', 'disabled');
     } else {
