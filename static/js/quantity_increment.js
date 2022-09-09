@@ -4,7 +4,7 @@
 function handleEnableDisable(itemId, tour_max) {
     var currentValue = parseInt($(`#id_qty_${itemId}`).val());
     var minusDisabled = currentValue <= 2;
-    var plusDisabled = currentValue >= tour_max-1;
+    var plusDisabled = currentValue >= tour_max - 1;
     console.log(currentValue)
     console.log(tour_max)
     if (minusDisabled) {
@@ -24,6 +24,7 @@ $('.increase-qty').click(function (e) {
     e.preventDefault();
     var closestInput = $(this).closest('.input-group').find('.quantity-input')[0];
     var currentValue = parseInt($(closestInput).val());
+    console.log(currentValue)
     $(closestInput).val(currentValue + 1);
 });
 
@@ -35,21 +36,25 @@ $('.decrease-qty').click(function (e) {
     $(closestInput).val(currentValue - 1);
 });
 
-    // Update quantity on click
-    $('.update-link').click(function(e) {
-        var form = $(this).prev('.update-form');
-        form.submit();
-    })
+// Update quantity on click
+$('.update-link').click(function (e) {
+    var form = $(this).closest('.row').prev('.update-form');
+    form.submit();
+})
 
-    // Remove item and reload on click
-    $('.remove-item').click(function(e) {
-        var csrfToken = "{{ csrf_token }}";
-        var itemId = $(this).attr('id').split('remove_')[1];
-        var url = `/bag/remove/${itemId}`;
-        var data = {'csrfmiddlewaretoken': csrfToken};
+// Remove item and reload on click
+$('.remove-item').click(function (e) {
+    var csrfToken = $('#bag-form input[name=csrfmiddlewaretoken]').val();
+    var itemId = $(this).attr('id').split('remove_')[1];
+    var bagItemId = $(this).data('bag_item_id');
+    var url = `/bag/remove/${itemId}/`;
+    var data = {
+        'csrfmiddlewaretoken': csrfToken,
+        'bag_item_id': bagItemId,
+    };
 
-        $.post(url, data)
-         .done(function() {
-             location.reload();
-         });
-    })
+    $.post(url, data)
+        .done(function () {
+            location.reload();
+        });
+})
