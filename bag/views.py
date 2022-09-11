@@ -1,4 +1,8 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse
+from django.contrib import messages
+from products.models import Tour
+
+BAG_SUCCESS = 50
 
 
 def view_bag(request):
@@ -12,6 +16,7 @@ def add_to_bag(request, tour_id):
     """
     A view to add the date of the specified product to the bag
     """
+    tour = Tour.objects.get(pk=tour_id)
     date = request.POST.get('calendar')
     redirect_url = request.POST.get('redirect_url')
     quantity = int(request.POST.get('quantity'))
@@ -23,9 +28,13 @@ def add_to_bag(request, tour_id):
         bag[tour_date_booked] += quantity
     else:
         bag[tour_date_booked] = quantity
+        messages.add_message(
+            request,
+            BAG_SUCCESS,
+            f'Added { tour.friendly_name } to your bag!'
+        )
 
     request.session['bag'] = bag
-    print(bag)
     return redirect(redirect_url)
 
 
@@ -54,7 +63,6 @@ def remove_from_bag(request, tour_id):
     try:
         bag = request.session.get('bag', {})
         bag_item_id = request.POST.get('bag_item_id')
-        print(request.POST)
         tour_date_booked = ' '.join(bag_item_id.split('_'))
         bag.pop(tour_date_booked)
         request.session['bag'] = bag

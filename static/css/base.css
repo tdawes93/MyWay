@@ -94,18 +94,36 @@ header {
 
 }
 
-.text-update {
-    color: #3a6700;
-}
-
-.text-delete {
-    color: #da0000;
-}
-
-.text-delete:hover,
-.text-update:hover {
+.bag-change {
     color: black;
+}
+
+.bag-change:hover {
+    color: #da0000;
     cursor: pointer;
+}
+
+.message-container {
+    position: fixed;
+    top: 4rem;
+    right: 1rem;
+    z-index: 9999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+.toast-capper-success {
+    background-color: #3a6700;
+}
+
+.toast-capper-error {
+    background-color: #da0000;
 }
 
 /* Chrome, Safari, Edge, Opera */

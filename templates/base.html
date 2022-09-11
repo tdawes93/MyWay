@@ -44,16 +44,30 @@
 <body>
     <header class="container-fluid fixed-top mx-0 px-0">
         <nav class="navbar navbar-expand-lg mx-auto px-auto">
-{% include 'includes/main-navbar.html' %}
-{% include 'includes/mobile-navbar.html' %}
-
+            {% include 'includes/main-navbar.html' %}
+            {% include 'includes/mobile-navbar.html' %}
         </nav>
-
-
     </header>
 
     {% if messages %}
-    <div class="message-container"></div>
+    <div class="message-container">
+        {% for message in messages %}
+        {% with message.level as level %}
+        {% if level == 40 %}
+        {% include 'includes/toasts/toast_error.html' %}
+        {% elif level == 30 %}
+        {% include 'includes/toasts/toast_warning.html' %}
+        {% elif level == 25 %}
+        {% include 'includes/toasts/toast_success.html' %}
+        {% elif level == 50 %}
+        {% include 'includes/toasts/toast_bag_edit_success.html' %}
+        {% else %}
+        {% include 'includes/toasts/toast_info.html' %}
+        {% endif %}
+        {% endwith %}
+
+        {% endfor %}
+    </div>
     {% endif %}
 
 
@@ -64,6 +78,12 @@
     {% endblock %}
 
     {% block postload_js %}
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $('.toast').toast('show');
+            console.log('Success')
+        })
+    </script>
     {% endblock %}
 
 </body>
