@@ -83,7 +83,7 @@
                     <input type="hidden" name="bag_item_id" value="{{ item.bag_item_id}}">
                 </form>
                 <div class="row">
-                    <div class="col"> <a class="update-link bag-change"><small>Update</small></a>
+                    <div class="col"> <a class="update-link bag-change" id="remove_{{ item.tour_id }}" data-bag_item_id="{{ item.bag_item_id}}"><small>Update</small></a>
                     </div>
                     <div class="col text-end"> <a class="remove-item bag-change"
                             id="remove_{{ item.tour_id }}" data-bag_item_id="{{ item.bag_item_id}}"><small>Remove</small></a>
