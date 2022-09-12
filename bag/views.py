@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
+from django.conf import settings
 from products.models import Tour
 
 BAG_SUCCESS = 50
@@ -28,19 +29,38 @@ def add_to_bag(request, tour_id):
     bag = request.session.get('bag', {})
 
     if tour_date_booked in list(bag.keys()):
-        bag[tour_date_booked] += quantity
-        messages.add_message(
-            request,
-            BAG_SUCCESS,
-            f'Updated the number of travellers in your bag for { tour.friendly_name } on {day} {month} {year}'
-        )
+        if bag[tour_date_booked] + quantity >= tour.max_num_of_guests:
+            messages.error(
+                request,
+                f'Cannot add {quantity} traveller(s) for {tour.friendly_name} on {day} {month} {year} to your bag as it will exceed the maximum group size of {tour.max_num_of_guests}. Please change your number of guests to add your tour.'
+            )
+            return HttpResponse(status=400)
+        else:
+            bag[tour_date_booked] += quantity
+            messages.add_message(
+                request,
+                BAG_SUCCESS,
+                f'Updated the number of travellers in your bag for {tour.friendly_name} on {day} {month} {year}'
+            )
+            if tour.group_discount:
+                if bag[tour_date_booked] >= settings.GROUP_DISCOUNT_MIN_NUM:
+                    messages.success(
+                        request,
+                        'Congratulations you have qualified for a group discount of 20% off!'
+                    )
     else:
         bag[tour_date_booked] = quantity
         messages.add_message(
             request,
             BAG_SUCCESS,
-            f'{ tour.friendly_name } on {day} {month} {year} added to your bag!'
+            f'{tour.friendly_name} on {day} {month} {year} added to your bag!'
         )
+        if tour.group_discount:
+            if bag[tour_date_booked] >= settings.GROUP_DISCOUNT_MIN_NUM:
+                messages.success(
+                    request,
+                    'Congratulations you have qualified for a group discount of 20% off!'
+                )
 
     request.session['bag'] = bag
     return redirect(redirect_url)
@@ -65,14 +85,20 @@ def edit_bag(request, tour_id):
         messages.add_message(
             request,
             BAG_SUCCESS,
-            f'Updated the number of travellers in your bag for { tour.friendly_name } on {day} {month} {year}'
+            f'Updated the number of travellers in your bag for {tour.friendly_name} on {day} {month} {year}'
         )
+        if tour.group_discount:
+            if bag[tour_date_booked] >= settings.GROUP_DISCOUNT_MIN_NUM:
+                messages.success(
+                    request,
+                    'Congratulations you have qualified for a group discount of 20% off!'
+                )
     else:
         bag.pop(tour_date_booked)
         messages.add_message(
             request,
             BAG_SUCCESS,
-            f'Removed { tour.friendly_name } on {day} {month} {year} from your bag!'
+            f'Removed {tour.friendly_name} on {day} {month} {year} from your bag!'
         )
 
     request.session['bag'] = bag

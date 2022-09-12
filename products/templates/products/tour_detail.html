@@ -179,21 +179,25 @@
                                 <div class="form-group quantity-input-group mx-auto">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <button class="decrease-qty btn tour-btn mx-1" data-item_id="{{ tour.id }}"
+                                            <button class="decrease-qty btn tour-btn mx-1"
+                                                data-item_id="{{ tour.id }}"
+                                                data-tour_max="{{ tour.max_num_of_guests }}"
                                                 id="decrease-qty_{{ tour.id }}" type="button"
-                                                onclick="handleEnableDisable('{{ tour.id }}', '{{ tour.max_num_of_guests }}');" disabled="disabled">
-                                                <span class="icon">
-                                                    <i class="fa-solid fa-minus"></i>
+                                                disabled="disabled">
+                                                <i class="fa-solid fa-minus"></i>
                                                 </span>
                                             </button>
                                         </div>
                                         <input class="form-control text-center quantity-input" type="number"
                                             name="quantity" value="1" min="1" max="{{ tour.max_num_of_guests }}"
-                                            data-item_id="{{ tour.id }}" id="id_qty_{{ tour.id }}" onchange="handleEnableDisable('{{ tour.id }}', '{{ tour.max_num_of_guests }}')">
+                                            data-item_id="{{ tour.id }}" id="id_qty_{{ tour.id }}"
+                                            onchange="handleEnableDisable('{{ tour.id }}', '{{ tour.max_num_of_guests }}')">
                                         <div class="input-group-append"> <button class="btn tour-btn mx-1 increase-qty"
-                                                data-item_id="{{ tour.id }}" id="increase-qty_{{ tour.id }}"
-                                                onclick="handleEnableDisable('{{ tour.id }}', '{{ tour.max_num_of_guests }}');"
-                                                type="button">
+                                                data-item_id="{{ tour.id }}"
+                                                data-tour_max="{{ tour.max_num_of_guests }}"
+                                                id="increase-qty_{{ tour.id }}" type="button"
+                                                {% if quantity == tour.max_num_of_guests %}disabled="disabled"
+                                                {% endif %}>
                                                 <span class="icon">
                                                     <i class="fa-solid fa-plus"></i>
                                                 </span>
