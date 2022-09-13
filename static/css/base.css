@@ -55,6 +55,15 @@ header {
     width: 1.5rem;
 }
 
+.trip-btn {
+    border-color: #fff;
+}
+
+.trip-btn:hover {
+    background-color: #3a6700;
+    border-color: #3a6700;
+}
+
 .mobile-list {
     list-style: none;
     margin: 1rem 1rem 0;
