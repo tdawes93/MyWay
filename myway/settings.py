@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'home',
     'products',
     'bag',
+    'checkout',
 
 ]
 
@@ -195,6 +196,3 @@ GROUP_DISCOUNT_MIN_NUM = 8
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-# CSRF_TRUSTED_ORIGINS=['https://*.8000-tdawes93-myway-i3ih4wshlts.ws-us65.gitpod.io']
