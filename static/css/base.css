@@ -43,6 +43,10 @@ header {
     height: 25vh;
 }
 
+.border-rounded {
+    border-radius: 10px !important;
+}
+
 .icon {
     align-items: center;
     display: inline-flex;
@@ -68,23 +72,17 @@ header {
 
 .tour-list {
     background-color: #fff;
-    border-radius: 10px;
     color: #3a6700;
 }
 
 .overlay {
     background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
 }
 
 .tour-btn {
     color: #da0000;
     border-color: #da0000;
     border-radius: 10px;
-}
-
-.quantity-input {
-    border-radius: 10px !important;
 }
 
 .quantity-input-bag {
@@ -127,10 +125,10 @@ header {
 }
 
 .arrow-up {
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-left: 10px solid transparent;
-    border-right: 10px solid transparent; 
+    border-right: 10px solid transparent;
     border-bottom: 10px solid black;
     position: absolute;
     top: -10px;
@@ -193,19 +191,12 @@ header {
 
 .tour-thumbnail-img {
     width: 100%;
-    border-radius: 10px;
     height: 40vh
-}
-
-.tour-detail-img {
-    width: 100%;
-    border-radius: 10px
 }
 
 .sort-dropdown {
     background-color: #3a6700;
     border: solid #47351f;
-    border-radius: 10px;
     color: #fff;
 }
 
@@ -289,10 +280,6 @@ header {
     background-color: #f1f1f1;
 }
 
-.tablinks {
-    border-radius: 10px;
-}
-
 /* Style the buttons inside the tab */
 .tab button {
     background-color: inherit;
@@ -334,22 +321,53 @@ header {
     display: none;
 }
 
-.bag-img {
+.img {
     width: 100%;
-    border-radius: 10px;
 }
 
 .summary-th {
     width: 40%;
 }
 
-.table-striped>tbody>tr:nth-child(odd) {
-    background-color: #bcc8d1
+.bag-preview {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 8rem;
 }
+
+.btn-checkout,
+.btn-view-bag:hover {
+    background-color: #3a6700;
+    color: #fff;
+}
+
+.btn-checkout:hover,
+.btn-view-bag {
+    border-color: #3a6700;
+}
+
+
+.checkout-box {
+    right: 0;
+    position: fixed;
+}
+
+.total-breakdown {
+    color: #3a6700;
+}
+
+.table-group-divider {
+    border-top: 4px solid #3a6700;
+}
+
+/* .table-striped>tbody>tr:nth-child(odd) {
+    background-color: #bcc8d1
+} */
 
 .bag-item-divider {
     background-color: #3a6700;
-    height: 0.25rem
+    height: 0.25rem;
+    opacity: 1;
 }
 
 @media screen and (min-width: 426px) {

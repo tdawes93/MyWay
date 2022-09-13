@@ -16,6 +16,7 @@
             <h1>Shopping Bag</h1>
         </div>
     </div>
+    <hr>
     <div class="row mx-0 px-0">
         <div class="col-12 col-lg-8 mx-0 px-0">
             {% if bag_items %}
@@ -26,7 +27,42 @@
             <a href="{% url 'tours' %}">Find your next adventure</a>
             {% endif %}
         </div>
-        <div class="col col-lg-4">Proceed to secure checkout</div>
+        <div class="col col-lg-3 mt-5 me-5 px-4 border border-rounded checkout-box">
+            <div class="row">
+                <div class="col pt-2 text-start">
+                    <h2 class="my-0">Total</h2>
+                </div>
+            </div>
+            <hr class="mt-1">
+            <div class="row">
+                <div class="col text-start">
+                    <h6 class="total-breakdown">Subtotal</h6>
+                </div>
+                <div class="col text-end">
+                    <h6 class="total-breakdown">${{ pre_discount_total }}</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-start">
+                    <h6 class="total-breakdown">Discounts</h6>
+                </div>
+                <div class="col text-end">
+                    <h6 class="total-breakdown">-${{ total_discount }}</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-start">
+                    <h5>Grand Total</h5>
+                </div>
+                <div class="col text-end">
+                    <h5>${{ grand_total }}</h5>
+                </div>
+            </div>
+            <div class="row my-4">
+                <div class="col text-center">
+                    <button type="button" class="btn btn-lg btn-checkout">Secure checkout</button></div>
+            </div>
+        </div>
     </div>
 </div>
 

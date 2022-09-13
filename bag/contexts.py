@@ -14,6 +14,8 @@ def bag_contents(request):
     new_total = 0
     old_total = 0
     discount = False
+    product_count = 0
+    total_discount = 0
     bag = request.session.get('bag', {})
 
     for tour_date_booked, quantity in bag.items():
@@ -32,12 +34,13 @@ def bag_contents(request):
                 discount_amount = round(total*decimal.Decimal(0.2), 2)
                 total = round(total*decimal.Decimal(0.8), 2)
                 discount = True
+                total_discount += discount_amount
+
             else:
                 increase_guests = settings.GROUP_DISCOUNT_MIN_NUM - quantity
                 discount = False
 
         new_total += total
-
         bag_items.append(
             {
                 'tour_id': tour_id,
@@ -55,13 +58,18 @@ def bag_contents(request):
             }
         )
 
+    product_count = len(bag)
     grand_total += new_total
+    pre_discount_total = grand_total + total_discount
 
     context = {
         'bag_items': bag_items,
         'increase_guests': increase_guests,
         'grand_total': grand_total,
         'group_discount_num': settings.GROUP_DISCOUNT_MIN_NUM,
+        'product_count': product_count,
+        'total_discount': total_discount,
+        'pre_discount_total': pre_discount_total,
     }
 
     return context
