@@ -82,6 +82,26 @@
         jQuery(document).ready(function ($) {
             $('.toast').toast('show');
         })
+        jQuery(document).ready(function ($) {
+            $('.dropdown-toggle').hover(function () {
+                    $(this).addClass('show');
+                    $(this).siblings('.dropdown-menu').addClass('show');
+                },
+                function () {
+                    $(this).removeClass('show');
+                    $('.dropdown-menu').removeClass('show');
+
+                });
+            $('.dropdown-menu').hover(function () {
+                    $(this).addClass('show');
+                    $(this).siblings('.dropdown-toggle').addClass('show');
+                },
+                function () {
+                    $(this).removeClass('show');
+                    $('.dropdown-toggle').removeClass('show');
+
+                });
+        });
     </script>
     {% endblock %}
 
