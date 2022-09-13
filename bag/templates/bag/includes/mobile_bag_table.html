@@ -1,17 +1,14 @@
 <div class="row d-lg-none">
     <div class="col">
+        {{ bag_items }}
+        <hr class="bag-item-divider">
         {% for item in bag_items %}
         <div class="row">
             <div class="col">
-                <h2>Tour Summary</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
                 {% if item.tour.image %}
-                <img src="/media/{{ item.tour.image }}" alt="{{ item.tour.friendly_name}}" class="bag-img d-flex">
+                <img src="/media/{{ item.tour.image }}" alt="{{ item.tour.friendly_name}}" class="img border-rounded d-flex">
                 {% else %}
-                <img src="/media/noimage.png" alt="placeholder image" class="bag-img d-flex">
+                <img src="/media/noimage.png" alt="placeholder image" class="img border-rounded d-flex">
                 {% endif %}</div>
             <div class="col">
                 <h4 class="d-flex">{{ item.tour.friendly_name}}</h4>
@@ -32,10 +29,8 @@
             <div class="col">
                 <h4>Trip</h4>
             </div>
-            <div class="col text-end">
-                <h6><i class="fa-solid fa-user-group icon"></i> {{ item.quantity }}{% if item.quantity > 1 %}
-                    travellers{% else %}
-                    traveller{% endif %}</h6>
+            <div class="col-6 col-sm-5 col-md-4 d-flex text-end px-0">
+                {% include 'bag/includes/quantity-form.html' %}
             </div>
         </div>
         <div class="row">
