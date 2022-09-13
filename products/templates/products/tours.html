@@ -8,7 +8,7 @@
         <div class="col tour-list-img">
             <div class="row centered justify-content-center w-100 text-white m-auto p-auto">
                 <div class="col-9 col-md-5">
-                    <h1 class="px-auto text-center overlay py-2">Find your tour</h1>
+                    <h1 class="px-auto text-center border-rounded overlay py-2">Find your tour</h1>
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@
         <div class="row my-1 px-0">
             <div class="col-4 my-auto d-block px-0">
                 <!-- <div class="w-50"> -->
-                <select id="sort-selector" class="sort-dropdown text-center">
+                <select id="sort-selector" class="sort-dropdown border-rounded text-center">
                     <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                     <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to
                         high)</option>
@@ -42,16 +42,16 @@
             </div>
         </div>
         {% for tour in tours %}
-        <div class="col-sm-12 col-md-5 col-lg-3 tour-list my-1 mx-md-1">
+        <div class="col-sm-12 col-md-5 col-lg-3 border-rounded tour-list my-1 mx-md-1">
             <div class="row">
                 <div class="col m-0 p-0">
                     {% if tour.image %}
                     <a href="{% url 'tour_detail' tour.id %}">
-                        <img class="tour-thumbnail-img" src="/media/{{ tour.image }}" alt="{{ tour.name }}">
+                        <img class="tour-thumbnail-img border-rounded" src="/media/{{ tour.image }}" alt="{{ tour.name }}">
                     </a>
                     {% else %}
                     <a href="{% url 'tour_detail' tour.id %}">
-                        <img class="tour-thumbnail-img" src="/media/noimage.png" alt="placeholder image">
+                        <img class="tour-thumbnail-img border-rounded" src="/media/noimage.png" alt="placeholder image">
                     </a>
                     {% endif %}
 

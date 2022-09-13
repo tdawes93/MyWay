@@ -26,10 +26,10 @@
             </div>
             <div class="tab px-0 mx-0 row">
                 <div class="col-4">
-                    <button class="tablinks" onclick="openTab(event, 'the-trip')" id="defaultOpen">The Trip</button>
+                    <button class="tablinks border-rounded" onclick="openTab(event, 'the-trip')" id="defaultOpen">The Trip</button>
                 </div>
                 <div class="col-4">
-                    <button class="tablinks" onclick="openTab(event, 'dates')">Dates</button>
+                    <button class="tablinks border-rounded" onclick="openTab(event, 'dates')">Dates</button>
                 </div>
                 <!-- <button class="tablinks" onclick="openTab(event, 'Tokyo')">Reviews</button> -->
             </div>
@@ -40,9 +40,9 @@
                     <div class="row mt-2 mx-0 px-0">
                         <div class="col col-lg-5">
                             {% if tour.image %}
-                            <img class="tour-detail-img" src="/media/{{ tour.image }}" alt="{{ tour.name }}">
+                            <img class="img border-rounded" src="/media/{{ tour.image }}" alt="{{ tour.name }}">
                             {% else %}
-                            <img class="tour-detail-img" src="/media/noimage.png" alt="placeholder image">
+                            <img class="img border-rounded" src="/media/noimage.png" alt="placeholder image">
                             {% endif %}
                         </div>
                         <div class="col-lg-6 d-none d-lg-block">
@@ -188,7 +188,7 @@
                                                 </span>
                                             </button>
                                         </div>
-                                        <input class="form-control text-center quantity-input" type="number"
+                                        <input class="form-control text-center border-rounded quantity-input" type="number"
                                             name="quantity" value="1" min="1" max="{{ tour.max_num_of_guests }}"
                                             data-item_id="{{ tour.id }}" id="id_qty_{{ tour.id }}"
                                             onchange="handleEnableDisable('{{ tour.id }}', '{{ tour.max_num_of_guests }}')">
