@@ -197,4 +197,4 @@ GROUP_DISCOUNT_MIN_NUM = 8
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-CSRF_TRUSTED_ORIGINS=['https://*.8000-tdawes93-myway-i3ih4wshlts.ws-us64.gitpod.io']
+# CSRF_TRUSTED_ORIGINS=['https://*.8000-tdawes93-myway-i3ih4wshlts.ws-us65.gitpod.io']
