@@ -19,6 +19,7 @@ class Order(models.Model):
     )
     name = models.CharField(max_length=100, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
+    date = models.DateTimeField(auto_now_add=True)
     product_total = models.DecimalField(
         max_digits=6,
         decimal_places=2,
