@@ -1,6 +1,5 @@
 <div class="row d-lg-none">
     <div class="col">
-        {{ bag_items }}
         <hr class="bag-item-divider">
         {% for item in bag_items %}
         <div class="row">
@@ -52,6 +51,7 @@
         <div class="row">
             <div class="col">
                 <form action="#" method="POST">
+                    {% csrf_token %}
                     {% if item.tour.choose_multiple_locations %}
                     <h4>Please select your locations to visit:</h4>
                     {% for location in item.tour.locations.all %}

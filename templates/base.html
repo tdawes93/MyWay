@@ -92,6 +92,15 @@
                     $('.dropdown-menu').removeClass('show');
 
                 });
+                $('.bag-link').hover(function () {
+                    $(this).addClass('show');
+                    $(this).siblings('.dropdown-menu').addClass('show');
+                },
+                function () {
+                    $(this).removeClass('show');
+                    $('.dropdown-menu').removeClass('show');
+
+                });
             $('.dropdown-menu').hover(function () {
                     $(this).addClass('show');
                     $(this).siblings('.dropdown-toggle').addClass('show');

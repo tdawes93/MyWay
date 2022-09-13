@@ -313,7 +313,7 @@ header {
 }
 
 .header-buffer {
-    height: 5rem
+    height: 4rem
 }
 
 #guest-submit,
@@ -327,6 +327,15 @@ header {
 
 .summary-th {
     width: 40%;
+}
+
+.bag-list {
+    right: 2rem;
+    width: 200%;
+}
+
+.bag-item:hover {
+    background-color: #fff;
 }
 
 .bag-preview {
@@ -370,6 +379,11 @@ header {
     opacity: 1;
 }
 
+.checkout-box {
+    bottom: 2rem;
+    position: relative;
+}
+
 @media screen and (min-width: 426px) {
 
     .hero-img,
@@ -398,5 +412,14 @@ header {
 
     .tour-thumbnail-img {
         height: 30vh
+    }
+}
+
+@media screen and (min-width: 992px) {
+
+    .checkout-box {
+        right: 0;
+        position: fixed;
+        bottom: auto;
     }
 }

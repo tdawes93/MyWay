@@ -84,6 +84,7 @@
         <tr>
             <td colspan="5" class="text-end">
                 <form action="#" method="POST">
+                    {% csrf_token %}
                     {% if item.tour.choose_multiple_locations %}
                     <h4>Please select your locations to visit:</h4>
                     {% for location in item.tour.locations.all %}
