@@ -10,5 +10,6 @@ urlpatterns = [
         views.remove_from_bag,
         name='remove_from_bag'
     ),
+    path('location/<int:tour_id>', views.add_location, name='add_location'),
 
 ]

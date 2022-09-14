@@ -83,23 +83,25 @@
         {% if item.tour.choose_location %}
         <tr>
             <td colspan="5" class="text-end">
-                <form action="#" method="POST">
+                <form action="{% url 'add_location' item.tour_id %}" method="POST">
                     {% csrf_token %}
                     {% if item.tour.choose_multiple_locations %}
                     <h4>Please select your locations to visit:</h4>
                     {% for location in item.tour.locations.all %}
-                    <label for="{{ location }}">{{ location.friendly_name }}</label>
-                    <input type="checkbox" id="{{ location }}" value="{{ location }}">
+                    <label for="location-checkbox">{{ location.friendly_name }}</label>
+                    <input type="checkbox" id="location-checkbox" value="{{ location }}" name="{{ location }}">
                     {% endfor %}
                     {% else %}
                     <h4>Please select your destination:</h4>
-                    <label for="location">Choose a location:</label>
-                    <select id="location" name="location">
+                    <label for="location-dropdown">Choose a location:</label>
+                    <select id="location-dropdown" name="location" required>
                         {% for location in item.tour.locations.all %}
                         <option value="{{ location }}">{{ location.friendly_name }}</option>
                         {% endfor %}
                     </select>
                     {% endif %}
+                    <input type="hidden" name="bag_item_id" value="{{ item.bag_item_id }}">
+                    <button type="submit" class="btn tour-btn">Add location</button>
                 </form>
             </td>
         </tr>

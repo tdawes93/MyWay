@@ -105,6 +105,45 @@ def edit_bag(request, tour_id):
     return redirect(reverse('view_bag'))
 
 
+def add_location(request, tour_id):
+    tour = get_object_or_404(Tour, pk=tour_id)
+    bag = request.session.get('location', {})
+    bag_item_id = request.POST.get('bag_item_id')
+    tour_date_booked = ' '.join(bag_item_id.split('_'))
+    date = tour_date_booked.split()[2]
+    day = date.split('-')[0]
+    month = date.split('-')[1].capitalize()
+    year = date.split('-')[2]
+
+    location = request.POST.get('location')
+
+    if location:
+        location_friendly_name = (' '.join(location.split('_')).title())
+        bag[tour_date_booked] = location_friendly_name
+        messages.add_message(
+            request,
+            BAG_SUCCESS,
+            f'{location_friendly_name} added to {tour.friendly_name} on {day} {month} {year}!'
+        )
+    else:
+        locations = []
+        for place in tour.locations.all():
+            if request.POST.get(f'{place}'):
+                location = request.POST.get(f'{place}')
+                location_friendly_name = (' '.join(location.split('_')).title())
+                locations.append(location_friendly_name)
+        bag[tour_date_booked] = locations
+        places = ', '.join(locations)
+        messages.add_message(
+            request,
+            BAG_SUCCESS,
+            f'{places} added to {tour.friendly_name} on {day} {month} {year}!'
+        )
+
+    request.session['location'] = bag
+    return redirect(reverse('view_bag'))
+
+
 def remove_from_bag(request, tour_id):
     """Remove the item from the shopping bag"""
     tour = get_object_or_404(Tour, pk=tour_id)

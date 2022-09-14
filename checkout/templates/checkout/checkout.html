@@ -55,7 +55,29 @@
                         </div>
                     </p>
                     <p class="my-0 small text-muted">Number of travellers: {{ item.quantity }}</p>
-                    <p>Location: {% for location in tour.locations.all %}{{ location.friendly_name }}{% endfor %}</p>
+                    <p>{% if item.tour.choose_location %}
+                            {% if item.tour.choose_multiple_locations %}
+                                Destinations selected:
+                                {% for location in location_items %}
+                                    {% if location.bag_item_id == item.bag_item_id %}
+                                        {% for place in location.location %}
+                                            {{ place }}{% if not forloop.last %}, {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% else %}
+                                Destination selected:
+                                {% for location in location_items %}
+                                    {% if location.bag_item_id == item.bag_item_id %}
+                                        {{ location.location }}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% else %}
+                            Destination of tour: {% for location in item.tour.locations.all %}{{ location.friendly_name }}{% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                            </p>
                 </div>
                 <div class="col-3 text-right">
                     <p class="my-0 small text-muted">${{ item.total }}</p>

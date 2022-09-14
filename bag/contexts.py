@@ -7,6 +7,7 @@ from products.models import Tour
 def bag_contents(request):
 
     bag_items = []
+    location_items = []
     total = 0
     discount_amount = 0
     increase_guests = 0
@@ -17,6 +18,7 @@ def bag_contents(request):
     product_count = 0
     total_discount = 0
     bag = request.session.get('bag', {})
+    location = request.session.get('location', {})
 
     for tour_date_booked, quantity in bag.items():
         bag_item_id = '_'.join(tour_date_booked.split())
@@ -58,12 +60,23 @@ def bag_contents(request):
             }
         )
 
+    for tour_date_booked, location in location.items():
+        bag_item_id = '_'.join(tour_date_booked.split())
+
+        location_items.append(
+            {
+                'location': location,
+                'bag_item_id': bag_item_id
+            }
+        )
+
     product_count = len(bag)
     grand_total += new_total
     pre_discount_total = grand_total + total_discount
 
     context = {
         'bag_items': bag_items,
+        'location_items': location_items,
         'increase_guests': increase_guests,
         'grand_total': grand_total,
         'group_discount_num': settings.GROUP_DISCOUNT_MIN_NUM,
