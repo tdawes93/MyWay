@@ -14,3 +14,6 @@ bootstrap toasts not showing - used BS v5, ensured all data-attributes were data
 to ensure it could be used in the script tags
 
 different tours had different locations they could choose, some can only have one others multiple. This caused issues when sending the location selector form to the view with only the last checkbox read by the post request. This was resolved by naming each checkbox with the value using django template tags, then iterating through the available choices and if there is a match adding that value into a list. This list was then passed to the context so it could be iterated and each item used in the front end. If there is only one choice, or only one location allowed the value was treated as a string. 
+
+
+Upon checkout the order items weren't adding to the order as there was an invalid type operation error. After hours it was found this was due to the numbers being larger than the max number of digits

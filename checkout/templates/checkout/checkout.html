@@ -115,7 +115,7 @@
             </div>
         </div>
         <div class="col">
-            <p>Please fill out the form below to complete your order</p>
+            <p class="ms-3">Please fill out the form below to complete your order</p>
             <form action="{% url 'checkout' %}" method="POST" id="payment-form" data-url="{% url 'checkout' %}">
                 {% csrf_token %}
                 <fieldset class="rounded px-3 mb-5">
@@ -139,7 +139,7 @@
                 </fieldset>
                 <fieldset class="px-3">
                     <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
-                        <div id="payment-element">
+                        <div id="card-element">
                           <!-- Elements will create form elements here -->
                         </div>
                         <div id="error-message">
@@ -154,7 +154,7 @@
                         </span>
                         <span class="font-weight-bold">Adjust Bag</span>
                     </a>
-                    <button id="submit" class="btn btn-lg border-rounded-0 btn-checkout">
+                    <button id="submit-button" class="btn btn-lg border-rounded-0 btn-checkout ms-3">
                         <span class="font-weight-bold">Complete Order</span>
                         <span class="icon">
                             <i class="fas fa-lock"></i>
@@ -170,8 +170,6 @@
             </form>
         </div>
     </div>
-
-
 </div>
 
 

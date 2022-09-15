@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="row header-buffer px-0 mx-0">
+    <div class="col-12 px-0 mx-0"></div>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container-fluid mt-2 mt-lg-0 bg-white w-100">
+    <div class="row mx-0 px-0 w-100">
+        <div class="col px-0 px-lg-2 mt-3">
+            <h1>Booking Conirmed!</h1>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <h6>Time to pack your bags and we'll send you on yourway!</h6>
+            <p>Thank you for booking with myway, your booking information can be found below</p>
+            <p>A confirmation email has be sent to {{ order.email }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col"></div>
+    </div>
+
+
+</div>
+
+
+{% endblock %}

@@ -432,3 +432,49 @@ header {
         bottom: auto;
     }
 }
+
+
+.StripeElement,
+.stripe-style-input {
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    height: 40px;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+    color: #bcc8d1;
+}
+
+.StripeElement--focus,
+.stripe-style-input:focus,
+.stripe-style-input:active {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--webkit-autofill {
+    background-color: #fff !important;
+}
+
+.stripe-style-input::placeholder {
+    color: #bcc8d1;
+}
+
+.fieldset-label {
+    position: relative;
+    right: .5rem;
+}
+
+#payment-form .form-control,
+#card-element {
+    color: #000;
+    border: 1px solid #3a6700;
+}
+
+.form-check-input:checked {
+    background-color: #3a6700;
+    border-color: #3a6700;
+}

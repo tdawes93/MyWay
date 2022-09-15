@@ -29,25 +29,26 @@ def add_to_bag(request, tour_id):
     bag = request.session.get('bag', {})
 
     if tour_date_booked in list(bag.keys()):
-        if bag[tour_date_booked] + quantity >= tour.max_num_of_guests:
-            messages.error(
-                request,
-                f'Cannot add {quantity} traveller(s) for {tour.friendly_name} on {day} {month} {year} to your bag as it will exceed the maximum group size of {tour.max_num_of_guests}. Please change your number of guests to add your tour.'
-            )
-            return HttpResponse(status=400)
-        else:
-            bag[tour_date_booked] += quantity
-            messages.add_message(
-                request,
-                BAG_SUCCESS,
-                f'Updated the number of travellers in your bag for {tour.friendly_name} on {day} {month} {year}'
-            )
-            if tour.group_discount:
-                if bag[tour_date_booked] >= settings.GROUP_DISCOUNT_MIN_NUM:
-                    messages.success(
-                        request,
-                        'Congratulations you have qualified for a group discount of 20% off!'
-                    )
+        for item in bag:
+            if bag[tour_date_booked] + quantity >= tour.max_num_of_guests:
+                messages.error(
+                    request,
+                    f'Cannot add {quantity} traveller(s) for {tour.friendly_name} on {day} {month} {year} to your bag as it will exceed the maximum group size of {tour.max_num_of_guests}. Please change your number of guests to add your tour.'
+                )
+                return HttpResponse(status=400)
+            else:
+                bag[tour_date_booked] += quantity
+                messages.add_message(
+                    request,
+                    BAG_SUCCESS,
+                    f'Updated the number of travellers in your bag for {tour.friendly_name} on {day} {month} {year}'
+                )
+                if tour.group_discount:
+                    if bag[tour_date_booked] >= settings.GROUP_DISCOUNT_MIN_NUM:
+                        messages.success(
+                            request,
+                            'Congratulations you have qualified for a group discount of 20% off!'
+                        )
     else:
         bag[tour_date_booked] = quantity
         messages.add_message(
