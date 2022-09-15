@@ -34,15 +34,11 @@ def checkout(request):
                     date_booked = ' '.join(
                         tour_date_booked.split()[2].split('-')
                         )
-                    # total_price = tour.price * quantity
-                    # if tour.group_discount:
-                    #     tour_discount = 
                     order_item = OrderItem(
                         order=order,
                         tour=tour,
                         number_of_guests=quantity,
                         date_of_trip_or_event=date_booked,
-                        # total_price=total_price,
                     )
                     order_item.save()
                 except Tour.DoesNotExist:
