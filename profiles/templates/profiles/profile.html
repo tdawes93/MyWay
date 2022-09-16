@@ -17,7 +17,29 @@
         </div>
     </div>
     <hr>
+<div class="row">
+    <div class="col-4 mb-2">
+        <h5>Billing Information</h5>
+        <form action="{% url 'profile' %}" method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-lg btn-checkout">Save</button>
+        </form>
+    </div>
+    <div class="col-8">
+        <h5>Order History</h5>
+        {{ orders }}
+    </div>
 </div>
-{{ profile }}
 
+</div>
+
+{% endblock %}
+
+
+{% block postload_js %}
+    {{ block.super }}
+    <script type="text/javascript" src="../../../static/js/countryfield.js">
+        
+    </script>
 {% endblock %}
