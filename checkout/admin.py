@@ -18,6 +18,8 @@ class OrderAdmin(admin.ModelAdmin):
         'product_total',
         'total_discount',
         'grand_total',
+        'original_bag',
+        'stripe_pid',
     )
 
     ordering = ('-date',)
