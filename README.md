@@ -17,3 +17,6 @@ different tours had different locations they could choose, some can only have on
 
 
 Upon checkout the order items weren't adding to the order as there was an invalid type operation error. After hours it was found this was due to the numbers being larger than the max number of digits
+
+
+webhook throwing 400 0 error bad request, solved by putting STRIPE_WH_SECRET in an env.py file and calling from there as opposed to through the gitpod variables
