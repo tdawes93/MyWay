@@ -124,10 +124,10 @@
                     <legend class="fieldset-label small px-2 w-auto">Lead Guest Details</legend>
                     {{ order_form.name | as_crispy_field }}
                     {{ order_form.email | as_crispy_field }}
+                    {{ order_form.phone_number | as_crispy_field }}
                 </fieldset>
                 <fieldset class="border-rounded px-3 mb-5">
                     <legend class="fieldset-label small px-2 w-auto">Billing Information</legend>
-                    {{ order_form.phone_number | as_crispy_field }}
                     {{ order_form.street_address1 | as_crispy_field }}
                     {{ order_form.street_address2 | as_crispy_field }}
                     {{ order_form.town_or_city | as_crispy_field }}
