@@ -435,7 +435,7 @@ header {
 
 
 .StripeElement,
-.stripe-style-input {
+.stripe-style-input, .textinput {
     font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
     height: 40px;
@@ -469,7 +469,7 @@ header {
 }
 
 #payment-form .form-control,
-#card-element {
+#card-element, .textinput {
     color: #000;
     border: 1px solid #3a6700;
 }
@@ -514,4 +514,13 @@ select:invalid, select option[value=""] {
     justify-content: center;
     margin: 0;
     height: 100%;
+}
+
+.login-provider {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.allauth-container {
+    height: 100vh;
 }
