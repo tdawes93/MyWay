@@ -1,13 +1,13 @@
 import uuid
-import decimal
 
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
 
-from decimal import Decimal
+from django_countries.fields import CountryField
 
 from products.models import Tour
+from profiles.models import Profile
 
 
 class Order(models.Model):
@@ -20,8 +20,20 @@ class Order(models.Model):
         blank=False,
         editable=False
     )
+    profile = models.ForeignKey(
+        Profile, on_delete=models.SET_NULL,
+        null=True, blank=True, related_name='orders'
+    )
     name = models.CharField(max_length=100, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
+    phone_number = models.CharField(
+        max_length=20, null=False, blank=False, default=0)
+    country = CountryField(blank_label='Country *', null=True, blank=True)
+    postcode = models.CharField(max_length=20, null=True, blank=True)
+    town_or_city = models.CharField(max_length=40, null=True, blank=True)
+    street_address1 = models.CharField(max_length=80, null=True, blank=True)
+    street_address2 = models.CharField(max_length=80, null=True, blank=True)
+    county = models.CharField(max_length=80, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     product_total = models.DecimalField(
         max_digits=10,
@@ -126,6 +138,6 @@ class OrderItem(models.Model):
         else:
             self.tour_discount = 0
         super().save(*args, **kwargs)
-        
+
     def __str__(self):
         return f'{self.tour.name} on order {self.order.order_number}'
