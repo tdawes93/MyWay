@@ -459,7 +459,7 @@ header {
     background-color: #fff !important;
 }
 
-.stripe-style-input::placeholder {
+.stripe-style-input::placeholder, .form-select::placeholder {
     color: #bcc8d1;
 }
 
@@ -472,6 +472,20 @@ header {
 #card-element {
     color: #000;
     border: 1px solid #3a6700;
+}
+
+.form-select {
+    padding-top: 0;
+    padding-bottom: 0;
+    border: 1px solid #3a6700;
+}
+
+select option {
+    color: #000;
+}
+
+select:invalid, select option[value=""] {
+    color: #bcc8d1
 }
 
 .form-check-input:checked {

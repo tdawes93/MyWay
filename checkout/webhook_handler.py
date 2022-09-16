@@ -41,6 +41,13 @@ class StripeWH_Handler:
                 order = Order.objects.get(
                     name__iexact=billing_details.name,
                     email__iexact=billing_details.email,
+                    phone_number__iexact=billing_details.phone,
+                    country__iexact=billing_details.address.country,
+                    postcode__iexact=billing_details.address.postal_code,
+                    town_or_city__iexact=billing_details.address.city,
+                    street_address1__iexact=billing_details.address.line1,
+                    street_address2__iexact=billing_details.address.line2,
+                    county__iexact=billing_details.address.state,
                     grand_total=grand_total,
                     original_bag=bag,
                     stripe_pid=pid,
@@ -63,6 +70,13 @@ class StripeWH_Handler:
                 order = Order.objects.create(
                     name=billing_details.name,
                     email=billing_details.email,
+                    phone_number__iexact=billing_details.phone,
+                    country__iexact=billing_details.address.country,
+                    postcode__iexact=billing_details.address.postal_code,
+                    town_or_city__iexact=billing_details.address.city,
+                    street_address1__iexact=billing_details.address.line1,
+                    street_address2__iexact=billing_details.address.line2,
+                    county__iexact=billing_details.address.state,
                     original_bag=bag,
                     stripe_pid=pid,
                 )

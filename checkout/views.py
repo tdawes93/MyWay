@@ -48,6 +48,13 @@ def checkout(request):
         form_data = {
             'name': request.POST['name'],
             'email': request.POST['email'],
+            'phone_number': request.POST['phone_number'],
+            'country': request.POST['country'],
+            'postcode': request.POST['postcode'],
+            'town_or_city': request.POST['town_or_city'],
+            'street_address1': request.POST['street_address1'],
+            'street_address2': request.POST['street_address2'],
+            'county': request.POST['county'],
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
@@ -125,9 +132,9 @@ def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
     messages.success(request, (
-        f'Order successful!'
-        f'Your booking number is {order_number}'
-        f'You will receive a confirmation email to {order.email}'
+        f'Order successful! '
+        f'Your booking number is {order_number}. '
+        f'You will receive a confirmation email to {order.email}. '
         f'If you do not receive this email please check your junk folder')
     )
 

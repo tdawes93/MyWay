@@ -56,28 +56,30 @@
                     </p>
                     <p class="my-0 small text-muted">Number of travellers: {{ item.quantity }}</p>
                     <p>{% if item.tour.choose_location %}
-                            {% if item.tour.choose_multiple_locations %}
-                                Destinations selected:
-                                {% for location in location_items %}
-                                    {% if location.bag_item_id == item.bag_item_id %}
-                                        {% for place in location.location %}
-                                            {{ place }}{% if not forloop.last %}, {% endif %}
-                                        {% endfor %}
-                                    {% endif %}
-                                {% endfor %}
-                            {% else %}
-                                Destination selected:
-                                {% for location in location_items %}
-                                    {% if location.bag_item_id == item.bag_item_id %}
-                                        {{ location.location }}
-                                    {% endif %}
-                                {% endfor %}
-                            {% endif %}
-                        {% else %}
-                            Destination of tour: {% for location in item.tour.locations.all %}{{ location.friendly_name }}{% if not forloop.last %}, {% endif %}
-                            {% endfor %}
+                        {% if item.tour.choose_multiple_locations %}
+                        Destinations selected:
+                        {% for location in location_items %}
+                        {% if location.bag_item_id == item.bag_item_id %}
+                        {% for place in location.location %}
+                        {{ place }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
                         {% endif %}
-                            </p>
+                        {% endfor %}
+                        {% else %}
+                        Destination selected:
+                        {% for location in location_items %}
+                        {% if location.bag_item_id == item.bag_item_id %}
+                        {{ location.location }}
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                        {% else %}
+                        Destination of tour:
+                        {% for location in item.tour.locations.all %}{{ location.friendly_name }}{% if not forloop.last %},
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                    </p>
                 </div>
                 <div class="col-3 text-right">
                     <p class="my-0 small text-muted">${{ item.total }}</p>
@@ -119,9 +121,19 @@
             <form action="{% url 'checkout' %}" method="POST" id="payment-form" data-url="{% url 'checkout' %}">
                 {% csrf_token %}
                 <fieldset class="rounded px-3 mb-5">
-                    <legend class="fieldset-label small text-black px-2 w-auto">Lead Guest Details</legend>
+                    <legend class="fieldset-label small px-2 w-auto">Lead Guest Details</legend>
                     {{ order_form.name | as_crispy_field }}
                     {{ order_form.email | as_crispy_field }}
+                </fieldset>
+                <fieldset class="border-rounded px-3 mb-5">
+                    <legend class="fieldset-label small px-2 w-auto">Billing Information</legend>
+                    {{ order_form.phone_number | as_crispy_field }}
+                    {{ order_form.street_address1 | as_crispy_field }}
+                    {{ order_form.street_address2 | as_crispy_field }}
+                    {{ order_form.town_or_city | as_crispy_field }}
+                    {{ order_form.county | as_crispy_field }}
+                    {{ order_form.postcode | as_crispy_field }}
+                    {{ order_form.country | as_crispy_field }}
 
                     <div class="form-check form-check-inline float-right mr-0">
                         {% if user.is_authenticated %}
@@ -139,13 +151,13 @@
                 </fieldset>
                 <fieldset class="px-3">
                     <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
-                        <div id="card-element">
-                          <!-- Elements will create form elements here -->
-                        </div>
-                        <div id="error-message">
-                          <!-- Display error message to your customers here -->
-                        </div>
-                        <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                    <div id="card-element">
+                        <!-- Elements will create form elements here -->
+                    </div>
+                    <div id="error-message">
+                        <!-- Display error message to your customers here -->
+                    </div>
+                    <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </fieldset>
 
                 <div class="submit-button text-right px-3 mt-5 mb-2">
