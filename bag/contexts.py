@@ -3,6 +3,8 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Tour
 
+from datetime import date
+
 
 def bag_contents(request):
 
@@ -83,6 +85,7 @@ def bag_contents(request):
         'product_count': product_count,
         'total_discount': total_discount,
         'pre_discount_total': pre_discount_total,
+        'todays_date': date.today()
     }
 
     return context

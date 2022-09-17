@@ -1,6 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 
+from datetime import date, datetime
+
+from checkout.models import Order
+
 from .models import Profile
 from .forms import ProfileForm
 
@@ -20,10 +24,36 @@ def profile(request):
     form = ProfileForm(instance=profile_acc)
     orders = profile_acc.orders.all()
     template = 'profiles/profile.html'
+
+    for order in orders:
+        orderitems = order.orderitems.all()
+        for item in orderitems:
+            date_notime = '/'.join(item.date_of_trip_or_event.split())
+            date_withtime = date_notime
+            date_booked_id = datetime.strptime(date_withtime, '%d/%b/%Y').date()
+
     context = {
         'profile': profile_acc,
         'form': form,
-        'orders': orders
+        'orders': orders,
+        'date_booked_id': date_booked_id
+    }
+
+    return render(request, template, context)
+
+
+def order_history(request, order_number):
+    order = get_object_or_404(Order, order_number=order_number)
+
+    messages.info(request, (
+        f'This is a past confirmation for order number {order_number}. '
+        'A confirmation email was sent on the order date.'
+    ))
+
+    template = 'checkout/checkout_success.html'
+    context = {
+        'order': order,
+        'from_profile': True,
     }
 
     return render(request, template, context)
