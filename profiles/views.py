@@ -14,6 +14,7 @@ def profile(request):
     A view to render the users profile page
     """
     profile_acc = get_object_or_404(Profile, user=request.user)
+    date_booked_id = ''
 
     if request.method == 'POST':
         form = ProfileForm(request.POST, instance=profile_acc)

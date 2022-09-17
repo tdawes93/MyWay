@@ -4,6 +4,7 @@ import time
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 
+from profiles.models import Profile
 from products.models import Tour
 from .models import Order, OrderItem
 
@@ -33,6 +34,22 @@ class StripeWH_Handler:
 
         billing_details = intent.charges.data[0].billing_details
         grand_total = round(intent.charges.data[0].amount / 100, 2)
+
+        profile = None
+        username = intent.metadata.username
+        if username != 'Anonymouse User':
+            profile = Profile.objects.get(
+                user__username=username
+                )
+            if save_info == 'save':
+                profile.default_phone_number = billing_details.phone
+                profile.default_country = billing_details.address.country
+                profile.default_postcode = billing_details.address.postal_code
+                profile.default_town_or_city = billing_details.address.city
+                profile.default_street_address1 = billing_details.address.line1
+                profile.default_street_address2 = billing_details.address.line2
+                profile.default_county = billing_details.address.state
+                profile.save()
 
         order_exists = False
         attempt = 1
@@ -68,6 +85,7 @@ class StripeWH_Handler:
             order = None
             try:
                 order = Order.objects.create(
+                    profile=profile,
                     name=billing_details.name,
                     email=billing_details.email,
                     phone_number__iexact=billing_details.phone,
