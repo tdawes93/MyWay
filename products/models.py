@@ -35,7 +35,7 @@ class Date(models.Model):
     OCT = 'Oct'
     NOV = 'Nov'
     DEC = 'Dec'
-    TRANSPORT_CHOICES = [
+    MONTH_CHOICES = [
         (JAN, 'Jan'),
         (FEB, 'Feb'),
         (MAR, 'Mar'),
@@ -51,7 +51,7 @@ class Date(models.Model):
     ]
     name = models.CharField(
         max_length=30,
-        choices=TRANSPORT_CHOICES,
+        choices=MONTH_CHOICES,
         default=0,
     )
 
