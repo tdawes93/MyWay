@@ -1,0 +1,1 @@
+Confirmation of your trip with myway - booking  {{ order.order_number }}

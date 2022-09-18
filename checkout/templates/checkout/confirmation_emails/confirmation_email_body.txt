@@ -1,0 +1,23 @@
+{{ order.name }}, time to pack your things you're all booked in!
+
+myway - Order number {{ order.order_number }}
+
+Your booking for {% for item in order.orderitems.all %} {{ item.tour.friendly_name }}{% if not forloop.last %}, {% endif %}{% endfor %}
+
+Order summary: 
+
+{% for item in order.orderitems.all %}
+
+{{ item.number_of_guests }} guest{% if item.number_of_guests > 1 %}s{% endif %} for {{ item.tour.friendly_name }} on {{ item.date_of_trip_or_event|title }}
+
+{% endfor %}
+
+{% if order.total_discount > 0 %} Congratulations, you qualified for a discount of {{ order.total_discount }}{% endif %}
+Total amount charged: ${{ order.grand_total|floatformat:2 }}
+
+
+If you have made a mistake in this order or you have any questions please contact us at {{ contact_number }} or {{ contact_email }}.
+
+Thanks
+
+The myway team!

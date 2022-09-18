@@ -3,6 +3,9 @@ import time
 
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.conf import settings
 
 from profiles.models import Profile
 from products.models import Tour
@@ -14,6 +17,26 @@ class StripeWH_Handler:
 
     def __init__(self, request):
         self.request = request
+
+    def send_confirmation_email(self, order):
+        """
+        Send the user a confirmation email
+        """
+        customer_email = order.email
+        subject = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_subject.txt',
+            {'order': order}
+        )
+        body = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_body.txt',
+            {
+                'order': order,
+                'contact_email': settings.DEFAULT_FROM_EMAIL,
+                'contact_number': settings.DEFAULT_CONTACT_NUMBER,
+                }
+        )
+        send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [customer_email])
+
 
     def handle_event(self, event):
         """
@@ -58,7 +81,7 @@ class StripeWH_Handler:
                 order = Order.objects.get(
                     name__iexact=billing_details.name,
                     email__iexact=billing_details.email,
-                    phone_number__iexact=billing_details.phone,
+                    phone_number=billing_details.phone,
                     country__iexact=billing_details.address.country,
                     postcode__iexact=billing_details.address.postal_code,
                     town_or_city__iexact=billing_details.address.city,
@@ -75,6 +98,7 @@ class StripeWH_Handler:
                 attempt += 1
                 time.sleep(1)
         if order_exists:
+            self._send_confirmation_email(order)
             return HttpResponse(
                 content=(
                     f'Webhook received: {event["type"]}'
@@ -88,13 +112,13 @@ class StripeWH_Handler:
                     profile=profile,
                     name=billing_details.name,
                     email=billing_details.email,
-                    phone_number__iexact=billing_details.phone,
-                    country__iexact=billing_details.address.country,
-                    postcode__iexact=billing_details.address.postal_code,
-                    town_or_city__iexact=billing_details.address.city,
-                    street_address1__iexact=billing_details.address.line1,
-                    street_address2__iexact=billing_details.address.line2,
-                    county__iexact=billing_details.address.state,
+                    phone_number=billing_details.phone,
+                    country=billing_details.address.country,
+                    postcode=billing_details.address.postal_code,
+                    town_or_city=billing_details.address.city,
+                    street_address1=billing_details.address.line1,
+                    street_address2=billing_details.address.line2,
+                    county=billing_details.address.state,
                     original_bag=bag,
                     stripe_pid=pid,
                 )
@@ -114,12 +138,13 @@ class StripeWH_Handler:
             except Exception as e:
                 if order:
                     order.delete()
-                    return HttpResponse(
-                        content=(
-                            f'Webhook received: {event["type"]}'
-                            f' | ERROR: {e}'),
-                        status=500
-                    )
+                return HttpResponse(
+                    content=(
+                        f'Webhook received: {event["type"]}'
+                        f' | ERROR: {e}'),
+                    status=500
+                )
+        self.send_confirmation_email(order)
         return HttpResponse(
             content=(
                 f'Webhook received: {event["type"]}'
