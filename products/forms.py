@@ -1,5 +1,6 @@
 from django import forms
 from .models import Tour, Date, Location
+from django_summernote.fields import SummernoteTextFormField
 
 
 class TourForm(forms.ModelForm):
@@ -14,10 +15,10 @@ class TourForm(forms.ModelForm):
         location_friendly_names = [
             (l.id, l.get_friendly_name()) for l in locations
         ]
-        dates = Date.objects.all()
-        date_names = [(d.id, d.get_name()) for d in dates]
 
         self.fields['locations'].choices = location_friendly_names
-        self.fields['dates'].choices = date_names
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'rounded-border'
+        self.fields['description'] = SummernoteTextFormField()
+        self.fields['itinerary'] = SummernoteTextFormField()
+

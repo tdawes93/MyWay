@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="row header-buffer px-0 mx-0">
+    <div class="col-12 px-0 mx-0"></div>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container-fluid mt-2 mt-lg-0 bg-white w-100">
+    <div class="row mx-0 px-0 w-100">
+        <div class="col px-0 px-lg-2 mt-3">
+            <h1>Store Admin</h1>
+            <hr>
+            <h4>Add Tour</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-lg-8 px-0 px-lg-3 mt-3">
+        <form action="{% url 'add_tour' %}" method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-lg btn-checkout">Add Tour</button>
+        </form>
+    </div>
+    </div>
+</div>
+
+{% endblock %}

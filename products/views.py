@@ -1,6 +1,8 @@
 from django.shortcuts import render,  get_object_or_404
-from .models import Tour
 from django.db.models.functions import Lower
+
+from .models import Tour
+from .forms import TourForm
 
 
 def all_tours(request):
@@ -48,3 +50,15 @@ def tour_detail(request, tour_id):
     }
 
     return render(request, 'products/tour_detail.html', context)
+
+
+def add_tour(request):
+    """
+    Add a tour to the store
+    """
+    form = TourForm()
+    template = 'products/add_tour.html'
+    context = {
+        'form': form,
+    }
+    return render(request, template, context)

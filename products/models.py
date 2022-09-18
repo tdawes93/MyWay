@@ -84,7 +84,6 @@ class Tour(models.Model):
     itinerary = models.TextField(null=True, blank=True)
     price = models.DecimalField(max_digits=8, decimal_places=2)
     image = models.ImageField(blank=True, null=True)
-    image_url = models.URLField(max_length=1024, null=True, blank=True)
     locations = models.ManyToManyField(
         "Location",
         related_name="Location",
@@ -124,8 +123,8 @@ class Tour(models.Model):
         "Date",
         related_name="Date"
     )
-    choose_location = models.BooleanField(null=True, blank=True)
-    choose_multiple_locations = models.BooleanField(null=True, blank=True)
+    choose_location = models.BooleanField(default=False)
+    choose_multiple_locations = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.name}'
