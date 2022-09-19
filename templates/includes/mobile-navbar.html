@@ -19,7 +19,10 @@
                 </a>
                 <ul class="dropdown-menu position-absolute">
                     {% if request.user.is_authenticated %}
-                    <li><a class="dropdown-item" href="#">My Account</a></li>
+                    {% if request.user.is_superuser %}
+                    <li><a class="dropdown-item" href="{% url 'site_management' %}">Site Management</a></li>
+                    {% endif %}
+                    <li><a class="dropdown-item" href="{% url 'profile' %}">My Account</a></li>
                     <li><a class="dropdown-item" href="#">My Orders</a></li>
                     <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
                     {% else %}

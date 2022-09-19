@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="row header-buffer px-0 mx-0">
+    <div class="col-12 px-0 mx-0"></div>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container-fluid mt-2 mt-lg-0 bg-white w-100">
+    <div class="row mx-0 px-0 w-100">
+        <div class="col px-0 px-lg-2 mt-3">
+            <h1>Site Management</h1>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-lg-8 px-0 px-lg-3 mt-3">
+            <p>Welcome to myway's site management page, from here you have complete control over your store. Please
+                select one of the options below.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="ul">
+                <li class="list-unstyled"><a href="{% url 'add_tour' %}" class="btn btn-lg btn-checkout my-1">Add a Tour</a></li>
+                <li class="list-unstyled"><a href="" class="btn btn-lg btn-checkout my-1">Add a Location</a></li>
+                <li class="list-unstyled"><a href="" class="btn btn-lg btn-checkout my-1">Add an Add-on</a></li>
+                <li class="list-unstyled"><a href=""></a></li>
+                <li class="list-unstyled"><a href=""></a></li>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

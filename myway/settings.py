@@ -212,6 +212,7 @@ GROUP_DISCOUNT_MIN_NUM = 8
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+SUMMERNOTE_THEME = 'bs5'
 
 # Stripe
 

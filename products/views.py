@@ -1,4 +1,5 @@
-from django.shortcuts import render,  get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.contrib import messages
 from django.db.models.functions import Lower
 
 from .models import Tour
@@ -56,9 +57,30 @@ def add_tour(request):
     """
     Add a tour to the store
     """
-    form = TourForm()
+    if request.method == 'POST':
+        form = TourForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,
+                'Tour added to store successfully!'
+            )
+            return redirect(reverse('add_tour'))
+        else:
+            messages.error(
+                request,
+                'Failed to add tour to store. Please check the form for errors'
+            )
+    else:
+        form = TourForm()
     template = 'products/add_tour.html'
     context = {
         'form': form,
     }
     return render(request, template, context)
+
+
+def site_management(request):
+    """Renders navigation to allow superuser to manage site"""
+    template = 'products/site_management.html'
+    return render(request, template)

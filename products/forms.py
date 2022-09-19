@@ -21,4 +21,3 @@ class TourForm(forms.ModelForm):
             field.widget.attrs['class'] = 'rounded-border'
         self.fields['description'] = SummernoteTextFormField()
         self.fields['itinerary'] = SummernoteTextFormField()
-
