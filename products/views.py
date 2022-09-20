@@ -80,6 +80,36 @@ def add_tour(request):
     return render(request, template, context)
 
 
+def edit_tour(request, tour_id):
+    """
+    Edit a tour in the store
+    """
+    print(tour_id)
+    tour = get_object_or_404(Tour, pk=tour_id)
+    if request.method == 'POST':
+        form = TourForm(request.POST, request.FILES, instance=tour)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,
+                'Tour edited successfully!'
+            )
+            return redirect(reverse('tour_detail', args=[tour.id]))
+        else:
+            messages.error(
+                request,
+                'Failed to edit the tour. Please check the form for errors'
+            )
+    else:
+        form = TourForm(instance=tour)
+    template = 'products/edit_tour.html'
+    context = {
+        'form': form,
+        'tour': tour,
+    }
+    return render(request, template, context)
+
+
 def site_management(request):
     """Renders navigation to allow superuser to manage site"""
     template = 'products/site_management.html'
