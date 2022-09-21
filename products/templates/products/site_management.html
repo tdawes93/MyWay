@@ -24,15 +24,51 @@
         </div>
     </div>
     <div class="row">
-        <div class="col">
-            <div class="ul">
-                <li class="list-unstyled"><a href="{% url 'add_tour' %}" class="btn btn-lg btn-checkout my-1">Add a Tour</a></li>
-                <li class="list-unstyled"><a href="" class="btn btn-lg btn-checkout my-1">Add a Location</a></li>
-                <li class="list-unstyled"><a href="" class="btn btn-lg btn-checkout my-1">Add an Add-on</a></li>
-                <li class="list-unstyled"><a href=""></a></li>
-                <li class="list-unstyled"><a href=""></a></li>
-
-            </div>
+        <div class="col-4">
+            <ul>
+                <li class="list-unstyled my-1"><a href="{% url 'add_tour' %}" class="btn btn-lg btn-checkout">Add a
+                        Tour</a></li>
+                <li class="list-unstyled my-2">
+                    <div class="edit-tour dropdown btn btn-lg btn-checkout text-black">
+                        <a class="px-auto mx-auto dropdown-toggle text-decoration-none text-white tour-mods" href="" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Edit Tour
+                        </a>
+                        <ul class="dropdown-menu">
+                            {% for tour in tours %}
+                            <li><a class="dropdown-item"
+                                    href="{% url 'edit_tour' tour.id %}">{{ tour.friendly_name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+                <li class="list-unstyled my-1">
+                    <div class="delete-tour dropdown btn btn-lg btn-checkout">
+                        <a class="px-auto mx-auto dropdown-toggle text-decoration-none text-white tour-mods" href="" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Delete Tour
+                        </a>
+                        <ul class="dropdown-menu">
+                            {% for tour in tours %}
+                            <li><a class="dropdown-item"
+                                    href="{% url 'delete_tour' tour.id %}">{{ tour.friendly_name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-3">
+            <ul>
+                <li class="list-unstyled"><a href="#" class="btn btn-lg btn-checkout my-1">Add a Location</a></li>
+                <li class="list-unstyled"><a href="" class="btn btn-lg btn-checkout my-1">Edit a Location</a></li>
+                <li class="list-unstyled"><a href="" class="btn btn-lg btn-checkout my-1">Delete a Location</a></li>
+            </ul>
+        </div>
+        <div class="col-3">
+            <ul>
+                <li class="list-unstyled"><a href="#" class="btn btn-lg btn-checkout my-1">Add an Add-on</a></li>
+                <li class="list-unstyled"><a href="" class="btn btn-lg btn-checkout my-1">Edit an Add-on</a></li>
+                <li class="list-unstyled"><a href="" class="btn btn-lg btn-checkout my-1">Delete an Add-on</a></li>
+            </ul>
         </div>
     </div>
 </div>

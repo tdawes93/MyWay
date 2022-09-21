@@ -60,12 +60,12 @@ def add_tour(request):
     if request.method == 'POST':
         form = TourForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            tour = form.save()
             messages.success(
                 request,
                 'Tour added to store successfully!'
             )
-            return redirect(reverse('add_tour'))
+            return redirect(reverse('tour_detail', args=[tour.id]))
         else:
             messages.error(
                 request,
@@ -110,7 +110,21 @@ def edit_tour(request, tour_id):
     return render(request, template, context)
 
 
+def delete_tour(request, tour_id):
+    """Delete a tour in the store"""
+    tour = get_object_or_404(Tour, pk=tour_id)
+    tour.delete()
+    messages.success(
+        request,
+        f'{tour.friendly_name} successfully delete from store')
+    return redirect(reverse('tours'))
+
+
 def site_management(request):
     """Renders navigation to allow superuser to manage site"""
+    tours = Tour.objects.all()
     template = 'products/site_management.html'
-    return render(request, template)
+    context = {
+        'tours': tours
+    }
+    return render(request, template, context)

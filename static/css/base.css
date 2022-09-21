@@ -235,7 +235,7 @@ header {
 
 .month-list li {
     float: left;
-    margin: 0.5rem 0.5rem 0 0;
+    margin: 0.5rem 0.5rem 0;
     width: 6rem;
     height: 2.5rem;
     position: relative;
@@ -474,8 +474,8 @@ header {
 #payment-form .form-control,
 #card-element,
 .textinput,
-.dateinput, 
-.numberinput, 
+.dateinput,
+.numberinput,
 .textarea,
 #id_image {
     color: #000;
@@ -543,4 +543,10 @@ select option[value=""] {
 
 #id_default_country option:first-child {
     color: #bcc8d1;
+}
+
+.edit-tour:hover .tour-mods,
+.delete-tour:hover .tour-mods,
+.tour-mods:hover {
+    color: black !important;
 }
