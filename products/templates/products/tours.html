@@ -85,13 +85,20 @@
                 <div class="col-6 text-start">
                     <h5>From ${{ tour.price }}</h5>
                 </div>
-                <div class="col-6 align-items-center">
-                    <a class="btn btn-lg tour-btn" href="{% url 'tour_detail' tour.id %}">View Tour</a>
-                </div>
-                <div class="col-6 align-items-center">
-                    <a class="btn btn-lg tour-btn" href="{% url 'edit_tour' tour.id %}">Edit Tour</a>
+                <div class="col-6 text-center align-items-center">
+                    <a class="btn btn-lg btn-checkout" href="{% url 'tour_detail' tour.id %}">View Tour</a>
                 </div>
             </div>
+            {% if request.user.is_superuser %}
+            <div class="row my-3 align-items-center text-center">
+                <div class="col-6 align-items-center">
+                    <a class="btn btn-sm tour-btn" href="{% url 'edit_tour' tour.id %}">Edit Tour</a>
+                </div>
+                <div class="col align-items-center text-center">
+                    <a href="{% url 'delete_tour' tour.id %}" class="btn btn-sm tour-btn">Delete Tour</a>
+                </div>
+            </div>
+            {% endif %}
         </div>
         {% endfor %}
 
