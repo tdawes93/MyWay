@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.db.models.functions import Lower
+from django.contrib.auth.decorators import login_required, user_passes_test
 
 from .models import Tour
 from .forms import TourForm
@@ -15,7 +16,7 @@ def all_tours(request):
     sort = None
     direction = None
 
-# Taken from CI Boutique-Ado
+    # Taken from CI Boutique-Ado
     if request.GET:
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
@@ -53,6 +54,8 @@ def tour_detail(request, tour_id):
     return render(request, 'products/tour_detail.html', context)
 
 
+@login_required
+@user_passes_test(lambda u: u.is_superuser)
 def add_tour(request):
     """
     Add a tour to the store
@@ -80,6 +83,8 @@ def add_tour(request):
     return render(request, template, context)
 
 
+@login_required
+@user_passes_test(lambda u: u.is_superuser)
 def edit_tour(request, tour_id):
     """
     Edit a tour in the store
@@ -110,6 +115,8 @@ def edit_tour(request, tour_id):
     return render(request, template, context)
 
 
+@login_required
+@user_passes_test(lambda u: u.is_superuser)
 def delete_tour(request, tour_id):
     """Delete a tour in the store"""
     tour = get_object_or_404(Tour, pk=tour_id)
@@ -120,6 +127,8 @@ def delete_tour(request, tour_id):
     return redirect(reverse('tours'))
 
 
+@login_required
+@user_passes_test(lambda u: u.is_superuser)
 def site_management(request):
     """Renders navigation to allow superuser to manage site"""
     tours = Tour.objects.all()

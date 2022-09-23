@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from datetime import date, datetime
 
@@ -9,6 +10,7 @@ from .models import Profile
 from .forms import ProfileForm
 
 
+@login_required
 def profile(request):
     """
     A view to render the users profile page
