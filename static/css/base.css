@@ -518,6 +518,10 @@ select option[value=""] {
     .tour-thumbnail-img {
         height: 60vh
     }
+
+    .quantity-input-group {
+        width: 50vw;
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -532,6 +536,7 @@ select option[value=""] {
         position: sticky;
         width: 100vw;
         top: 4rem;
+        z-index: 9999;
     }
 
     .tour-thumbnail-img {
