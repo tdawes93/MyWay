@@ -3,6 +3,7 @@ from .models import Tour, Date, Location
 from .widgets import CustomClearableFileInput
 from django_summernote.fields import SummernoteTextFormField
 
+
 class TourForm(forms.ModelForm):
 
     class Meta:
