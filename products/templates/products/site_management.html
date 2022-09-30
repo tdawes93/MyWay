@@ -17,21 +17,22 @@
             <hr>
         </div>
     </div>
-    <div class="row">
+    <div class="row mx-1">
         <div class="col col-lg-8 px-0 px-lg-3 mt-3">
             <p>Welcome to myway's site management page, from here you have complete control over your store. Please
                 select one of the options below.</p>
         </div>
     </div>
     <div class="row">
-        <div class="col-4">
+        <div class="col-12 col-md-6 col-lg-4">
             <ul>
-                <li class="list-unstyled my-1"><a href="{% url 'add_tour' %}" class="btn btn-lg btn-checkout">Add a
+                <li class="list-unstyled my-1"><a href="{% url 'add_tour' %}"
+                        class="btn btn-lg btn-checkout mgmt-btn">Add a
                         Tour</a></li>
                 <li class="list-unstyled my-2">
-                    <div class="edit-tour dropdown btn btn-lg btn-checkout text-black">
-                        <a class="px-auto mx-auto dropdown-toggle text-decoration-none text-white tour-mods" href="" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">Edit Tour
+                    <div class="edit-tour dropdown btn btn-lg btn-checkout text-black mgmt-btn">
+                        <a class="px-auto mx-auto dropdown-toggle text-decoration-none text-white tour-mods" href=""
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">Edit Tour
                         </a>
                         <ul class="dropdown-menu">
                             {% for tour in tours %}
@@ -42,9 +43,9 @@
                     </div>
                 </li>
                 <li class="list-unstyled my-1">
-                    <div class="delete-tour dropdown btn btn-lg btn-checkout">
-                        <a class="px-auto mx-auto dropdown-toggle text-decoration-none text-white tour-mods" href="" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">Delete Tour
+                    <div class="delete-tour dropdown btn btn-lg btn-checkout mgmt-btn">
+                        <a class="px-auto mx-auto dropdown-toggle text-decoration-none text-white tour-mods" href=""
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">Delete Tour
                         </a>
                         <ul class="dropdown-menu">
                             {% for tour in tours %}
@@ -56,16 +57,42 @@
                 </li>
             </ul>
         </div>
-        <div class="col-3">
+        <div class="col-12 col-md-6 col-lg-4">
             <ul>
-                <li class="list-unstyled"><a href="#" class="btn btn-lg btn-checkout my-1">Add a Location</a></li>
-                <li class="list-unstyled"><a href="" class="btn btn-lg btn-checkout my-1">Edit a Location</a></li>
-                <li class="list-unstyled"><a href="" class="btn btn-lg btn-checkout my-1">Delete a Location</a></li>
+                <li class="list-unstyled my-1"><a href="{% url 'add_location' %}"
+                        class="btn btn-lg btn-checkout mgmt-btn">Add a Location</a></li>
+                <li class="list-unstyled my-2">
+                    <div class="edit-location dropdown btn btn-lg btn-checkout text-black mgmt-btn">
+                        <a class="px-auto mx-auto dropdown-toggle text-decoration-none text-white tour-mods" href=""
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">Edit Location
+                        </a>
+                        <ul class="dropdown-menu">
+                            {% for location in locations %}
+                            <li><a class="dropdown-item"
+                                    href="{% url 'edit_location' location.id %}">{{ location.friendly_name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+                <li class="list-unstyled my-1">
+                    <div class="delete-location dropdown btn btn-lg btn-checkout mgmt-btn">
+                        <a class="px-auto mx-auto dropdown-toggle text-decoration-none text-white tour-mods" href=""
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">Delete Location
+                        </a>
+                        <ul class="dropdown-menu">
+                            {% for location in locations %}
+                            <li><a class="dropdown-item"
+                                    href="{% url 'delete_location' location.id %}">{{ location.friendly_name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </div>
-        <div class="col-3">
+        <div class="col-12 col-md-6 col-lg-4">
             <ul>
-                <li class="list-unstyled"><a href="#" class="btn btn-lg btn-checkout my-1">Add an Add-on</a></li>
+                <li class="list-unstyled"><a href="#" class="btn btn-lg btn-checkout my-1 mgmt-btn">Add an Add-on</a>
+                </li>
                 <li class="list-unstyled"><a href="" class="btn btn-lg btn-checkout my-1">Edit an Add-on</a></li>
                 <li class="list-unstyled"><a href="" class="btn btn-lg btn-checkout my-1">Delete an Add-on</a></li>
             </ul>

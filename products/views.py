@@ -3,8 +3,8 @@ from django.contrib import messages
 from django.db.models.functions import Lower
 from django.contrib.auth.decorators import login_required, user_passes_test
 
-from .models import Tour
-from .forms import TourForm
+from .models import Tour, Location
+from .forms import TourForm, LocationForm
 
 
 def all_tours(request):
@@ -89,7 +89,6 @@ def edit_tour(request, tour_id):
     """
     Edit a tour in the store
     """
-    print(tour_id)
     tour = get_object_or_404(Tour, pk=tour_id)
     if request.method == 'POST':
         form = TourForm(request.POST, request.FILES, instance=tour)
@@ -123,8 +122,80 @@ def delete_tour(request, tour_id):
     tour.delete()
     messages.success(
         request,
-        f'{tour.friendly_name} successfully delete from store')
+        f'{tour.friendly_name} successfully deleted from store')
     return redirect(reverse('tours'))
+
+
+@login_required
+@user_passes_test(lambda u: u.is_superuser)
+def add_location(request):
+    """
+    Add a location to the store
+    """
+    if request.method == 'POST':
+        form = LocationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,
+                'Location added to store successfully!'
+            )
+            return redirect(reverse('homepage'))
+        else:
+            messages.error(
+                request,
+                'Failed to add location to store. Please check for errors'
+            )
+    else:
+        form = LocationForm()
+    template = 'products/add_location.html'
+    context = {
+        'form': form,
+    }
+    return render(request, template, context)
+
+
+@login_required
+@user_passes_test(lambda u: u.is_superuser)
+def edit_location(request, location_id):
+    """
+    Edit a location in the store
+    """
+    location = get_object_or_404(Location, pk=location_id)
+    if request.method == 'POST':
+        form = LocationForm(request.POST, instance=location)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,
+                'Location edited successfully!'
+            )
+            return redirect(reverse('homepage'))
+        else:
+            messages.error(
+                request,
+                'Failed to edit the location. Please check for errors'
+            )
+    else:
+        form = LocationForm(instance=location)
+    template = 'products/edit_location.html'
+    context = {
+        'form': form,
+        'location': location,
+    }
+    return render(request, template, context)
+
+
+@login_required
+@user_passes_test(lambda u: u.is_superuser)
+def delete_location(request, location_id):
+    """Delete a location in the store"""
+    location = get_object_or_404(Location, pk=location_id)
+    location.delete()
+    messages.success(
+        request,
+        f'{location.friendly_name} successfully deleted from store')
+    return redirect(reverse('homepage'))
 
 
 @login_required
@@ -132,8 +203,10 @@ def delete_tour(request, tour_id):
 def site_management(request):
     """Renders navigation to allow superuser to manage site"""
     tours = Tour.objects.all()
+    locations = Location.objects.all()
     template = 'products/site_management.html'
     context = {
-        'tours': tours
+        'tours': tours,
+        'locations': locations,
     }
     return render(request, template, context)

@@ -18,6 +18,10 @@ body {
     width: 1.5rem;
 }
 
+header {
+    z-index: 9999999;
+}
+
 .header-buffer {
     height: 4rem
 }
@@ -120,6 +124,10 @@ header {
     border-color: #3a6700;
 }
 
+.mgmt-btn {
+    width: 80%;
+}
+
 
 /* CSS for tour list page */
 .tour-list-img {
@@ -173,7 +181,7 @@ header {
     -moz-appearance: textfield;
 }
 
-    /* Chrome, Safari, Edge, Opera */
+/* Chrome, Safari, Edge, Opera */
 .quantity-input-bag::-webkit-outer-spin-button,
 .quantity-input-bag::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -184,8 +192,9 @@ header {
 .message-container {
     position: fixed;
     top: 5rem;
-    right: 4rem;
+    right: 10vw;
     z-index: 9999999;
+    width: 80vw;
 }
 
 .custom-toast {
@@ -246,13 +255,6 @@ header {
 .arrow-dark {
     border-bottom-color: #343a40 !important;
 }
-
-/* .bag-notification-wrapper {
-    height: 100px;
-    overflow-x: hidden;
-    overflow-y: auto;
-} */
-
 
 /* CSS for tabs in tour page and date selector */
 .tab {
@@ -487,10 +489,6 @@ select option[value=""] {
     margin-top: 1rem;
 }
 
-.allauth-container {
-    height: 100vh;
-}
-
 #id_default_country,
 #id_default_country option:not(:first-child),
 .dateinput {
@@ -503,7 +501,9 @@ select option[value=""] {
 
 .edit-tour:hover .tour-mods,
 .delete-tour:hover .tour-mods,
-.tour-mods:hover {
+.tour-mods:hover,
+.edit-location:hover .tour-mods,
+.delete-location:hover .tour-mods {
     color: black !important;
 }
 
@@ -521,6 +521,16 @@ select option[value=""] {
 
     .quantity-input-group {
         width: 50vw;
+    }
+
+    .message-container {
+        width: auto;
+    }
+}
+
+@media screen and (min-width: 650px) {
+    .message-container {
+        right: 15vw;
     }
 }
 
@@ -550,5 +560,9 @@ select option[value=""] {
         right: 0;
         position: fixed;
         bottom: auto;
+    }
+
+    .message-container {
+        right: 5vw;
     }
 }
