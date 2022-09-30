@@ -179,7 +179,7 @@
                                 <div class="form-group quantity-input-group mx-auto">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <button class="decrease-qty btn tour-btn mx-1"
+                                            <button class="decrease-qty btn decrease-btn mx-1"
                                                 data-item_id="{{ tour.id }}"
                                                 data-tour_max="{{ tour.max_num_of_guests }}"
                                                 id="decrease-qty_{{ tour.id }}" type="button"
@@ -192,7 +192,7 @@
                                             name="quantity" value="1" min="1" max="{{ tour.max_num_of_guests }}"
                                             data-item_id="{{ tour.id }}" id="id_qty_{{ tour.id }}"
                                             onchange="handleEnableDisable('{{ tour.id }}', '{{ tour.max_num_of_guests }}')">
-                                        <div class="input-group-append"> <button class="btn tour-btn mx-1 increase-qty"
+                                        <div class="input-group-append"> <button class="btn increase-btn mx-1 increase-qty"
                                                 data-item_id="{{ tour.id }}"
                                                 data-tour_max="{{ tour.max_num_of_guests }}"
                                                 id="increase-qty_{{ tour.id }}" type="button"

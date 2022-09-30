@@ -27,10 +27,10 @@
         <div class="col-12 col-md-6 col-lg-4">
             <ul class="text-center px-0">
                 <li class="list-unstyled my-1"><a href="{% url 'add_tour' %}"
-                        class="btn btn-lg btn-checkout mgmt-btn">Add a
+                        class="btn btn-lg btn-checkout border-rounded mgmt-btn">Add a
                         Tour</a></li>
                 <li class="list-unstyled my-2">
-                    <div class="edit-tour dropdown btn btn-lg btn-checkout text-black mgmt-btn">
+                    <div class="edit-tour dropdown btn btn-lg btn-checkout border-rounded text-black mgmt-btn">
                         <a class="px-auto mx-auto dropdown-toggle text-decoration-none text-white tour-mods" href=""
                             role="button" data-bs-toggle="dropdown" aria-expanded="false">Edit Tour
                         </a>
@@ -43,26 +43,47 @@
                     </div>
                 </li>
                 <li class="list-unstyled my-1">
-                    <div class="delete-tour dropdown btn btn-lg btn-checkout mgmt-btn">
+                    <div class="delete-tour dropdown btn btn-lg btn-checkout border-rounded mgmt-btn">
                         <a class="px-auto mx-auto dropdown-toggle text-decoration-none text-white tour-mods" href=""
                             role="button" data-bs-toggle="dropdown" aria-expanded="false">Delete Tour
                         </a>
                         <ul class="dropdown-menu">
                             {% for tour in tours %}
-                            <li><a class="dropdown-item"
-                                    href="{% url 'delete_tour' tour.id %}">{{ tour.friendly_name }}</a></li>
+                            <li><a class="dropdown-item" data-bs-toggle="modal"
+                                    data-bs-target="#delete{{ tour.id }}Modal" data-bs-tourid="tour.id">{{ tour.friendly_name }}</a></li>
                             {% endfor %}
                         </ul>
                     </div>
                 </li>
             </ul>
         </div>
+<!--Modal for confirmation of deletion -->
+        {% for tour in tours %}
+        <div class="modal fade" id="delete{{ tour.id }}Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Delete Tour - {{ tour.friendly_name }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you wish to delete this tour</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn tour-btn" data-bs-dismiss="modal">Close</button>
+                        <a href="{% url 'delete_tour' tour.id %}" type="button" class="btn btn-checkout border-rounded">Delete Tour</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
         <div class="col-12 col-md-6 col-lg-4">
             <ul class="text-center px-0">
                 <li class="list-unstyled my-1"><a href="{% url 'add_location' %}"
-                        class="btn btn-lg btn-checkout mgmt-btn">Add a Location</a></li>
+                        class="btn btn-lg btn-checkout border-rounded mgmt-btn">Add a Location</a></li>
                 <li class="list-unstyled my-2">
-                    <div class="edit-location dropdown btn btn-lg btn-checkout text-black mgmt-btn">
+                    <div class="edit-location dropdown border-rounded btn btn-lg btn-checkout text-black mgmt-btn">
                         <a class="px-auto mx-auto dropdown-toggle text-decoration-none text-white tour-mods" href=""
                             role="button" data-bs-toggle="dropdown" aria-expanded="false">Edit Location
                         </a>
@@ -75,7 +96,7 @@
                     </div>
                 </li>
                 <li class="list-unstyled my-1">
-                    <div class="delete-location dropdown btn btn-lg btn-checkout mgmt-btn">
+                    <div class="delete-location dropdown btn border-rounded btn-lg btn-checkout mgmt-btn">
                         <a class="px-auto mx-auto dropdown-toggle text-decoration-none text-white tour-mods" href=""
                             role="button" data-bs-toggle="dropdown" aria-expanded="false">Delete Location
                         </a>
@@ -91,10 +112,10 @@
         </div>
         <div class="col-12 col-md-6 col-lg-4">
             <ul class="text-center px-0">
-                <li class="list-unstyled"><a href="#" class="btn btn-lg btn-checkout my-1 mgmt-btn">Add an Add-on</a>
+                <li class="list-unstyled"><a href="#" class="btn btn-lg border-rounded btn-checkout my-1 mgmt-btn">Add an Add-on</a>
                 </li>
-                <li class="list-unstyled"><a href="" class="btn btn-lg btn-checkout my-1">Edit an Add-on</a></li>
-                <li class="list-unstyled"><a href="" class="btn btn-lg btn-checkout my-1">Delete an Add-on</a></li>
+                <li class="list-unstyled"><a href="" class="btn btn-lg border-rounded btn-checkout my-1">Edit an Add-on</a></li>
+                <li class="list-unstyled"><a href="" class="btn btn-lg border-rounded btn-checkout my-1">Delete an Add-on</a></li>
             </ul>
         </div>
     </div>

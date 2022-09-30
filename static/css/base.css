@@ -19,7 +19,7 @@ body {
 }
 
 header {
-    z-index: 9999999;
+    z-index: 9999999 !important;
 }
 
 .header-buffer {
@@ -97,10 +97,16 @@ header {
     border-color: #fff;
 }
 
-.trip-btn:hover,
-.tour-btn:hover {
+.trip-btn:hover {
     background-color: #3a6700;
     border-color: #3a6700;
+}
+
+.tour-btn:hover,
+.decrease-btn:hover {
+    background-color: #da0000;
+    color: #fff;
+    border-color: #da0000;
 }
 
 .tour-btn {
@@ -109,19 +115,31 @@ header {
     border-radius: 10px;
 }
 
+.decrease-btn {
+    border-color: #da0000;
+    color: #da0000;
+}
+
+.increase-btn {
+    border-color: #3a6700 !important;
+    color: #3a6700 !important;
+}
+
 .btn-dates {
     margin: 1rem 0.5rem;
 }
 
 .btn-checkout,
-.btn-view-bag:hover {
+.btn-view-bag:hover,
+.increase-btn:hover {
     background-color: #3a6700;
-    color: #fff;
+    color: #fff !important;
 }
 
 .btn-checkout:hover,
 .btn-view-bag {
     border-color: #3a6700;
+    color: #3a6700 !important;
 }
 
 .mgmt-btn {
