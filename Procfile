@@ -1,0 +1,1 @@
+web: gunicorn myway-tours.wsgi:application
