@@ -95,14 +95,35 @@
                     <a class="btn btn-sm tour-btn" href="{% url 'edit_tour' tour.id %}">Edit Tour</a>
                 </div>
                 <div class="col align-items-center text-center">
-                    <a href="{% url 'delete_tour' tour.id %}" class="btn btn-sm tour-btn">Delete Tour</a>
+                    <button class="btn btn-sm tour-btn" data-bs-toggle="modal"
+                    data-bs-target="#delete{{ tour.id }}Modal" data-bs-tourid="tour.id">Delete Tour</button>
                 </div>
             </div>
             {% endif %}
         </div>
         {% endfor %}
-
     </div>
+
+    <!--Modal for confirmation of deletion -->
+    {% for tour in tours %}
+    <div class="modal fade" id="delete{{ tour.id }}Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog mt-5 pt-5">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Tour - {{ tour.friendly_name }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you wish to delete this tour</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn tour-btn" data-bs-dismiss="modal">Close</button>
+                    <a href="{% url 'delete_tour' tour.id %}" type="button" class="btn btn-checkout border-rounded">Delete Tour</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 
     {% endblock %}
 
