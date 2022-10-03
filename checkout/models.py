@@ -75,8 +75,6 @@ class Order(models.Model):
             Sum('tour_total'))['tour_total__sum'] or 0
         self.total_discount = self.orderitems.aggregate(
             Sum('tour_discount'))['tour_discount__sum']
-        print(self.product_total)
-        print(type(self.product_total))
         self.grand_total = self.product_total - self.total_discount
         self.save()
 
@@ -140,7 +138,6 @@ class OrderItem(models.Model):
                 self.tour_discount = round(Decimal(float(self.tour_total) * 0.2), 2)
         else:
             self.tour_discount = 0
-        print(self.tour_discount)
         super().save(*args, **kwargs)
 
     def __str__(self):
