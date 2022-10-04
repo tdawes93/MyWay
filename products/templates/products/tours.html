@@ -47,11 +47,11 @@
                 <div class="col m-0 p-0">
                     {% if tour.image %}
                     <a href="{% url 'tour_detail' tour.id %}">
-                        <img class="tour-thumbnail-img border-rounded" src="/media/{{ tour.image }}" alt="{{ tour.name }}">
+                        <img class="tour-thumbnail-img border-rounded" src="../../../media/{{ tour.image }}" alt="{{ tour.name }}">
                     </a>
                     {% else %}
                     <a href="{% url 'tour_detail' tour.id %}">
-                        <img class="tour-thumbnail-img border-rounded" src="/media/noimage.png" alt="placeholder image">
+                        <img class="tour-thumbnail-img border-rounded" src="../../../media/noimage.png" alt="placeholder image">
                     </a>
                     {% endif %}
 

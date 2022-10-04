@@ -33,9 +33,9 @@
                 <div class="col-2 mb-1">
                     <a href="{% url 'tour_detail' item.tour.id %}">
                         {% if item.tour.image %}
-                        <img class="w-100" src="{{ item.tour.image.url }}" alt="{{ tour.name }}">
+                        <img class="w-100" src="../../../media/{{ item.tour.image }}" alt="{{ tour.name }}">
                         {% else %}
-                        <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ tour.name }}">
+                        <img class="w-100" src="../../../media/noimage.png" alt="{{ tour.name }}">
                         {% endif %}
                     </a>
                 </div>
