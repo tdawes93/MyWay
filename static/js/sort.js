@@ -1,22 +1,24 @@
 // JQuery taken from CI Boutique Ado
 
-$('#sort-selector').change(function() {
-    var selector = $(this);
-    var currentUrl = new URL(window.location);
+jQuery(document).ready(function ($) {
+    $('#sort-selector').change(function () {
+        var selector = $(this);
+        var currentUrl = new URL(window.location);
 
-    var selectedVal = selector.val();
-    if(selectedVal != "reset"){
-        var sort = selectedVal.split("_")[0];
-        var direction = selectedVal.split("_")[1];
+        var selectedVal = selector.val();
+        if (selectedVal != "reset") {
+            var sort = selectedVal.split("_")[0];
+            var direction = selectedVal.split("_")[1];
 
-        currentUrl.searchParams.set("sort", sort);
-        currentUrl.searchParams.set("direction", direction);
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
 
-        window.location.replace(currentUrl);
-    } else {
-        currentUrl.searchParams.delete("sort");
-        currentUrl.searchParams.delete("direction");
+            window.location.replace(currentUrl);
+        } else {
+            currentUrl.searchParams.delete("sort");
+            currentUrl.searchParams.delete("direction");
 
-        window.location.replace(currentUrl);
-    }
-})
+            window.location.replace(currentUrl);
+        }
+    });
+});
