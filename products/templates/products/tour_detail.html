@@ -40,9 +40,9 @@
                     <div class="row mt-2 mx-0 px-0">
                         <div class="col col-lg-5">
                             {% if tour.image %}
-                            <img class="img border-rounded" src="../../../media/{{ tour.image }}" alt="{{ tour.name }}">
+                            <img class="img border-rounded" src="{{ MEDIA_URL }}{{ tour.image }}" alt="{{ tour.name }}">
                             {% else %}
-                            <img class="img border-rounded" src="../../../media/noimage.png" alt="placeholder image">
+                            <img class="img border-rounded" src="{{ MEDIA_URL }}noimage.png" alt="placeholder image">
                             {% endif %}
                         </div>
                         <div class="col-lg-6 d-none d-lg-block">

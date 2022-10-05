@@ -5,10 +5,10 @@
         <div class="row">
             <div class="col">
                 {% if item.tour.image %}
-                <img src="../../../media/{{ item.tour.image }}" alt="{{ item.tour.friendly_name}}"
+                <img src="{{ MEDIA_URL }}{{ item.tour.image }}" alt="{{ item.tour.friendly_name}}"
                     class="img border-rounded d-flex">
                 {% else %}
-                <img src="../../../media/noimage.png" alt="placeholder image" class="img border-rounded d-flex">
+                <img src="{{ MEDIA_URL }}noimage.png" alt="placeholder image" class="img border-rounded d-flex">
                 {% endif %}</div>
             <div class="col">
                 <div class="row">

@@ -64,7 +64,7 @@
                         {% for item in bag_items %}
                         <div class="row">
                             <div class="col">
-                                <img src="../../../media/{{ item.tour.image }}" alt="{{ item.tour.image }}"
+                                <img src="{{ MEDIA_URL }}{{ item.tour.image }}" alt="{{ item.tour.image }}"
                                     class="img border-rounded">
                             </div>
                             <div class="col-6">
