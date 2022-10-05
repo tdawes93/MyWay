@@ -231,7 +231,7 @@
 
 {% block postload_js %}
 {{ block.super }}
-<script src="../../../static/js/tour_tabs.js" type="text/javascript"></script>
-<script src="../../../static/js/reveal_form.js" type="text/javascript"></script>
-<script src="../../../static/js/quantity_increment.js" type="text/javascript"></script>
+<script src="{% static 'js/tour_tabs.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/reveal_form.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/quantity_increment.js' %}" type="text/javascript"></script>
 {% endblock %}
