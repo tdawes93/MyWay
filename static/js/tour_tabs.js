@@ -1,4 +1,27 @@
-document.getElementById("defaultOpen").click();
+$(document).ready(function() {
+  $(window).on('load', (function (e) {
+      openTab(e, 'the-trip')
+      document.getElementById('defaultOpen').className += " active";
+    }))
+})
+
+$('.view-date').click(function (e) {
+  openTab(e, 'dates')
+});
+
+$('#defaultOpen').click(function (e) {
+  openTab(e, 'the-trip')
+});
+
+$('.yearlinks').click(function(e) {
+  var year = $(this).data('year_id');
+  openYear(e, year);
+})
+
+$('.monthlinks').click(function(e) {
+  var month = $(this).data('month_id');
+  openMonth(e, month);
+})
 
 function openTab(evt, tabName) {
   var i, tabcontent, tablinks;
