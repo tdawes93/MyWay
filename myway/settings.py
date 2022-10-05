@@ -164,7 +164,7 @@ SOCIALACCOUNT_PROVIDERS = {
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 if 'test' in sys.argv:
-    Configuration for test database
+    # Configuration for test database
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
