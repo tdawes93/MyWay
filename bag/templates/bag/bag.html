@@ -24,7 +24,7 @@
             {% include 'bag/includes/mobile_bag_table.html' %}
             {% else %}
             <p>Your bag is empty</p>
-            <a href="{% url 'tours' %}">Find your next adventure</a>
+            <a href="{% url 'tours' %}" class="btn btn-lg btn-checkout border-rounded">Find your next adventure</a>
             {% endif %}
         </div>
         <div class="col col-lg-3 mt-5 me-lg-5 px-4 border border-rounded checkout-box">

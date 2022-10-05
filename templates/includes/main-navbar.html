@@ -99,17 +99,17 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col text-center">
-                            <a href="{% url 'view_bag' %}" class="btn btn-lg btn-view-bag">View bag</a>
+                            <a href="{% url 'view_bag' %}" class="btn btn-lg btn-view-bag border-rounded">View bag</a>
                         </div>
                         <div class="col text-center">
-                            <a href="{% url 'checkout' %}" class="btn btn-lg btn-checkout">Checkout</a>
+                            <a href="{% url 'checkout' %}" class="btn btn-lg btn-checkout border-rounded">Checkout</a>
                         </div>
                     </div>
                     {% else %}
                     <div class="row">
                         <div class="col">
                             <p>Your bag is empty</p>
-                            <a href="{% url 'tours' %}">Find your next adventure</a>
+                            <a href="{% url 'tours' %}" class="btn btn-lg btn-checkout border-rounded">Find your next adventure</a>
                         </div>
                     </div>
                     {% endif %}

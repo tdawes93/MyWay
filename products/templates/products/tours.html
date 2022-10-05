@@ -86,7 +86,7 @@
                     <h5>From ${{ tour.price }}</h5>
                 </div>
                 <div class="col-6 text-center align-items-center">
-                    <a class="btn btn-lg btn-checkout" href="{% url 'tour_detail' tour.id %}">View Tour</a>
+                    <a class="btn btn-lg btn-checkout border-rounded" href="{% url 'tour_detail' tour.id %}">View Tour</a>
                 </div>
             </div>
             {% if request.user.is_superuser %}

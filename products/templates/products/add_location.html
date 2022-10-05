@@ -23,7 +23,7 @@
         <form action="{% url 'add_location' %}" method="POST">
             {% csrf_token %}
             {{ form|crispy }}
-            <button type="submit" class="btn btn-lg btn-checkout">Add Location</button>
+            <button type="submit" class="btn btn-lg btn-checkout border-rounded">Add Location</button>
         </form>
     </div>
     </div>
