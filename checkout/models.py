@@ -40,18 +40,21 @@ class Order(models.Model):
         max_digits=10,
         decimal_places=2,
         null=False,
+        blank=False,
         default=0
     )
     total_discount = models.DecimalField(
         max_digits=10,
         decimal_places=2,
         null=False,
+        blank=False,
         default=0
     )
     grand_total = models.DecimalField(
         max_digits=10,
         decimal_places=2,
         null=False,
+        blank=False,
         default=0
     )
     original_bag = models.TextField(null=False, blank=False, default='')
@@ -74,7 +77,7 @@ class Order(models.Model):
         self.product_total = self.orderitems.aggregate(
             Sum('tour_total'))['tour_total__sum'] or 0
         self.total_discount = self.orderitems.aggregate(
-            Sum('tour_discount'))['tour_discount__sum']
+            Sum('tour_discount'))['tour_discount__sum'] or 0
         self.grand_total = self.product_total - self.total_discount
         self.save()
 
