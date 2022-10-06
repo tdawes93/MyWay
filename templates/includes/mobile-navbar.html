@@ -28,7 +28,7 @@
     <div class="col-4 text-center collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
         <ul class="text-start px-0">
             <li class="mobile-list dropdown nav-item">
-                <a class="nav-link navbar-brand dropdown-toggle nav-list px-auto mx-auto" href="" role="button" data-bs-toggle="dropdown"
+                <a class="nav-link navbar-brand dropdown-toggle nav-list px-auto mx-auto" href="{% url 'profile' %}" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false"><i class="fa-solid fa-user"></i>
                     Account
                 </a>
@@ -38,7 +38,6 @@
                     <li><a class="dropdown-item" href="{% url 'site_management' %}">Site Management</a></li>
                     {% endif %}
                     <li><a class="dropdown-item" href="{% url 'profile' %}">My Account</a></li>
-                    <li><a class="dropdown-item" href="#">My Orders</a></li>
                     <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
                     {% else %}
                     <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>

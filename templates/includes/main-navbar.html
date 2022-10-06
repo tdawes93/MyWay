@@ -24,7 +24,7 @@
     </div>
     <div class="col-1 text-center justify-content-center">
         <div class="nav-item dropdown">
-            <a class="px-auto mx-auto navbar-brand nav-list dropdown-toggle dropdown-head" href="" role="button"
+            <a class="px-auto mx-auto navbar-brand nav-list dropdown-toggle dropdown-head" href="{% url 'profile' %}" role="button"
                 data-bs-toggle="dropdown" aria-expanded="false">Account
             </a>
             <ul class="dropdown-menu dropdown-list">
@@ -33,7 +33,6 @@
                 <li><a class="dropdown-item" href="{% url 'site_management' %}">Site Management</a></li>
                 {% endif %}
                 <li><a class="dropdown-item" href="{% url 'profile' %}">My Account</a></li>
-                <li><a class="dropdown-item" href="#">My Orders</a></li>
                 <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
                 {% else %}
                 <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
