@@ -138,7 +138,9 @@ class OrderItem(models.Model):
         self.tour_total = self.tour.price*self.number_of_guests
         if self.tour.group_discount:
             if self.number_of_guests >= settings.GROUP_DISCOUNT_MIN_NUM:
-                self.tour_discount = round(Decimal(float(self.tour_total) * 0.2), 2)
+                self.tour_discount = round(
+                    Decimal(float(self.tour_total) * 0.2), 2
+                    )
         else:
             self.tour_discount = 0
         super().save(*args, **kwargs)

@@ -37,7 +37,6 @@ class StripeWH_Handler:
         )
         send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [customer_email])
 
-
     def handle_event(self, event):
         """
         Handle a generic/unknown/unexpected webhook event
@@ -56,7 +55,15 @@ class StripeWH_Handler:
         save_info = intent.metadata.save_info
 
         billing_details = intent.charges.data[0].billing_details
+        # shipping_details = intent.shipping
+        # print(shipping_details)
+
         grand_total = round(intent.charges.data[0].amount / 100, 2)
+
+        # cleans data in shipping details
+        # for field, value in shipping_details.address.items():
+        #     if value == "":
+        #         shipping_details.address[field] = None
 
         profile = None
         username = intent.metadata.username
@@ -81,9 +88,9 @@ class StripeWH_Handler:
                 order = Order.objects.get(
                     name__iexact=billing_details.name,
                     email__iexact=billing_details.email,
-                    phone_number=billing_details.phone,
+                    phone_number__iexact=billing_details.phone,
                     country__iexact=billing_details.address.country,
-                    postcode__iexact=billing_details.address.postal_code,
+                    # postcode__iexact=billing_details.address.postal_code,
                     town_or_city__iexact=billing_details.address.city,
                     street_address1__iexact=billing_details.address.line1,
                     street_address2__iexact=billing_details.address.line2,

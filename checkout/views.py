@@ -154,11 +154,11 @@ def checkout_success(request, order_number):
 
     if request.user.is_authenticated:
         profile = Profile.objects.get(user=request.user)
-        # # Attach the user's profile to the order
+        # Attach the user's profile to the order
         order.profile = profile
         order.save()
 
-        # # Save the user's info
+        # Save the user's info
         if save_info == 'save':
             profile_data = {
                 'default_phone_number': order.phone_number,
