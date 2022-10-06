@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
-import dj_database_url
 import sys
+import dj_database_url
 
 if os.path.exists('env.py'):
     import env
@@ -249,7 +249,8 @@ SUMMERNOTE_THEME = 'bs5'
 STRIPE_CURRENCY = 'cad'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
-STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET', '')
+STRIPE_WH_SECRET = 'whsec_fCkYrqI5nMcns91hXlanXZcmGt03pF5G'
+# os.environ.get('STRIPE_WH_SECRET', '')
 
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
