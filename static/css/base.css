@@ -7,7 +7,6 @@
 
 body {
     font-family: 'Montserrat', sans-serif !important;
-    background-color: #bcc8d1;
 }
 
 .icon {
@@ -148,6 +147,10 @@ header {
 
 
 /* CSS for tour list page */
+.tour-container {
+    background-color: #f1f1f1;
+}
+
 .tour-list-img {
     background-image: url('../../media/mountains_and_reflective_lake.jpg');
     height: 60vh;
