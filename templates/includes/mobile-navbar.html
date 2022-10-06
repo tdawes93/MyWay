@@ -1,21 +1,36 @@
 <div class="row w-100 d-flex d-lg-none m-auto p-auto align-items-center" id="mobile-nav">
     <div class="col-2">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
     </div>
-    <div class="col-4 text-center mx-auto justify-content-center">
-        <ul class="navbar-nav me-auto mb-2">
-            <li class="nav-item dropdown">
-                <a class="nav-link nav-list px-auto mx-auto" href="" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    <div>
-                        <div class="icon"><i class="fa-solid fa-user"></i>
-                        </div>
-                        <p class="my-0">Account</p>
-                    </div>
+    <div class="col-5 text-center pe-0 ms-auto justify-content-center">
+        <ul class="navbar-nav my-auto">
+            <li>
+                <a class="navbar-brand nav-list px-auto mx-auto" href="{% url 'homepage' %}">
+                    <h2 class=""><strong>myway</strong></h2>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-3 text-center mx-auto justify-content-center">
+        <a class="nav-link nav-list px-auto mx-auto" href="{% url 'view_bag' %}" role="button" aria-expanded="false">
+            <div class="icon"><i class="fa-solid fa-basket-shopping"></i>
+            </div>
+            <p class="my-0"> {% if grand_total %}
+                ${{ grand_total|floatformat:2 }}
+                {% else %}
+                $0.00
+                {% endif %}</p>
+        </a>
+    </div>
+    <div class="col-4 text-center collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+        <ul class="text-start px-0">
+            <li class="mobile-list dropdown nav-item">
+                <a class="nav-link navbar-brand dropdown-toggle nav-list px-auto mx-auto" href="" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"><i class="fa-solid fa-user"></i>
+                    Account
                 </a>
                 <ul class="dropdown-menu position-absolute">
                     {% if request.user.is_authenticated %}
@@ -31,22 +46,6 @@
                     {% endif %}
                 </ul>
             </li>
-        </ul>
-    </div>
-    <div class="col-4 text-center mx-auto justify-content-center">
-        <a class="nav-link nav-list px-auto mx-auto" href="{% url 'view_bag' %}" role="button" aria-expanded="false">
-            <div class="icon"><i class="fa-solid fa-basket-shopping"></i>
-            </div>
-            <p class="my-0"> {% if grand_total %}
-                ${{ grand_total|floatformat:2 }}
-                {% else %}
-                $0.00
-                {% endif %}</p>
-        </a>
-    </div>
-    <div class="col-4 text-center collapse navbar-collapse justify-content-center"
-        id="navbarSupportedContent">
-        <ul class="text-start px-0">
             <li class="mobile-list">
                 <a href="#" class="navbar-brand nav-list px-auto mx-auto">
                     <i class="fa-solid fa-envelope"></i>
