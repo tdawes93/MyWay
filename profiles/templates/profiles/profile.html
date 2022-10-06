@@ -18,7 +18,7 @@
     </div>
     <hr>
     <div class="row">
-        <div class="col-4 mb-2">
+        <div class="col-12 col-lg-4 mb-2">
             <h5>My Information</h5>
             <p>Feel free to edit any of your details below so your <strong class="logo">myway</strong> account is
                 totally up to date.</p>
@@ -28,7 +28,7 @@
                 <button type="submit" class="btn btn-lg btn-checkout border-rounded">Save</button>
             </form>
         </div>
-        <div class="col-8">
+        <div class="col-12 col-lg-8">
             <div class="row">
                 <div class="col">
                     <h5>My Orders</h5>
@@ -42,11 +42,11 @@
             {% for order in orders %}
             <div class="wrapper m-2 p-2 border-rounded">
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-6 col-sm-4">
                         <h4>Order Number: </h4>
                     </div>
-                    <div class="col-8">
-                        <a href="{% url 'order_history' order.order_number %}"><p class="mb-0">{{ order.order_number }}</p></a>
+                    <div class="col-6 col-sm-8">
+                        <a href="{% url 'order_history' order.order_number %}"><p class="mb-0 d-sm-none">{{ order.order_number|truncatechars:6 }}</p><p class="mb-0 d-none d-sm-block">{{ order.order_number }}</p></a>
                     </div>
                 </div>
                 <div class="row">
@@ -84,11 +84,11 @@
                 {% endif %}
                 {% endfor %}
                 <div class="row">
-                    <div class="col-4">
-                        <h5>Total: </h5>
+                    <div class="col-6 col-sm-4">
+                        <h5><strong>Total: </strong></h5>
                     </div>
-                    <div class="col-8">
-                        <p class="mb-0">${{ order.grand_total }}</p>
+                    <div class="col-6 col-sm-8">
+                        <p class="mb-0"><strong>${{ order.grand_total }}</strong></p>
                     </div>
                 </div>
             </div>
