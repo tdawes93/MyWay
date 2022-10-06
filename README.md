@@ -20,3 +20,8 @@ Upon checkout the order items weren't adding to the order as there was an invali
 
 
 webhook throwing 400 0 error bad request, solved by putting STRIPE_WH_SECRET in an env.py file and calling from there as opposed to through the gitpod variables
+
+
+static and media files called through src attribute were not loading when deployed to heroku. Fix was to use MEDIA_URL and {% static 'url' %}
+
+After feedback from friends and family testing, I re-added the home button to the top of the navbar for mobile devices for good UX
