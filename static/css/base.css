@@ -67,6 +67,14 @@ header {
     height: 25vh;
 }
 
+.centered-mobile {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 25vh;
+}
+
 .mobile-list {
     list-style: none;
     margin: 1rem 1rem 0;
