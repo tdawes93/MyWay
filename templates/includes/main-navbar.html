@@ -12,9 +12,9 @@
     </div>
     <div class="col-2 text-center justify-content-center">
         <div class="nav-item dropdown">
-            <a class="navbar-brand dropdown-toggle nav-list px-auto mx-auto" href="{% url 'tours' %}" role="button"
+            <a class="navbar-brand dropdown-toggle dropdown-head nav-list px-auto mx-auto" href="{% url 'tours' %}" role="button"
                 data-bs-toggle="dropdown" aria-expanded="false">Tours</a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu dropdown-list">
                 <li><a class="dropdown-item" href="{% url 'tour_detail' 3 %}">Greek Island Hopping</a></li>
                 <li><a class="dropdown-item" href="{% url 'tour_detail' 2 %}">Mountain Conqueror</a></li>
                 <li><a class="dropdown-item" href="{% url 'tour_detail' 7 %}">Wine Not?</a></li>
@@ -24,10 +24,10 @@
     </div>
     <div class="col-1 text-center justify-content-center">
         <div class="nav-item dropdown">
-            <a class="px-auto mx-auto navbar-brand nav-list dropdown-toggle" href="" role="button"
+            <a class="px-auto mx-auto navbar-brand nav-list dropdown-toggle dropdown-head" href="" role="button"
                 data-bs-toggle="dropdown" aria-expanded="false">Account
             </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu dropdown-list">
                 {% if request.user.is_authenticated %}
                 {% if request.user.is_superuser %}
                 <li><a class="dropdown-item" href="{% url 'site_management' %}">Site Management</a></li>
@@ -56,7 +56,7 @@
                         {% endif %}</p>
                 </div>
             </a>
-            <ul class="dropdown-menu me-5 bag-list">
+            <ul class="dropdown-menu dropdown-list me-5 bag-list">
                 <li class="dropdown-item bag-item">
                     {% if grand_total %}
                     <h6>My Bag, {{ product_count }} {% if product_count == 1 %}item{% else %}items{% endif %}</h6>
