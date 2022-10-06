@@ -70,7 +70,7 @@ jQuery(document).ready(function ($) {
                         }
                     }
                 },
-
+                
             }).then(function (result) {
                 if (result.error) {
                     var errorDiv = document.getElementById('card-errors');
