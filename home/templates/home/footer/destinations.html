@@ -10,7 +10,7 @@
 
 {% block content %}
 
-<div class="container-fluid mt-2 mt-lg-0 bg-white w-100">
+<div class="container-fluid mt-2 px-0 mt-lg-0 bg-white w-100">
     <div class="row mx-0 px-0 w-100">
         <div class="col px-0 px-lg-2 mt-3">
             <h1>Destinations</h1>
@@ -18,11 +18,17 @@
     </div>
     <hr>
     <div class="row px-2">
-        <div class="col px-2">
-            <p>List of the destinations goes here</p>
+        <div class="col-12 col-lg-8 px-2">
+            <h4>Our current destinations</h4>
+            <p>We take pride in knowing we offer a tour for everyone!</p>
+            <p>We currently offer tours to the following destinations</p>
+            <ul>
+                {% for location in locations %}
+                <li>{% if location.friendly_name %}{{ location.friendly_name }}{% else %}{{ location.name }}{% endif %}, {{ location.country }}</li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
-</div>
 
 
-{% endblock %}
+    {% endblock %}

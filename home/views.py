@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from products.models import Location
+
 
 def home(request):
     """
@@ -20,8 +22,12 @@ def destinations(request):
     """
     A view to load the destinations page
     """
+    locations = Location.objects.all()
     template = 'home/footer/destinations.html'
-    return render(request, template)
+    context = {
+        'locations': locations,
+    }
+    return render(request, template, context)
 
 
 def code_of_conduct(request):
