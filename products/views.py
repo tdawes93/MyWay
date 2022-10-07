@@ -13,7 +13,8 @@ def all_tours(request):
     View to display the list of tours available
     """
     tours = Tour.objects.all().order_by('friendly_name')
-
+    destinations = Location.objects.all()
+    locations = None
     sort = None
     direction = None
     search = None
@@ -38,13 +39,17 @@ def all_tours(request):
             )
             tours = tours.filter(search)
 
+        if 'locations' in request.GET:
+            locations = request.GET['locations']
+            tours = tours.filter(locations__name__icontains=locations)
+            location = Location.objects.filter(name__in=locations)
+
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
             if sortkey == 'name':
                 sortkey = 'lower_name'
                 tours = tours.annotate(lower_name=Lower('name'))
-
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
@@ -57,6 +62,7 @@ def all_tours(request):
         'tours': tours,
         'current_sorting': current_sorting,
         'search_term': search,
+        'locations': destinations
     }
 
     return render(request, 'products/tours.html', context)
