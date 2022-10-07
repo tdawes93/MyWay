@@ -107,12 +107,55 @@ header {
     text-decoration: none;
 }
 
+.footer a:hover {
+    text-decoration: underline;
+}
+
 .cc-img {
-    background-image: url(../../media/travellers_in_hostel.jpg);
+    background-image: url('../../media/travellers_in_hostel.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+}
+
+.about-img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#about-img-1 {
+    background-image: url('../../media/two-girls-travelling-and-eating.jpg');
+}
+
+#about-img-2 {
+    background-image: url('../../media/group-hiking-mountain.jpg');
+}
+
+#about-img-3 {
+    background-image: url('../../media/group-yoga-session.jpg');
+}
+
+#about-img-4 {
+    background-image: url('../../media/group-surf-lesson.jpg');
+}
+
+#about-img-5 {
+    background-image: url('../../media/girls-at-beach.jpg');
+}
+
+#about-img-6 {
+    background-image: url('../../media/group-eating.jpg');
+}
+
+#about-img-7 {
+    background-image: url('../../media/scubadiving-group.jpg');
+}
+
+#about-img-8 {
+    background-image: url('../../media/group-winetasting.jpg');
 }
 
 /* CSS for mailchimp newsletter */
