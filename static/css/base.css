@@ -38,10 +38,6 @@ header {
     color: #da0000;
 }
 
-.site-logo {
-    background-image: url('../../media/logo-transparent-background.png');
-}
-
 .hero-img {
     background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../../media/girls-on-wooden-bridge.JPG');
     height: 60vh;
@@ -109,6 +105,14 @@ header {
 .footer a {
     color: #fff;
     text-decoration: none;
+}
+
+.cc-img {
+    background-image: url(../../media/travellers_in_hostel.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 }
 
 /* CSS for mailchimp newsletter */
