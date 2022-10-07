@@ -49,13 +49,13 @@
             </div>
         </div>
         <div class="row my-1 px-0">
-            <div class="col-4 my-auto d-block px-0 ms-auto me-0">
-                <div class="dropdown sort-dropdown">
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2 my-auto d-block px-0 me-auto ms-0">
+                <div class="dropdown sort-dropdown border-rounded text-center">
                     <a class="dropdown-toggle dropdown-head px-auto mx-auto text-white text-decoration-none" href="{% url 'tours' %}" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">Destinations</a>
                     <ul class="dropdown-menu dropdown-list">
                         {% for location in locations %}
-                        <li><a href="{% url 'tours' %}?locations={{ location.name }}" class="text-decoration-none">{{ location.friendly_name }}</a></li>
+                        <li><a href="{% url 'tours' %}?locations={{ location.name }}" class="dropdown-item">{{ location.friendly_name }}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
