@@ -36,3 +36,11 @@ def code_of_conduct(request):
     """
     template = 'home/footer/code-of-conduct.html'
     return render(request, template)
+
+
+def faq(request):
+    """
+    A view to load the FAQ page
+    """
+    template = 'home/footer/faq.html'
+    return render(request, template)

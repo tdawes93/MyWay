@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+<div class="row header-buffer px-0 mx-0">
+    <div class="col-12 px-0 mx-0"></div>
+</div>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container-fluid mt-2 px-0 mt-lg-0 bg-white w-100">
+    <div class="row mx-0 px-2 w-100">
+        <div class="col px-0 px-lg-2 mt-3">
+            <h1>FAQ</h1>
+        </div>
+    </div>
+    <hr>
+    <div class="row mx-0 px-2">
+        <div class="col-12 col-lg-8 px-2">
+            <h4>Who are we?</h4>
+            <p>Founded in 2019 by a 'couple' of world travellers! With a passion for adventure, the pair set out to find
+                the best hidden gems. From food and drink, to
+                culture, to the best beaches and wildlife. We've got you covered!</p>
+
+            <h4>What makes myway stand out from other travel companies?</h4>
+            <p>We cater to your taste of adventure! We personalise your trip to suit your desires. All ages are welcome,
+                and we encourage groups with something to celebrate, from Hen nights to 70th birthdays!</p>
+            <h4>How much would I roughly spend on a trip?</h4>
+            <p>Due to the variety of trips we have, the prices may vary depending on location, length of trip and how
+                many friends are in your group!</p>
+            <h4>Is this safe for somebody travelling solo?</h4>
+            <p>Solo travellers were who we had in mind when creating myway! Although you would be "solo", you would be
+                surrounded by like mind individuals, seeking adventure as well! Meeting friends along the way! We also
+                have our group leaders who are there to ensure everybody feels safe and included!</p>
+            <h4>How many people will be on each trip?</h4>
+            <p>The amount of people varies depending on which tour you choose! We do have a maximum number of people per
+                trip, to ensure each individual and group get the best experience possible! When booking your trip you
+                will see a maximum occupancy attached with the tour info</p>
+        </div>
+
+        <div class="row mx-0 my-1 px-2">
+            <div class="px-auto col-12 col-md-4 col-lg-2">
+                <a href="{% url 'tours' %}" class="btn btn-lg btn-checkout border-rounded">See our
+                    trips</a>
+            </div>
+        </div>
+
+    </div>
+
+
+    {% endblock %}
