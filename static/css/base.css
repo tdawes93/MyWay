@@ -103,6 +103,12 @@ header {
     background-color: #6c757d;
     bottom: 0;
     z-index: 99999;
+    color: #fff;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
 }
 
 /* CSS for mailchimp newsletter */
@@ -157,7 +163,7 @@ header {
 .btn-newsletter {
     background-color: #3a6700 !important;
     color: #fff !important;
-    border-color: #3a6700;
+    border-color: #3a6700 !important;
 }
 
 .btn-newsletter {
@@ -172,8 +178,8 @@ header {
 
 .btn-checkout:hover,
 .btn-view-bag {
-    border-color: #3a6700;
-    background-color: #fff;
+    border-color: #3a6700 !important;
+    background-color: #fff !important;
     color: #3a6700 !important;
 }
 
