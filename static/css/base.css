@@ -153,9 +153,16 @@ header {
 
 .btn-checkout,
 .btn-view-bag:hover,
-.increase-btn:hover {
+.increase-btn:hover,
+.btn-newsletter {
     background-color: #3a6700;
     color: #fff !important;
+}
+
+.btn-newsletter:hover {
+    background-color: #fff;
+    border-color: #fff;
+    color: #3a6700 !important;
 }
 
 .btn-checkout:hover,
