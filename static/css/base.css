@@ -38,6 +38,10 @@ header {
     color: #da0000;
 }
 
+.site-logo {
+    background-image: url('../../media/logo-transparent-background.png');
+}
+
 .hero-img {
     background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../../media/girls-on-wooden-bridge.JPG');
     height: 60vh;
@@ -97,6 +101,7 @@ header {
 
 .footer {
     background-color: #6c757d;
+    bottom: 0;
 }
 
 /* CSS for buttons */
