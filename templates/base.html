@@ -109,8 +109,9 @@
             </div>
             <div class="col-2">
                 <h3>Contact us</h3>
-                <a href="" data-bs-toggle="modal"
-                data-bs-target="#mailModal"><h5>Send us a message</h5></a>
+                <a href="mailto:mywaytours.canada@gmail.com?subject=Contact Us" target="_blank">
+                    <h5>Send us a message</h5>
+                </a>
                 <a href="https://www.facebook.com/toursmyway" target="_blank">
                     <h5><i class="fa-brands fa-facebook"></i> - Facebook</h5>
                 </a>
@@ -173,42 +174,6 @@
         </div>
     </footer>
 
-    <div class="modal fade" id="mailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog mt-5 pt-5">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Send us a message</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form action="mailto:mywaytours.canada@gmail.com?subject=Contact us email" method="get" enctype="text/plain">
-
-                    <div class="modal-body">
-                        <div>
-                            <label for="name">Name: </label>
-                            <input type="text" name="name" id="name">
-                        </div>
-                        <div>
-                            <label for="email">Email: </label>
-                            <input type="text" name="email" id="email">
-                        </div>
-                        <div>
-                            <label>Message:</label>
-                            <br />
-                            <textarea name="comments" rows="12" cols="35">Send your comments to us.</textarea>
-                        </div>
-                        <div>
-                            <input type="submit" name="submit" value="Send" />
-                            <input type="reset" name="reset" value="Clear Form" />
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn tour-btn" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-checkout border-rounded">Send</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
 
     {% block postload_js %}
     <script type="text/javascript">
