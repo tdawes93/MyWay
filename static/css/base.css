@@ -193,8 +193,8 @@ header {
 
 .decrease-btn,
 .search-btn {
-    border-color: #da0000;
-    color: #da0000;
+    border-color: #da0000 !important;
+    color: #da0000 !important;
 }
 
 .increase-btn {
