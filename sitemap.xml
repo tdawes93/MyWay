@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://myway-tours.herokuapp.com/</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/3/</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/2/</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/7/</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/login/?next=/profile/</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/login/</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/signup/</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/bag/</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/about_us/</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/code_of_conduct/</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/destinations/</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/faq/</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/?locations=banff</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/?locations=naxos</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/?locations=les_deux_alpes</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/?locations=scottish_highlands</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/?locations=Athens</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/?locations=Milos</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/?locations=mykonos</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/?locations=crete</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/?locations=santorini</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/?locations=ios</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/?locations=paros</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/?locations=peniche</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/?locations=bali</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/?locations=cape_town</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/?locations=hawaii</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/?locations=cairns</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/?locations=albufeira</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/?locations=barcelona</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/?locations=bandol</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/?locations=florence</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/6/</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/5/</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/4/</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/tours/1/</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/login/?next=/tours/delete/6/</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/login/?next=/tours/delete/3/</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/login/?next=/tours/delete/2/</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/login/?next=/tours/delete/5/</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/login/?next=/tours/delete/4/</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/login/?next=/tours/delete/7/</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/login/?next=/tours/delete/1/</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/password/reset/</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/signup/?next=%2Fprofile%2F</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/signup/?next=%2Ftours%2Fdelete%2F6%2F</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/signup/?next=%2Ftours%2Fdelete%2F3%2F</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/signup/?next=%2Ftours%2Fdelete%2F2%2F</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/signup/?next=%2Ftours%2Fdelete%2F5%2F</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/signup/?next=%2Ftours%2Fdelete%2F4%2F</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/signup/?next=%2Ftours%2Fdelete%2F7%2F</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/signup/?next=%2Ftours%2Fdelete%2F1%2F</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/login/?next=%2Fprofile%2F</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/login/?next=%2Ftours%2Fdelete%2F6%2F</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/login/?next=%2Ftours%2Fdelete%2F3%2F</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/login/?next=%2Ftours%2Fdelete%2F2%2F</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/login/?next=%2Ftours%2Fdelete%2F5%2F</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/login/?next=%2Ftours%2Fdelete%2F4%2F</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/login/?next=%2Ftours%2Fdelete%2F7%2F</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://myway-tours.herokuapp.com/accounts/login/?next=%2Ftours%2Fdelete%2F1%2F</loc>
+  <lastmod>2022-10-07T21:45:59+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+
+
+</urlset>

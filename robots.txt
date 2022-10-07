@@ -1,0 +1,3 @@
+User-agent: *
+Disallowed: /accounts/
+Sitemap: https://myway-tours.herokuapp.com/sitemap.xml
