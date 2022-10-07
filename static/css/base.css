@@ -124,6 +124,7 @@ header {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    height: 25vh;
 }
 
 #about-img-1 {
