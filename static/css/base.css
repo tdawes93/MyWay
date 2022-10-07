@@ -201,6 +201,11 @@ header {
     color: #3a6700 !important;
 }
 
+.search-btn {
+    color: #fff;
+    border-color: #fff;
+}
+
 .btn-dates {
     margin: 1rem 0.5rem;
 }
