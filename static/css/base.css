@@ -191,7 +191,8 @@ header {
     border-radius: 10px;
 }
 
-.decrease-btn {
+.decrease-btn,
+.search-btn {
     border-color: #da0000;
     color: #da0000;
 }
