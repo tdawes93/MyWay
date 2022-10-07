@@ -36,7 +36,6 @@ def all_tours(request):
                 Q(name__icontains=query)
                 | Q(description__icontains=query)
                 | Q(itinerary__icontains=query)
-                | Q(price__icontains=query)
                 | Q(length_of_tour__icontains=query)
             )
             tours = tours.filter(search)
