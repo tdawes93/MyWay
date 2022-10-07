@@ -106,7 +106,6 @@ header {
 
 /* CSS for mailchimp newsletter */
 #mc_embed_signup {
-    background: #fff;
     clear: left;
 }
 
@@ -155,13 +154,13 @@ header {
 .btn-view-bag:hover,
 .increase-btn:hover,
 .btn-newsletter {
-    background-color: #3a6700;
+    background-color: #3a6700 !important;
     color: #fff !important;
 }
 
 .btn-newsletter:hover {
-    background-color: #fff;
-    border-color: #fff;
+    background-color: #fff !important;
+    border-color: #fff !important;
     color: #3a6700 !important;
 }
 
