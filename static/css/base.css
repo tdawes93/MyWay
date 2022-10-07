@@ -632,6 +632,10 @@ select option[value=""] {
     .message-container {
         width: auto;
     }
+
+    .about-img {
+        height: 45vh;
+    }
 }
 
 @media screen and (min-width: 650px) {
@@ -654,7 +658,13 @@ select option[value=""] {
         top: 4rem;
         z-index: 9999;
     }
+
+    .about-img {
+        height: 25vh;
+    }
 }
+
+
 
 @media screen and (min-width: 992px) {
 
