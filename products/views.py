@@ -18,6 +18,8 @@ def all_tours(request):
     sort = None
     direction = None
     search = None
+    query = None
+    location = None
 
     # Taken from CI Boutique-Ado
     if request.GET:
@@ -42,7 +44,8 @@ def all_tours(request):
         if 'locations' in request.GET:
             locations = request.GET['locations']
             tours = tours.filter(locations__name__icontains=locations)
-            location = Location.objects.filter(name__in=locations)
+            location = Location.objects.filter(name__icontains=locations)
+            location = location[0].friendly_name
 
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
@@ -61,8 +64,9 @@ def all_tours(request):
     context = {
         'tours': tours,
         'current_sorting': current_sorting,
-        'search_term': search,
-        'locations': destinations
+        'search_term': query,
+        'locations': destinations,
+        'current_location': location,
     }
 
     return render(request, 'products/tours.html', context)
