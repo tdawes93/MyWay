@@ -34,7 +34,8 @@
 
     <div class="col-12 col-md-6">
         <p class="text-muted mt-3 text-start">
-            {{ tours|length }} Tour{% if tours|length > 1 %}s{% endif %}{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+            {{ tours|length }} Tour{% if tours|length > 1 %}s{% endif %}{% if search_term %} found for
+            <strong>"{{ search_term }}"</strong>{% endif %}
         </p>
     </div>
     <!--Sort box html taken from CI Boutique Ado-->
@@ -73,7 +74,7 @@
         <div class="row my-1 px-0">
             <div class="col">
                 <h5>Currently viewing tours available in {{ current_location }}</h5>
-            </div> 
+            </div>
         </div>
         {% endif %}
         {% for tour in tours %}
@@ -83,7 +84,7 @@
                     {% if tour.image %}
                     <a href="{% url 'tour_detail' tour.id %}">
                         <img class="tour-thumbnail-img border-rounded" src="{{ MEDIA_URL }}{{ tour.image }}"
-                    alt="{{ tour.name }}">
+                            alt="{{ tour.name }}">
                     </a>
                     {% else %}
                     <a href="{% url 'tour_detail' tour.id %}">
@@ -92,70 +93,72 @@
                     </a>
                     {% endif %}
 
+                </div>
             </div>
+            <div class="row my-1">
+                <div class="col-11">
+                    <h3>{{ tour.friendly_name }}</h3>
+                </div>
+            </div>
+            <div class="row my-1">
+                <div class="col-11 d-none d-lg-block">{{ tour.description | safe }}</div>
+            </div>
+            <div class="row">
+                <div class="col-11">
+                    <i class="fa-solid fa-calendar-days"></i> {{ tour.length_of_tour }} days
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-11"><i class="fa-solid fa-earth-africa"></i> {% if tour.choose_location %}
+                    Tour available in{% else %} Tour will visit {% endif %}
+                    {% for location in tour.locations.all %}{{ location.friendly_name }}{% if not forloop.last %},
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="row my-3 align-items-center">
+                <div class="col-6 text-start">
+                    <h5>From ${{ tour.price }}</h5>
+                </div>
+                <div class="col-6 text-center align-items-center">
+                    <a class="btn btn-lg btn-checkout border-rounded" href="{% url 'tour_detail' tour.id %}">View
+                        Tour</a>
+                </div>
+            </div>
+            {% if request.user.is_superuser %}
+            <div class="row my-3 align-items-center text-center">
+                <div class="col-6 align-items-center">
+                    <a class="btn btn-sm tour-btn" href="{% url 'edit_tour' tour.id %}">Edit Tour</a>
+                </div>
+                <div class="col align-items-center text-center">
+                    <button class="btn btn-sm tour-btn" data-bs-toggle="modal"
+                        data-bs-target="#delete{{ tour.id }}Modal" data-bs-tourid="tour.id">Delete Tour</button>
+                </div>
+            </div>
+            {% endif %}
         </div>
-        <div class="row my-1">
-            <div class="col-11">
-                <h3>{{ tour.friendly_name }}</h3>
-            </div>
-        </div>
-        <div class="row my-1">
-            <div class="col-11 d-none d-lg-block">{{ tour.description | safe }}</div>
-        </div>
-        <div class="row">
-            <div class="col-11">
-                <i class="fa-solid fa-calendar-days"></i> {{ tour.length_of_tour }} days
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-11"><i class="fa-solid fa-earth-africa"></i> {% if tour.choose_location %}
-                Tour available in{% else %} Tour will visit {% endif %}
-                {% for location in tour.locations.all %}{{ location.friendly_name }}{% if not forloop.last %},
-                {% endif %}
-                {% endfor %}
-            </div>
-        </div>
-        <div class="row my-3 align-items-center">
-            <div class="col-6 text-start">
-                <h5>From ${{ tour.price }}</h5>
-            </div>
-            <div class="col-6 text-center align-items-center">
-                <a class="btn btn-lg btn-checkout border-rounded" href="{% url 'tour_detail' tour.id %}">View
-                    Tour</a>
-            </div>
-        </div>
-        {% if request.user.is_superuser %}
-        <div class="row my-3 align-items-center text-center">
-            <div class="col-6 align-items-center">
-                <a class="btn btn-sm tour-btn" href="{% url 'edit_tour' tour.id %}">Edit Tour</a>
-            </div>
-            <div class="col align-items-center text-center">
-                <button class="btn btn-sm tour-btn" data-bs-toggle="modal" data-bs-target="#delete{{ tour.id }}Modal"
-                    data-bs-tourid="tour.id">Delete Tour</button>
-            </div>
-        </div>
-        {% endif %}
+        {% endfor %}
     </div>
-    {% endfor %}
-</div>
 
-<!--Modal for confirmation of deletion -->
-{% for tour in tours %}
-<div class="modal fade" id="delete{{ tour.id }}Modal" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog mt-5 pt-5">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Tour - {{ tour.friendly_name }}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Are you sure you wish to delete this tour</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn tour-btn" data-bs-dismiss="modal">Close</button>
-                <a href="{% url 'delete_tour' tour.id %}" type="button" class="btn btn-checkout border-rounded">Delete
-                    Tour</a>
+    <!--Modal for confirmation of deletion -->
+    {% for tour in tours %}
+    <div class="modal fade" id="delete{{ tour.id }}Modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog mt-5 pt-5">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Tour - {{ tour.friendly_name }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you wish to delete this tour</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn tour-btn" data-bs-dismiss="modal">Close</button>
+                    <a href="{% url 'delete_tour' tour.id %}" type="button"
+                        class="btn btn-checkout border-rounded">Delete
+                        Tour</a>
+                </div>
             </div>
         </div>
     </div>

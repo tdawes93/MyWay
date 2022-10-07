@@ -148,14 +148,14 @@
                         <div id="2023" class="yearcontent">
                             {% for month in tour.dates.all %}
                             <button type="button" class="monthlinks px-auto btn-lg btn btn-dates border-rounded"
-                                data-month_id="{{ month.name }} 2023">{{ month.name }}</button>
+                                data-month_id="{{ month.name }}-2023">{{ month.name }}</button>
                             {% endfor %}
                             {% include 'products/includes/date_picker_2023.html' %}
                         </div>
                         <div id="2024" class="yearcontent">
                             {% for month in tour.dates.all %}
                             <button type="button" class="monthlinks px-auto btn btn-lg"
-                                data-month_id="{{ month.name }} 2024">{{ month.name }}</button>
+                                data-month_id="{{ month.name }}-2024">{{ month.name }}</button>
                             {% endfor %}
                             {% include 'products/includes/date_picker_2024.html' %}
                         </div>
@@ -176,7 +176,7 @@
                                                 data-item_id="{{ tour.id }}"
                                                 data-tour_max="{{ tour.max_num_of_guests }}"
                                                 id="decrease-qty_{{ tour.id }}" type="button" disabled="disabled">
-                                                <i class="fa-solid fa-minus"></i>
+                                                <span class="icon"><i class="fa-solid fa-minus"></i>
                                                 </span>
                                             </button>
                                         </div>
