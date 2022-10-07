@@ -160,6 +160,10 @@ header {
     border-color: #3a6700;
 }
 
+.btn-newsletter {
+    max-width: 50vw;
+}
+
 .btn-newsletter:hover {
     background-color: #fff !important;
     border-color: #fff !important;
