@@ -29,15 +29,14 @@ def all_tours(request):
                     )
                 return redirect(reverse('tours'))
 
-            search = tours.filter(
+            search = (
                 Q(name__icontains=query)
                 | Q(description__icontains=query)
                 | Q(itinerary__icontains=query)
-                | Q(locations__name__icontains=query)
                 | Q(price__icontains=query)
                 | Q(length_of_tour__icontains=query)
-                | Q(dates__name__icontains=query)
             )
+            tours = tours.filter(search)
 
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
@@ -57,7 +56,7 @@ def all_tours(request):
     context = {
         'tours': tours,
         'current_sorting': current_sorting,
-        'search_term': search
+        'search_term': search,
     }
 
     return render(request, 'products/tours.html', context)
