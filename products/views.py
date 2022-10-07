@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
+from django.db.models import Q
 from django.db.models.functions import Lower
 from django.contrib.auth.decorators import login_required, user_passes_test
 
@@ -15,9 +16,29 @@ def all_tours(request):
 
     sort = None
     direction = None
+    search = None
 
     # Taken from CI Boutique-Ado
     if request.GET:
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(
+                    request,
+                    "You didn't enter anything in the search. Please try again"
+                    )
+                return redirect(reverse('tours'))
+
+            search = tours.filter(
+                Q(name__icontains=query)
+                | Q(description__icontains=query)
+                | Q(itinerary__icontains=query)
+                | Q(locations__name__icontains=query)
+                | Q(price__icontains=query)
+                | Q(length_of_tour__icontains=query)
+                | Q(dates__name__icontains=query)
+            )
+
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
@@ -36,6 +57,7 @@ def all_tours(request):
     context = {
         'tours': tours,
         'current_sorting': current_sorting,
+        'search_term': search
     }
 
     return render(request, 'products/tours.html', context)
