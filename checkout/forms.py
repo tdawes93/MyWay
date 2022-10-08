@@ -11,7 +11,7 @@ class OrderForm(forms.ModelForm):
             'town_or_city',
             'country',
             'county',            
-            # 'postcode',
+            'postcode',
 
         )
 
@@ -29,7 +29,7 @@ class OrderForm(forms.ModelForm):
             'street_address1': 'Street Address 1',
             'street_address2': 'Street Address 2',
             'county': 'County, Province or State',
-            # 'postcode': 'Postal Code',
+            'postcode': 'Postal Code',
 
         }
 

@@ -119,7 +119,7 @@ class StripeWH_Handler:
                     email=billing_details.email,
                     phone_number=billing_details.phone,
                     country=billing_details.address.country,
-                    # postcode=billing_details.address.postal_code,
+                    postcode=billing_details.address.postal_code,
                     town_or_city=billing_details.address.city,
                     street_address1=billing_details.address.line1,
                     street_address2=billing_details.address.line2,
