@@ -13,7 +13,7 @@ def all_tours(request):
     View to display the list of tours available
     """
     tours = Tour.objects.all().order_by('friendly_name')
-    destinations = Location.objects.all()
+    destinations = Location.objects.all().order_by('friendly_name')
     locations = None
     sort = None
     direction = None

@@ -11,7 +11,7 @@
                     <h1 class="px-auto text-center border-rounded overlay py-2">Find your tour</h1>
                 </div>
             </div>
-            <div class="row centered mt-5 justify-content-center w-100 m-auto p-auto">
+            <div class="row centered mt-4 justify-content-center w-100 m-auto p-auto">
                 <div class="col-9 mt-5 col-md-5">
                     <form method="GET" action="{% url 'tours' %}">
                         <div class="input-group w-100">
@@ -35,8 +35,9 @@
     <div class="col-12 col-md-6">
         <p class="text-muted mt-3 text-start">
             {{ tours|length }} Tour{% if tours|length > 1 %}s{% endif %}{% if search_term %} found for
-            <strong>"{{ search_term }}"</strong>{% endif %}
+            <strong>"{{ search_term }}"</strong>{% endif %} <a href="{% url 'tours' %}">Refresh</a>
         </p>
+
     </div>
     <!--Sort box html taken from CI Boutique Ado-->
     <div class="row m-1 justify-content-center">
