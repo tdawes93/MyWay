@@ -13,7 +13,7 @@
 <div class="container-fluid mt-2 mt-lg-0 bg-white w-100">
     <div class="row mx-0 px-0 w-100">
         <div class="col px-0 px-lg-2 mt-3">
-            <h1>Booking Conirmed!</h1>
+            <h1>Booking Confirmed!</h1>
         </div>
     </div>
     <hr>
@@ -60,7 +60,8 @@
                         <p class="mb-0">{{ item.tour.friendly_name }} on {{ item.date_of_trip_or_event|title }}: </p>
                     </div>
                     <div class="col-12 col-md-8 text-md-end">
-                        <p class="mb-0">{{ item.number_of_guests }} guest{% if item.number_of_guests > 1 %}s{% endif %} at ${{ item.tour.price }} each</p>
+                        <p class="mb-0">{{ item.number_of_guests }} guest{% if item.number_of_guests > 1 %}s{% endif %}
+                            at ${{ item.tour.price }} each</p>
                     </div>
                 </div>
                 {% endfor %}
