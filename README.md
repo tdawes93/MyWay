@@ -9,36 +9,6 @@ The live website can be found [here](https://myway-tours.herokuapp.com/)
 
 ****
 
-## Goals
-
-RatemyRoom App is designed to help improve the quality of rentals as well as reducing the number of tenancy agreements that end badly! With that in mind, the website was designed to provide an unbiased platform for everyone to have their say. The app is split into two main user permission groups, tenant and Landlord/Estate Agent. Their features are as below:
-
-## Structure
-
-### Tenant
-
-- Create a user profile, edit user details and delete the profile
-- Search for properties either using the search bar or by scrolling through the carousel
-- View each property's details, e.g. address, number of rooms, overall rating 
-- Read other people's reviews and like individual properties
-- Write a review on properties, leaving a 5-star rating on five individual categories
-- Edit and delete any reviews they have written
-- See a list of review titles they have written and when they were posted
-
-### Landlord/Estate Agent
-
-In addition to all the features found in the Tenant User Profile the Landlord/Estate Agent User Profile has access to:
-- Create a property post, indicating key information e.g. if it is for rent. 
-- Edit and delete any properties they have posted
-- See a list of property names they have posted
-
-Users who have not created a profile and are therefore are not authenticated can still:
-- See a list of properties in the carousel
-- View individual property information
-- Read reviews on each property
-- Search for properties using address information
-
-It encourages all users to create a profile, even those just viewing the site as additional features that may be of interest to them could be added in further releases.
 
 ***
 
@@ -228,13 +198,16 @@ Pages:
 
 #### Tour Detail
 
-- If the user is logged in as a Landlord or Estate Agent they will have access to the add property page. This can be accessed by the plus icon found in their navbar.
-- This page brings up a form asking for the property details along with requesting an image. The user will also have an option to set the property as not published which will hide it from view.
-- Once submitted the form will create a new entry in the Property table in the database and will then render a new page that can be accessed by all users.
-- Logged in users can then leave reviews and like the property. 
-- The edit property page renders the same form with the fields automatically populated. 
+- The tour detail page is split into two distinct tabs. The first gives a breakdown of all the tour informtaion including a detailed itinerary. The second is a date selector tool, showing the customers what dates they can start their trip and enabling them to select and add it to the bag.
 
-![Add property form](media/images/add-property-form.png)
+- The trip details tab is responsive and changes layout depending on if the user is viewing from a small or large screen. 
+
+- The date selector tool uses the Date model to display the available months the customer can book the tour from. Through a series of buttons the user selects the year, month and day they wish to start before being prompted the select the number of guests attending. 
+
+- The guest selector using the increment quantity JS file however it is has maximum and minimum limits that vary and correspond to the maximum number of guests allowed. From here the customer can then add the tour to the bag.
+
+![Trip Detail View](/media/readme/trip-detail-view.png)
+![Date Selector Tool](/media/readme/date-selector-tool.png)
 
 #### Add Review Page
 
