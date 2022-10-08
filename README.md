@@ -377,48 +377,90 @@ Once the site was deployed on heroku, the url was passed around amongst friends 
 
 ### Testing User Stories
 
+- Below are the following user stories that have been completed and how they have been met.
+
 - Registration and Sign-in:
-    - > As a site user I can register for an account so I can have a personal account and be able to view my profile
-    - As a customer I can login and register using my pre-exsiting facebook/gmail/apple accounts so I can link my emails and accounts into one for a more streamlined service
-    - As a site user I can personalise my profile so I can view my personal order history/order confirmations and save my payment information
-    - As a site user I can receive an email confirmation after registering so I can verify my account registration was successful
-    - As a site user I can recover my password so I can regain access to my account
-    - As a site user I can login and logout so I can access my personal/private account information
+    - > As a site user I can register for an account so I can have a personal account and be able to view my profile.
+    - The implementation of Django All Auth adds the ability to create/register accounts
+   
+    - > As a site user I can personalise my profile so I can view my personal order history/order confirmations and save my payment information.
+    - A profile form on the profile page allows users to save their information which then prepopulates in future purchases. All previous orders are listed on the profile page
+
+    - > As a site user I can receive an email confirmation after registering so I can verify my account registration was successful.
+    - The email backend and host is set up in the settings to send registration emails to users.
+
+    - > As a site user I can recover my password so I can regain access to my account.
+    - After clicking on login, there is a forgotten password link underneath the form, allowing users to reset their password if needed.
+
+    - > As a site user I can login and logout so I can access my personal/private account information.
+    A login/logout button linked with Django All Auth allows all userstp login/out.
 
 - Products
-  - As a customer I can view a list of products so I can select some to purchase
-  - As a customer I can view individual products so I can identify price, description, location and timeframe
-  - As a customer I can see a quick view so I can see the details of each tour without navigating away from the page I'm on
-  - As a customer I can compare tours side by side so I can compare the details of different tours and decide which is best for me
-  - As a customer I can add products to a wish list so I can return to it later and complete my purchase
-  - As a customer I can tailor and personalise the trips so I can experience the trip of a life time suited towards me
-  - As a customer I can identify packages/deals/group rates so I can take advantages of special savings
+  - > As a customer I can view a list of products so I can select some to purchase.
+  - The tour-list view and template display all products with buttons allowing users to see more details.
+
+  - > As a customer I can view individual products so I can identify price, description, location and timeframe.
+  - The tour-detail view displays all tour info, along with a date selector tools showing the uers the available dates
+
 
 - Sorting and Searching
-  - As a customer I can sort products by location so I can find the products near where I want to visit
-  - As a customer I can sort products by price so I can find the products within my budget
-  - As a customer I can sort products by date so I can see trips available during my time off
-  - As a customer I can easily see what I've searched for and the number of results so I can quickly decide whether the trip I want is available
-  - As a customer I can sort products by multiple categories at once so I can find the best product for me
+  - > As a customer I can sort products by location so I can find the products near where I want to visit
+  - There is a dropdown containing all locations which filters the tours by location so customers can narrow their choices down
+
+  - > As a customer I can sort products by price so I can find the products within my budget
+  - The sort selector allows users to sort by price, ascending and descending as well as alphabetical by name
+
+  - > As a customer I can easily see what I've searched for and the number of results so I can quickly decide whether the trip I want is available
+  - The search parameters and number of items is displayed on the left of the screen, the search occurs on the list view so tour details can be seen easily.
+
 
 - Purchasing and Checkout
-  - As a customer I can pay online by card so I can order my products easily without having to contact a sales representative
-  - As a customer I can receive an email confirmation so I can have a record of my purchases
-  - As a customer I can see an order confirmation so I can check I haven't made any mistakes when completing a purchase
-  - As a customer I can easily enter my payment information so I can checkout quickly and with no hassle/issues
-  - As a customer I can have my personal and payment information safe and secure so I can confidently provide the information needed to make a purchase
-  - As a customer I can adjust the dates and number of guests for a trip in the bag so I can make changes just before checkout
-  - As a customer I can view the items in my bag so I can identify the total cost of my purchase and details of every trip I am buying
-  - As a customer I can easily select the dates and number of guests attending a trip so I can ensure I don't accidentally select the wrong trip or booking information
-  - As a customer I can view the total of my purchases at any time so I can avoid spending too much
+  - > As a customer I can pay online by card so I can order my products easily without having to contact a sales representative
+  - The checkout page integrated with stripe allows users to pay using their credit/debit card with a confirmation produced instantly
+
+  - > As a customer I can receive an email confirmation so I can have a record of my purchases
+  - The stripe webhook sends users a confirmation email once it confirms the payment and order is created
+
+  - > As a customer I can see an order confirmation so I can check I haven't made any mistakes when completing a purchase
+  - The checkout success page loads after succesful payment, displaying a summary of the order. This order confirmation can also be seen on the profile page
+
+  - > As a customer I can easily enter my payment information so I can checkout quickly and with no hassle/issues
+  - The checkout form is clear and basic, only asking the required information. It also appears on one page to ease user eperience.
+
+  - > As a customer I can have my personal and payment information safe and secure so I can confidently provide the information needed to make a purchase.
+  - The use of stripe ensures sensitive information is secure, including card details. No information is saved on the site database without the users permission. 
+
+  - > As a customer I can adjust the dates and number of guests for a trip in the bag so I can make changes just before checkout
+  - The number of guests can be edited in the bag using the increment buttons, adjusting the dates has not been met in this iteration so should be made a priority in furture releases
+
+  - > As a customer I can view the items in my bag so I can identify the total cost of my purchase and details of every trip I am buying
+  - The bag icon on the navbar can be hovered over to reveal a miniature snap of the bag with tour details
+
+  - > As a customer I can easily select the dates and number of guests attending a trip so I can ensure I don't accidentally select the wrong trip or booking information
+  - The date selector tool clearly shows the year month and day prior to selecting the number of customers. It requires 4 selections to add to a bag
+
+  - > As a customer I can view the total of my purchases at any time so I can avoid spending too much
+    - The bag icon on the navbar also provides a total cost.
+
 
 - Administration and Store Management
-  - As a site user I can see messages/notifications when I perform a task so I can be confident that the task has been completed correctly
-  - As a site user I can see a clear and interesting homepage so I can understand the meaning of the site and how to make a purchase
-  - As a store owner I can create a product so I can keep my e-commerce store up to date
-  - As a owner I can edit products so I can change products and keep my store up to date
-  - As a owner I can delete products so I can remove products no longer in stock and keep my store up to date
-  - As a customer I can view a Facebook page so I can be kept up to date with events and interact with the company
+  - > As a site user I can see messages/notifications when I perform a task so I can be confident that the task has been completed correctly
+  - Bootstrap toasts are installed providing clear messages upon succesfull actions, failure, error and alerts.
+
+  - > As a site user I can see a clear and interesting homepage so I can understand the meaning of the site and how to make a purchase
+  - The main homepage provides an exciting adventurous photo with a clear, conscise button that customers can use to access the main area of the store
+
+  - > As a store owner I can create a product so I can keep my e-commerce store up to date
+  - There is a site management page where tours and locations can be added.
+
+  - > As a owner I can edit products so I can change products and keep my store up to date
+  - In the site management page tours can be edited, they can also be edited direct from the tour-list view
+
+  - > As a owner I can delete products so I can remove products no longer in stock and keep my store up to date
+  - In the site management page tours can be deleted, they can also be deleted direct from the tour-list view. All delete buttons have defensive programming installed.
+
+  - > As a customer I can view a Facebook page so I can be kept up to date with events and interact with the company
+  - A Facebook and Instagram page have been created, with links to the site and posts made to attract new customers
  
 
 ***
