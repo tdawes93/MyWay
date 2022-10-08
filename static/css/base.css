@@ -192,7 +192,7 @@ header {
 }
 
 .decrease-btn,
-.search-btn {
+.search-btn:hover {
     border-color: #da0000 !important;
     color: #da0000 !important;
 }
@@ -203,8 +203,8 @@ header {
 }
 
 .search-btn {
-    color: #fff;
-    border-color: #fff;
+    color: #fff !important;
+    border-color: #fff !important;
 }
 
 .btn-dates {
