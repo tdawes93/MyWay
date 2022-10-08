@@ -154,7 +154,7 @@
                         </div>
                         <div id="2024" class="yearcontent">
                             {% for month in tour.dates.all %}
-                            <button type="button" class="monthlinks px-auto btn btn-lg"
+                            <button type="button" class="monthlinks px-auto btn btn-lg btn-dates border-rounded"
                                 data-month_id="{{ month.name }}-2024">{{ month.name }}</button>
                             {% endfor %}
                             {% include 'products/includes/date_picker_2024.html' %}
