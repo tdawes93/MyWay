@@ -250,6 +250,24 @@ Pages:
 ![User profile](/media/readme/profile-page.png)
 
 
+#### Digital Marketing
+
+- As part of modern day marketing companies frequently use social media to drive up business. Both Facebook and Instagram are prime examples of this with their parent company Meta introducing the ability to shop and make purchases directly through the apps!
+
+- A facebook page, and linked Instagram have been created to keep customers informed of deals, discounts and new tours! 
+
+- Within both apps a link to my deployed site and contact info can be found.
+
+- Screen shots of both the Facebook page and Instagram are provided below and the links to the pages are here:
+  - [Facebook](https://www.facebook.com/toursmyway) 
+  - [Instagram](https://www.instagram.com/tours.myway/)
+
+![Facebook Screenshot 1](/media/readme/facebook-page-screenshot-1.png)
+
+![Facebook Screenshot 2](/media/readme/facebook-page-screenshot-2.png)
+
+![Instagram Screenshot](/media/readme/instagram-page-screenshot-1.png)
+
 ### Future Features to Implement
 
 - A few key featuers were not implemented in this iteration. In the interest of agile principles, they were not requirements for the site to work, however in future iterations they should be prioritize. The ability to purchase add-ons/customise tours should be top of this list as this is the basic premise behind the store.
@@ -343,7 +361,6 @@ Testing will look for the following:
 
 Once the site was deployed on heroku, the url was passed around amongst friends and family for user tests. The following issues were found and resolved. 
 
-
 - After feedback from friends and family testing, I re-added the home button to the top of the navbar for mobile devices for good UX.
 
 - I found that the search bar on mobile devices in landscape overlapped past the bottom of the page's hero image. This was fixed by reducing the top margin on the search bar
@@ -361,7 +378,7 @@ Once the site was deployed on heroku, the url was passed around amongst friends 
 ### Testing User Stories
 
 - Registration and Sign-in:
-    - As a site user I can register for an account so I can have a personal account and be able to view my profile
+    - > As a site user I can register for an account so I can have a personal account and be able to view my profile
     - As a customer I can login and register using my pre-exsiting facebook/gmail/apple accounts so I can link my emails and accounts into one for a more streamlined service
     - As a site user I can personalise my profile so I can view my personal order history/order confirmations and save my payment information
     - As a site user I can receive an email confirmation after registering so I can verify my account registration was successful
