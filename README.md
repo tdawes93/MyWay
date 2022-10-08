@@ -225,11 +225,19 @@ Pages:
 
 ![Shopping Bag Small View](/media/readme/shopping-bag-small.png)
 
-#### Register and login Page
+#### Checkout
 
+- The checkout page is where the real backend functionality comes into play.
 
+- The front end consists of a breif summary of items and a order form to fill out, requesting basic details (address, name etc)
 
-![Registration form](media/images/registration-form.png)
+- The bottom of the form uses a stripe element to accept card payments. Upon submission of the form, the view creates an instance of the Order model. Stripe then accepts the payment and once payment is successful it uses a webhook to check there is no missing order. The same form details are checked against all instances in the Order model, looking for an exact match. If it finds one, a confirmation email is sent to the user. If it doesn't find one it creates one itself, saving it to the database. All of this is done behind the scenes in the time the loading page takes to pass. 
+
+- In the event stripe cannot find or make an instance of the Order model, an error message is sent to the user where they can try again. 
+
+- Successful orders load a confirmation page as well as the customer receiving an confirmation email. If the user is signed in the order will also be save to their profile where they can view it in the future. 
+
+![Checkout Page](/media/readme/checkout-page-large.png)
 
 
 #### User Profile Page
