@@ -677,7 +677,7 @@ select option[value=""] {
 
     .checkout-box {
         right: 0;
-        position: fixed;
+        position: absolute;
         bottom: auto;
     }
 
