@@ -55,7 +55,7 @@ class StripeWH_Handler:
         save_info = intent.metadata.save_info
 
         billing_details = intent.charges.data[0].billing_details
-        # shipping_details = intent.shipping
+        shipping_details = intent.shipping
         print(billing_details)
 
         grand_total = round(intent.charges.data[0].amount / 100, 2)
@@ -64,9 +64,9 @@ class StripeWH_Handler:
         print(f'pid = {pid}')
 
         # cleans data in shipping details
-        # for field, value in shipping_details.address.items():
-        #     if value == "":
-        #         shipping_details.address[field] = None
+        for field, value in billing_details.address.items():
+            if value == "":
+                billing_details.address[field] = None
 
         profile = None
         username = intent.metadata.username
