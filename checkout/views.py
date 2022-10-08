@@ -87,18 +87,6 @@ def checkout(request):
                     )
                     order.delete()
                     return redirect(reverse('view_bag'))
-            print('Order fields')
-            print(order.name)
-            print(order.email)
-            print(order.phone_number)
-            print(order.country)
-            print(order.town_or_city)
-            print(order.street_address1)
-            print(order.street_address2)
-            print(order.county)
-            print(order.grand_total)
-            print(order.original_bag)
-            print(order.stripe_pid)
 
             request.session['save_info'] = request.POST.get('save-info')
             return redirect(reverse(

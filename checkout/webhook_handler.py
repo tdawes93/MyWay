@@ -55,15 +55,9 @@ class StripeWH_Handler:
         save_info = intent.metadata.save_info
 
         billing_details = intent.charges.data[0].billing_details
-        shipping_details = intent.shipping
-        print(billing_details)
-
         grand_total = round(intent.charges.data[0].amount / 100, 2)
-        print(f'grand total = {grand_total}')
-        print(f'bag = {bag}')
-        print(f'pid = {pid}')
 
-        # cleans data in shipping details
+        # cleans data in billing details
         for field, value in billing_details.address.items():
             if value == "":
                 billing_details.address[field] = None

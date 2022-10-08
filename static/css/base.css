@@ -181,12 +181,12 @@ header {
 .tour-btn:hover,
 .decrease-btn:hover {
     background-color: #da0000;
-    color: #fff;
+    color: #fff !important;
     border-color: #da0000;
 }
 
 .tour-btn {
-    color: #da0000;
+    color: #da0000 !important;
     border-color: #da0000;
     border-radius: 10px;
 }
@@ -474,8 +474,6 @@ header {
     width: 75vw;
 }
 
-
-
 /* Bag page CSS */
 .bag-change {
     color: black;
@@ -670,8 +668,6 @@ select option[value=""] {
         height: 25vh;
     }
 }
-
-
 
 @media screen and (min-width: 992px) {
 
