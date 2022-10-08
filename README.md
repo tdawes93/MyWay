@@ -209,47 +209,38 @@ Pages:
 ![Trip Detail View](/media/readme/trip-detail-view.png)
 ![Date Selector Tool](/media/readme/date-selector-tool.png)
 
-#### Add Review Page
+#### Shopping Bag Page
 
-- The add review page can be accessed by all users logged in.
-- There are two ways to access the page. Users can either navigate to the property detail page of the property they wish to review and press the review (pencil) icon, or they can click the small review icon in the navbar where they will be prompted to search for the property using the address information. 
-- Both routes render the same page, which is a form requesting information about your review. The property information you are reviewing is displayed on the form to avoid confusion with rentals. 
-- Upon submission, the form will create a new entry in the Review table in the database and the review will be shown on the property detail page, in the reviews section. 
-- Again there are edit and delete buttons that work in the same way as for the edit/delete the property. 
+- The shopping bag page provides two seperate layouts to give an overview of the tours the customer is about to purchase. Due to the difference in the layouts it was decided that two seperate html files were the easiest way to accomplish this. 
 
-![Add review form](media/images/add-review-form.png)
+- Larger screens use a table layout to display the relevant info and total cost (including any discount). Users can also increse/decrease the quantity of the tour directly in this view.
 
+- Smaller screens use a card style layout with the details and costs sitting underneath the main tour info.
+
+- Users can delete tours directly from the bag in both layouts. 
+
+- Both layouts contain a total box, summarising the total cost and discounts. This is displayed on the right on large screens and at the bottom on smaller devices.
+
+![Shopping Bag Large View](/media/readme/shopping-bag-large.png)
+
+![Shopping Bag Small View](/media/readme/shopping-bag-small.png)
 
 #### Register and login Page
 
-- The register user and login pages render simple forms which can be accessed from the navbar for users that are not logged in.
-- The pages can easily be navigated between the two in case the user presses the wrong link.
-- Upon completion of the form the user will have successfully created/logged in to provide access to permission required pages, such as add-review and add-property.
-- The registration form is the same for both Tenants and Landlords/Estate Agents, with the role being selected on the form. 
+
 
 ![Registration form](media/images/registration-form.png)
 
 
 #### User Profile Page
 
-- Once registered/logged in the user will have access to a profile page
-- This page shows the user's personal information followed by any properties or reviews they have posted
-- In addition, there is an edit profile form, where the user can change any personal information. 
-- If they wish to change their password they are taken to the secure built-in Change Password Form Django provides. 
-- There is a delete user button on the right of this page. Again this takes you to a confirmation page as a form of defensive programming.
-- Should the user delete their profile any properties or reviews they have left will also be deleted. In the event of properties, this will also delete any associated reviews left by over users.
-- It is hence advised that Landlords/Estate Agents who no longer wish to use the site contact the administrator and their account can be made inactive. 
+-  
 
 ![User profile](media/images/user-profile.png)
 
 #### Search Page
 
-- If users wish to use the search function on the homepage they can do so by inputting address information and clicking the search icon or pressing Enter
-- Additionally users who click to leave a review using the icon in the nav bar are brought to the search bar which works in the same way.
-- Both search bars bring you to two separate identical pages.
-- The pages list all the properties, with useful information, that matched your search criteria. 
-- Each property card is a link which will take you to either the property detail page of the add review form. 
-- Although the search bar says 'Postcode' it will accept any or all of the address fields, however, it is character sensitive so a rogue space at the end will throw the function off. 
+
 
 ![Search results](media/images/search-results.png)
 
