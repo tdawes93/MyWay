@@ -84,6 +84,12 @@ The user stories that were not completed in iteration 1 were put back into the b
 
 ![Iteration 1 Project Board Snap](/media/readme/iteration1-completed-user-stories.png)
 
+Iteration 2 had 40% Must-Have user stories, with more Should-Have user stories completed in this iteration. A list of the user stories can be viewed below. 
+
+![2nd iteration stories - pt1](/media/readme/iteration-2-user-stories-pt1.png)
+
+![2nd iteration stories - pt2](/media/readme/iteration-2-user-stories-pt2.png)
+
 ### Design
 
 #### Colour Scheme
