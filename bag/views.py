@@ -56,7 +56,9 @@ def add_to_bag(request, tour_id):
                     )
                 )
                 if tour.group_discount:
-                    if bag[tour_date_booked] >= settings.GROUP_DISCOUNT_MIN_NUM:
+                    if bag[
+                        tour_date_booked
+                    ] >= settings.GROUP_DISCOUNT_MIN_NUM:
                         messages.success(
                             request, (
                                 'Congratulations you have qualified for '
@@ -185,7 +187,7 @@ def remove_from_bag(request, tour_id):
         bag.pop(tour_date_booked)
         messages.add_message(
             request,
-            BAG_SUCCESS,(
+            BAG_SUCCESS, (
                 f'Removed {tour.friendly_name} on '
                 f'{day} {month} {year} from your bag!'
             )

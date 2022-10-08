@@ -38,7 +38,8 @@ def profile(request):
         for item in orderitems:
             date_notime = '/'.join(item.date_of_trip_or_event.split())
             date_withtime = date_notime
-            date_booked_id = datetime.strptime(date_withtime, '%d/%b/%Y').date()
+            date_booked_id = datetime.strptime(
+                date_withtime, '%d/%b/%Y').date()
 
     context = {
         'profile': profile_acc,
