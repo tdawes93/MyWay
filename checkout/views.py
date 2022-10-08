@@ -90,7 +90,7 @@ def checkout(request):
             print('Order fields')
             print(order.name)
             print(order.email)
-            print(order.phone)
+            print(order.phone_number)
             print(order.country)
             print(order.town_or_city)
             print(order.street_address1)
