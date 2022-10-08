@@ -63,12 +63,8 @@ def checkout(request):
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
-            print(f'stripe_pid = {order.stripe_pid}')
             order.original_bag = json.dumps(bag)
-            print(f'og bag = {order.original_bag}')
             order.save()
-            print(f'ptotal = {order.product_total}')
-            print(f'gtotal = {order.grand_total}')
             for tour_date_booked, quantity in bag.items():
                 try:
                     tour_id = tour_date_booked.split()[0]
@@ -91,8 +87,7 @@ def checkout(request):
                     )
                     order.delete()
                     return redirect(reverse('view_bag'))
-            print(f'ptotal2 = {order.product_total}')
-            print(f'gtotal2 = {order.grand_total}')
+            print(order)
 
             request.session['save_info'] = request.POST.get('save-info')
             return redirect(reverse(
