@@ -6,18 +6,17 @@ jQuery(document).ready(function ($) {
         var currentValue = parseInt($(`#id_qty_${itemId}`).val());
         var minusDisabled = currentValue <= 1;
         var plusDisabled = currentValue >= tourMax;
-        console.log(currentValue)
         if (minusDisabled) {
             $(`#decrease-qty_${itemId}`).attr('disabled', 'disabled');
         } else {
             $(`#decrease-qty_${itemId}`).removeAttr('disabled', 'disabled');
-        };
+        }
         if (plusDisabled) {
             $(`#increase-qty_${itemId}`).attr('disabled', 'disabled');
         } else {
             $(`#increase-qty_${itemId}`).removeAttr('disabled', 'disabled');
-        };
-    };
+        }
+    }
 
     // Increase quantity
     $('.increase-qty').click(function (e) {
@@ -25,9 +24,9 @@ jQuery(document).ready(function ($) {
         var closestInput = $(this).closest('.input-group').find('.quantity-input')[0];
         var currentValue = parseInt($(closestInput).val());
         $(closestInput).val(currentValue + 1);
-        var itemId = $(this).data('item_id')
-        var tourMax = $(this).data('tour_max')
-        handleEnableDisable(itemId, tourMax)
+        var itemId = $(this).data('item_id');
+        var tourMax = $(this).data('tour_max');
+        handleEnableDisable(itemId, tourMax);
     });
 
     // Decrease quantity
@@ -36,9 +35,9 @@ jQuery(document).ready(function ($) {
         var closestInput = $(this).closest('.input-group').find('.quantity-input')[0];
         var currentValue = parseInt($(closestInput).val());
         $(closestInput).val(currentValue - 1);
-        var itemId = $(this).data('item_id')
-        var tourMax = $(this).data('tour_max')
-        handleEnableDisable(itemId, tourMax)
+        var itemId = $(this).data('item_id');
+        var tourMax = $(this).data('tour_max');
+        handleEnableDisable(itemId, tourMax);
     });
 
     // Update quantity on click
