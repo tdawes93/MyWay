@@ -295,6 +295,7 @@ header {
     background-color: transparent !important;
     border: none !important;
     -moz-appearance: textfield;
+    min-width: 1rem;
 }
 
 /* Chrome, Safari, Edge, Opera */

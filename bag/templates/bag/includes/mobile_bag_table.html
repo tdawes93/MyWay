@@ -33,9 +33,6 @@
             <div class="col">
                 <h4>Trip</h4>
             </div>
-            <div class="col-6 col-sm-5 col-md-4 d-flex text-end px-0">
-                {% include 'bag/includes/quantity-form.html' %}
-            </div>
         </div>
         <div class="row">
             <div class="col text-end">{{ item.quantity }} x ${{ item.tour.price }}</div>
@@ -51,33 +48,12 @@
                 <p>Group discount is not available on this tour</p>
                 {% endif %}</div>
         </div>
-        <hr>
-        {% if item.tour.choose_location %}
         <div class="row">
-            <div class="col">
-                <!-- Action required!!!!!!-->
-                <form action="#" method="POST">
-                    {% csrf_token %}
-                    {% if item.tour.choose_multiple_locations %}
-                    <h4>Please select your locations to visit:</h4>
-                    {% for location in item.tour.locations.all %}
-                    <label for="{{ location }}">{{ location.friendly_name }}</label>
-                    <input type="checkbox" id="{{ location }}" value="{{ location }}">
-                    {% endfor %}
-                    {% else %}
-                    <h4>Please sleect your destination:</h4>
-                    <label for="location">Choose a location:</label>
-                    <select id="location" name="location">
-                        {% for location in item.tour.locations.all %}
-                        <option value="{{ location }}">{{ location.friendly_name }}</option>
-                        {% endfor %}
-                    </select>
-                    {% endif %}
-                </form>
+            <div class="col text-end"> <a class="remove-item bag-change" id="remove_{{ item.tour_id }}"
+                    data-bag_item_id="{{ item.bag_item_id}}"><small>Remove</small></a>
             </div>
         </div>
         <hr>
-        {% endif %}
         <div class="row">
             <div class="col">
                 <h3>Subtotal:</h3>

@@ -46,7 +46,7 @@
             <td class="px-auto w-25">
                 {% include 'bag/includes/quantity-form.html' %}
                 <div class="row">
-                    <div class="col"> <a class="update-link bag-change" id="remove_{{ item.tour_id }}"
+                    <div class="col"> <a class="update-link bag-change" id="update_{{ item.tour_id }}"
                             data-bag_item_id="{{ item.bag_item_id}}"><small>Update</small></a>
                     </div>
                     <div class="col text-end"> <a class="remove-item bag-change" id="remove_{{ item.tour_id }}"
@@ -80,32 +80,6 @@
                 </div>
             </td>
         </tr>
-        {% if item.tour.choose_location %}
-        <tr>
-            <td colspan="5" class="text-end">
-                <form action="{% url 'add_location' item.tour_id %}" method="POST">
-                    {% csrf_token %}
-                    {% if item.tour.choose_multiple_locations %}
-                    <h4>Please select your locations to visit:</h4>
-                    {% for location in item.tour.locations.all %}
-                    <label for="location-checkbox">{{ location.friendly_name }}</label>
-                    <input type="checkbox" id="location-checkbox" value="{{ location }}" name="{{ location }}">
-                    {% endfor %}
-                    {% else %}
-                    <h4>Please select your destination:</h4>
-                    <label for="location-dropdown">Choose a location:</label>
-                    <select id="location-dropdown" name="location" required>
-                        {% for location in item.tour.locations.all %}
-                        <option value="{{ location }}">{{ location.friendly_name }}</option>
-                        {% endfor %}
-                    </select>
-                    {% endif %}
-                    <input type="hidden" name="bag_item_id" value="{{ item.bag_item_id }}">
-                    <button type="submit" class="btn tour-btn">Add location</button>
-                </form>
-            </td>
-        </tr>
-        {% endif %}
         {% endfor %}
     </tbody>
     <tfoot class="table-group-divider">
