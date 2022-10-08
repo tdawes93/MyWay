@@ -239,35 +239,30 @@ Pages:
 
 ![Checkout Page](/media/readme/checkout-page-large.png)
 
-
 #### User Profile Page
 
--  
+- The final main feature is the user profile page. Here the user can save their information as well as see any historical orders and details. 
 
-![User profile](media/images/user-profile.png)
+- If the user is a superuser there will also be an additional, site management page allowing full CRUD functionality of both tours and locations to happen. Again all delete requests use defensive programming to avoid accidental deletion. 
 
-#### Search Page
+- The page contains a form similar to the checkout form with the exception of the payment info. Information saved here will auto populate into the checkout form if the user makes any future purchases. 
 
-
-
-![Search results](media/images/search-results.png)
+![User profile](/media/readme/profile-page.png)
 
 
 ### Future Features to Implement
 
-- In addition to the features not brought across from the backlog to this iteration and those not completed in this iteration some additional features/fixes were identified that could be implemented in the future.
+- A few key featuers were not implemented in this iteration. In the interest of agile principles, they were not requirements for the site to work, however in future iterations they should be prioritize. The ability to purchase add-ons/customise tours should be top of this list as this is the basic premise behind the store.
 
-- Key features still in the backlog that could be allocated as Must-Haves in the next iteration are as follows:
-    - The ability to like a review
-    - Improve the profile page including adding a picture. This could then be shown as part of the review in addition to the username.
-    - As part of improving the profile page the property and review lists could be linked to bringing the user to the relevant item. There could also be an edit and delete button available so the user has a central location where they can perform admin tasks for their profile. 
-    - The integration of the map feature should be at the forefront of the next iteration. It could be a static map indicating the location of the property or it could be an interactive map highlighting all property locations stored on RatemyRoom
-    - An additional card could be added on the property detail page highlighting properties with similar details or locations.
+- Other features include: 
+    - The ability to leave a review
+    - The ability for users to log-in/out using their existing social media accounts
+    - A compare view, where users can select multiple trips to see the similarities and differences
+    - A quick view where users can hover over the thumbnail and see extra details the tour list view does not show them.
 - Some less important user stories that could be integrated if the time allowed are:
-    -  Approve reviews/comments
-    - Direct messaging between users
-    - Followers and the ability to follow other users
-    - A recent activity section/ability to save a property of interest.
+    - Create a wishlist where users can save their favourite tours
+    - Make purchases using google pay, apple wallet etc
+    - Create a deals section where users can buy last minute trips at a cheaper rate
 
 
 ***
