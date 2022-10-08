@@ -59,6 +59,9 @@ class StripeWH_Handler:
         print(billing_details)
 
         grand_total = round(intent.charges.data[0].amount / 100, 2)
+        print(f'grand total = {grand_total}')
+        print(f'bag = {bag}')
+        print(f'pid = {pid}')
 
         # cleans data in shipping details
         # for field, value in shipping_details.address.items():

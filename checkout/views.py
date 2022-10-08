@@ -58,15 +58,16 @@ def checkout(request):
             'street_address2': request.POST['street_address2'],
             'county': request.POST['county'],
         }
-        print('form data')
-        print(form_data)
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
+            print(f'stripe_pid = {order.stripe_pid}')
             order.original_bag = json.dumps(bag)
+            print(f'og bag = {order.original_bag}')
             order.save()
+            print(f'total = {order.grand_total}')
             for tour_date_booked, quantity in bag.items():
                 try:
                     tour_id = tour_date_booked.split()[0]
