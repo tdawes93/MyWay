@@ -15,6 +15,8 @@ myway was borne from the idea that many people want to travel the world, they wa
 
 Although there are many tour groups out there, myway is different because it aims to give you a local experience. The staff are locals, they know the hidden gems and they want you to divulge their culture. This along with the ability to tailor every tour we sell, helps myway stand out from the crowd. 
 
+THe business is a B2C model, with potential to branch out to B2B in the future running tours for company away days or as part of business perks. The payments are one off payments, with marketing focussed on social media via photos uploaded by guests, reviews/rating and strong SEO for google searches.
+
 ***
 
 ## UX
