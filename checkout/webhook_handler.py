@@ -67,7 +67,7 @@ class StripeWH_Handler:
 
         profile = None
         username = intent.metadata.username
-        if username != 'Anonymouse User':
+        if username != 'Anonymous User':
             profile = Profile.objects.get(
                 user__username=username
                 )
