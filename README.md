@@ -1,5 +1,5 @@
 # *** EDIT ***
-Due to changes in the Heroku Dynos this site is now hosted on render. The live website can be found [here] (https://myway.onrender.com/)
+Due to changes in the Heroku Dynos this site is now hosted on render. The live website can be found [here](https://myway.onrender.com/)
 
 # myway
 myway is a travel company specialising in personalised and tailored tour packages for individuals and small groups. It is similar to Contiki with the addition of allowing tours to be adapted using add-ons and consulting the customer team. The business idea was borne from a 'couple' of world travellers with a desire to share hidden gems and local secrets whilst retaining the culture and serenity that comes with such places.
